@@ -9,7 +9,7 @@ public class Insumo {
     private String especificacoes;
     private int quantidade;
     private String marca;    
-    private String data;
+    private String dataValidade;
     private float preco;
 
     public int getIdInsumo() {
@@ -36,8 +36,8 @@ public class Insumo {
         return marca;
     }
 
-    public String getData() {
-        return data;
+    public String getDataValidade() {
+        return dataValidade;
     }
 
     public float getPreco() {
@@ -71,8 +71,8 @@ public class Insumo {
         this.marca = marca;
     }
 
-    public void setData(String data) {
-        this.data = data;
+    public void setData(String dataValidade) {
+        this.dataValidade = dataValidade;
     }
 
     public void setPreco(float preco) throws Exception{

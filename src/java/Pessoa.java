@@ -14,7 +14,6 @@ public class Pessoa{
     private String bairro;
     private String cidade;
     private String estado;
-    private String pais;
     
     // Instância para validações de senha e e-mail
     Validacoes valida = new Validacoes();
@@ -139,18 +138,4 @@ public class Pessoa{
         else
             throw new Exception("Estado maior que 45 caracteres");
     }
-
-    public String getPais() {
-        return pais;
-    }
-
-    public void setPais(String pais) throws Exception {
-        if(pais.isEmpty())
-            throw new Exception("País Invalido");
-        else if(pais.length() < 45)
-            this.pais = pais;
-        else
-            throw new Exception("País maior que 45 caracteres");
-    }
-
 }

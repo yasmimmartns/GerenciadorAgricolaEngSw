@@ -11,7 +11,6 @@ public class PessoaFisica{
     private Pessoa pessoa;    
     private String CPF;
     private String nome;
-    private String sobrenome;
     private String RG;
     private String sexo;
     private Date dataNascimento;
@@ -22,10 +21,6 @@ public class PessoaFisica{
 
     public String getNome() {
         return nome;
-    }
-
-    public String getSobrenome() {
-        return sobrenome;
     }
 
     public String getRG() {
@@ -55,15 +50,6 @@ public class PessoaFisica{
             this.nome = nome;
         else
             throw new Exception("Nome maior que 45 caracteres");          
-    }
-
-    public void setSobrenome(String sobrenome) throws Exception {
-        if(sobrenome.isEmpty())
-            throw new Exception("Sobrenome Invalido");
-        else if(sobrenome.length() < 45)
-            this.sobrenome = sobrenome;
-        else
-            throw new Exception("Sobrenome maior que 45 caracteres");
     }
 
     public void setRG(String rg) throws Exception {

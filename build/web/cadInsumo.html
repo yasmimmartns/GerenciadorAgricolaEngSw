@@ -5,7 +5,7 @@
 	<link rel="icon" type="image/png" href="assets/img/favicon2.ico">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-	<title>Cadastro Plantação</title>
+	<title>Cadastro Insumo</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
@@ -138,27 +138,53 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Plantação</h4>
+                                <h4 class="title">Insumo</h4>
                             </div>
                             <div class="content">
                                 <form>
                                     <div class="row">
-                                        <div class="col-md-5">
+                                        <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>Tipo da Plantação</label>
-                                                <input type="text" class="form-control">
+                                                <label>Tipo</label>
+                                                <input type="text" name="tipo" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Categoria</label>
+                                                <input type="text" name="categoria" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Especificações</label>
+                                                <input type="text" name="especificacoes" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Marca</label>
+                                                <input type="text" name="marca" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Data de Validade</label>
+                                                <input type="text" name="validade" class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>Quantidade</label>
-                                                <input type="text" class="form-control">
+                                                <input type="text" name="quantidade" class="form-control">
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-3">
                                             <div class="form-group">
-                                                <label for="exampleInputEmail1">Região</label>
-                                                <input type="email" class="form-control">
+                                                <label>Preço</label>
+                                                <input type="text" name="preco" class="form-control">
                                             </div>
                                         </div>
                                     </div>
