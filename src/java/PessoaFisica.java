@@ -57,7 +57,7 @@ public class PessoaFisica{
         if((rg.length() > 8) && (rg.length() < 13))
             this.RG = rg;
         else
-            throw new Exception("RG Invalido");
+            throw new Exception("RG Inválido");
     }
 
     public void setSexo(String sexo) throws Exception {
@@ -65,13 +65,13 @@ public class PessoaFisica{
         if((sexo.equals("M")) || (sexo.equals("F")))
             this.sexo = sexo;
         else
-            throw new Exception("Sexo Invalido");
+            throw new Exception("Sexo Inválido");
     }
 
     public void setDataNascimento(Date data) throws Exception {
         Date dt = new Date();
         if(data.after(dt))
-            throw new Exception("Data Invalida");
+            throw new Exception("Data Invaálida");
         else
             this.dataNascimento = data;
     }
