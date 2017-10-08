@@ -1,3 +1,5 @@
+package Classes;
+
 import java.util.Date;
 import java.util.Objects;
 
@@ -5,7 +7,6 @@ import java.util.Objects;
  *
  * @author yasmim
  */
-
 
 public class PessoaFisica{
     private Pessoa pessoa;    

@@ -1,7 +1,10 @@
+package Classes;
+
 /**
  *
  * @author yasmim
  */
+
 public class Insumo {
     private int idInsumo;
     private String tipo;
@@ -55,6 +58,10 @@ public class Insumo {
         this.tipo = tipo;
     }
 
+    public void setDataValidade(String dataValidade) {
+        this.dataValidade = dataValidade;
+    }
+
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
@@ -80,7 +87,5 @@ public class Insumo {
             throw new Exception("Preco invalido");
         }
         this.preco = preco;
-    }
-    
-    
+    }    
 }

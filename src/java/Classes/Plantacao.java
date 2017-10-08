@@ -1,4 +1,7 @@
+package Classes;
 
+
+import Classes.Regiao;
 import java.util.Objects;
 
 /**
