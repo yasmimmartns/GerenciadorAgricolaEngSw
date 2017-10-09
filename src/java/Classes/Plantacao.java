@@ -10,13 +10,13 @@ import java.util.Objects;
  */
 
 public class Plantacao {
-    private int idPlatacao;
+    private int idPlantacao;
     private String tipo;
     private int quantidade;
     private Regiao regiao;
 
-    public int getIdPlatacao() {
-        return idPlatacao;
+    public int getIdPlantacao() {
+        return idPlantacao;
     }
 
     public String getTipo() {
@@ -27,8 +27,8 @@ public class Plantacao {
         return quantidade;
     }
 
-    public void setIdPlatacao(int idPlatacao) {
-        this.idPlatacao = idPlatacao;
+    public void setIdPlantacao(int idPlatacao) {
+        this.idPlantacao = idPlatacao;
     }
 
     public void setTipo(String tipo) {

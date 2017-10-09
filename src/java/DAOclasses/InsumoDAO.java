@@ -94,7 +94,7 @@ public class InsumoDAO {
     }
     
     public void altera(Insumo insumo){
-        String sql = "update Insumi set tipo=?, categoria=?, especificacoes=?,"
+        String sql = "update Insumo set tipo=?, categoria=?, especificacoes=?,"
                 + "quantidade=?, marca=?, dataValidade=?, preco=? where idInsumo =?";
             
         try{

@@ -8,7 +8,7 @@ public class ConnectionFactory {
         try {
             DriverManager.registerDriver(new com.mysql.jdbc.Driver());
             return DriverManager.getConnection(
-                    "jdbc:mysql://localhost/agroengsw", user, password
+                    "jdbc:mysql://localhost/GerenciadorAgricola", user, password
             );
         } catch (Exception e) {
             throw new Exception("Erro de conexão com banco");
