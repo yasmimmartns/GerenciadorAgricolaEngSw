@@ -45,13 +45,13 @@ public class CadastroInsumo extends HttpServlet {
             out.println(insumo.getTipo());
             
             insumo.setCategoria(request.getParameter("categoria"));
-            insumo.setPreco(Float.parseFloat(request.getParameter("insumo")));           
+            insumo.setPreco(Float.parseFloat(request.getParameter("preco")));           
             insumo.setEspecificacoes(request.getParameter("especificacoes"));
             insumo.setQuantidade(Integer.parseInt(request.getParameter("quantidade")));
             insumo.setMarca(request.getParameter("marca"));
             insumo.setDataValidade(request.getParameter("dataValidade"));
            
-            String contextPath= "http://localhost:8084/livraria_v1/dashboard.html";
+            String contextPath= "http://localhost:8084/GerenciadorAgricola/dashboard.html";
             response.sendRedirect(response.encodeRedirectURL(contextPath));
         } 
         catch (Exception ex) {

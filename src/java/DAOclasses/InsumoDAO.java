@@ -78,13 +78,13 @@ public class InsumoDAO {
         }
     }
     
-    public void remove(Insumo insumo){
+    public void remove(int insumo){
         String sql = "delete from Produto where Produto.idProduto = ?";
         
         try{
             PreparedStatement stmt = this.connection.prepareStatement(sql);
             
-            stmt.setInt(1, insumo.getIdInsumo());
+            stmt.setInt(1, insumo);
             stmt.execute();
             stmt.close();
             

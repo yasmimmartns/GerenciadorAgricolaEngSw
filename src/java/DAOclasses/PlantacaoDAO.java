@@ -66,7 +66,7 @@ public class PlantacaoDAO {
                 plantacao.setTipo(rs.getString("tipo"));
                 plantacao.setQuantidade(rs.getInt("quantidade"));
                 plantacao.getRegiao().setIdRegiao(rs.getInt("idRegiao"));
-                plantacao.getRegiao().setEndereco(rs.getInt("endereco"));
+                plantacao.getRegiao().setEndereco(rs.getString("endereco"));
                 plantacao.getRegiao().setArea(rs.getInt("area"));
                 
                 plantacoes.add(plantacao);
@@ -104,8 +104,9 @@ public class PlantacaoDAO {
             
             stmt.setString(1, plantacao.getTipo());
             stmt.setInt(2, plantacao.getQuantidade());
-            stmt.setString(3, plantacao.getRegiao().getEndereco);
-            stmt.setInt(8, plantacao.getIdPlantacao());
+            stmt.setString(3, plantacao.getRegiao().getEndereco());
+            stmt.setFloat(4, plantacao.getRegiao().getArea());
+            stmt.setInt(5, plantacao.getIdPlantacao());
             
             stmt.execute();
             stmt.close();
