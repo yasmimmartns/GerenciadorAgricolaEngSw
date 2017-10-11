@@ -1,8 +1,6 @@
 package Classes;
 
 
-import Classes.PessoaFisica;
-
 /**
  *
  * @author yasmim
@@ -37,4 +35,7 @@ public class Agricultor {
         this.cadPro = cadPro;
     }
     
+    public boolean validaIdAgricultor (int id) {
+        return ((id > 0) && (id < 2147483646));
+    }        
 }

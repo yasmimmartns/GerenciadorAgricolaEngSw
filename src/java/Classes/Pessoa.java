@@ -2,6 +2,8 @@ package Classes;
 
 
 import Classes.Validacoes;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -19,6 +21,7 @@ public class Pessoa{
     private String bairro;
     private String cidade;
     private String estado;
+    private String pais;
     
     // Instância para validações de senha e e-mail
     Validacoes valida = new Validacoes();
@@ -142,5 +145,149 @@ public class Pessoa{
             this.estado = estado;
         else
             throw new Exception("Estado maior que 45 caracteres");
+    }
+
+    public String getPais() {
+        return pais;
+    }
+
+    public void setPais(String pais) {
+        this.pais = pais;
+    }
+    
+    Pattern PALAVRA = Pattern.compile ("^[A-z ]{1,19}");
+    Pattern PALAVRA2 = Pattern.compile ("^[A-Z a-z]{1,49}");
+    Pattern PALAVRA3 = Pattern.compile ("^[A-z 0-9]{1,19}");
+    Pattern PALAVRA4 = Pattern.compile ("^[A-Z a-z0-9]{1,49}"); 
+    
+    public boolean validaEndereco (String end) {
+        boolean verifica = false;
+        if ((end != null) && (end.length() > 0)) {
+            Matcher matcher = PALAVRA2.matcher(end);
+            if (matcher.matches())
+                verifica = true;
+        }
+        return verifica;
+    }
+    
+    public boolean validaLogradouro (String log) {
+        boolean verifica = false;
+        if ((log != null) && (log.length() > 0)) {
+            Matcher matcher = PALAVRA4.matcher(log);
+            if (matcher.matches())
+                verifica = true;
+        }
+        return verifica;
+    }
+    
+    public boolean validaComplemento (String comp) {
+        boolean verifica = false;
+        if ((comp != null) && (comp.length() > 0)) {
+            Matcher matcher = PALAVRA3.matcher(comp);
+            if (matcher.matches())
+                verifica = true;
+        }
+        return verifica;
+    }
+    
+    public boolean validaNumero (int num) {
+        return ((num > 0) && (num < 99999));
+    }
+    
+    public boolean validaBairro (String bairro) {
+        boolean verifica = false;
+        if ((bairro != null) && (bairro.length() > 0)) {
+            Matcher matcher = PALAVRA2.matcher(bairro);
+            if (matcher.matches())
+                verifica = true;
+        }
+        return verifica;
+    }
+    
+    public boolean validaCidade (String cidade) {
+        boolean verifica = false;
+        if ((cidade != null) && (cidade.length() > 0)) {
+            Matcher matcher = PALAVRA.matcher(cidade);
+            if (matcher.matches())
+                verifica = true;
+        }
+        return verifica;
+    }
+    
+    public boolean validaCEP (String cep) {
+        boolean verifica = false;
+        if ((cep != null) && (cep.length() > 7) && (cep.length() < 11)) {
+            String CEP1 = "^[0-9]{2}\\.[0-9]{3}\\-[0-9]{3}$";
+            String CEP2 = "^[0-9]{5}\\-[0-9]{3}$";
+            String CEP3 = "^[0-9]{8}$";
+            Pattern pattern1 = Pattern.compile(CEP1, Pattern.CASE_INSENSITIVE);
+            Matcher matcher1 = pattern1.matcher(cep);
+            Pattern pattern2 = Pattern.compile(CEP2, Pattern.CASE_INSENSITIVE);
+            Matcher matcher2 = pattern2.matcher(cep);
+            Pattern pattern3 = Pattern.compile(CEP3, Pattern.CASE_INSENSITIVE);
+            Matcher matcher3 = pattern3.matcher(cep);
+            
+            if (matcher1.matches())
+                verifica = true;
+            else if (matcher2.matches())
+                verifica = true;
+            else if (matcher3.matches())
+                verifica = true;
+        }
+        return verifica;
+    }
+    
+    public boolean validaEstado (String estado) {
+        boolean verifica = false;
+        if ((estado != null) && (estado.length() > 0)) {
+            Matcher matcher = PALAVRA.matcher(estado);
+            if (matcher.matches())
+                verifica = true;
+        }
+        return verifica;
+    }
+    
+    public boolean validaPais (String pais) {
+        
+        boolean verifica = false;
+        if ((pais != null) && (pais.length() > 0)) {
+            Matcher matcher = PALAVRA.matcher(pais);
+            if (matcher.matches())
+                verifica = true;
+        }
+        return verifica;
+    }
+    
+    public boolean validaTelefone (String tel) {
+        boolean verifica = false;
+        if ((tel != null) && (tel.length() > 0)) {
+            String exp1 = "^\\([1-9]{2}\\)[9]{0,1}[6-9]{1}[0-9]{3}\\-[0-9]{4}$";
+            String exp2 = "^[1-9]{2}[9]{0,1}[6-9]{1}[0-9]{7}$";
+            Pattern TELEFONE1 = Pattern.compile(exp1, Pattern.CASE_INSENSITIVE);
+            Matcher matcher1 = TELEFONE1.matcher(tel);
+            Pattern TELEFONE2 = Pattern.compile(exp2, Pattern.CASE_INSENSITIVE);
+            Matcher matcher2 = TELEFONE2.matcher(tel);
+
+            if (matcher1.matches()) {
+                verifica = true;
+            }
+            else if (matcher2.matches())
+                verifica = true;
+        }
+        return verifica;
+    }
+    
+    public boolean validaEmail(String email) {
+        
+        boolean verifica = false;
+        if (email != null && email.length() > 0) {
+            String exp = "^[A-Za-z0-9+_.-]{5,30}+@[A-Za-z0-9+_.-]{2,}\\.[A-Za-z0-9+_.-]{3}$";
+            Pattern EMAIL = Pattern.compile(exp, Pattern.CASE_INSENSITIVE);
+            Matcher matcher = EMAIL.matcher(email);
+            if (matcher.matches()) {
+                verifica = true;
+            }
+        }
+        return verifica;
     }
 }
