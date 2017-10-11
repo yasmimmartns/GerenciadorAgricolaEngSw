@@ -89,12 +89,13 @@
                 </ul>
             </div>
         </div>
+        
 
-        <div class="main-content">
+        <div class="main-panel">
             <nav class="navbar navbar-default navbar-fixed">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="#">Cadastro</a>
+                        <a class="navbar-brand" href="#">Listar Insumos</a>
                     </div>
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-right">
@@ -115,44 +116,15 @@
                     </div>
                 </div>
             </nav>
-        
-        
-		<div class="main-container ace-save-state" id="main-container">
-			<script type="text/javascript">
-				try{ace.settings.loadState('main-container')}catch(e){}
-			</script>
-				<div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
-					<i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
-				</div>
-			</div>
-
-			<div class="main-content">
-				<div class="main-content-inner">
-					<div class="breadcrumbs ace-save-state" id="breadcrumbs">
-						<ul class="breadcrumb">
-							<li>
-								<i class="ace-icon fa fa-home home-icon"></i>
-								<a href="#">Home</a>
-							</li>
-							<li class="active">Dashboard</li>
-						</ul><!-- /.breadcrumb -->
-					</div>
-
-					<div class="page-content">
-						<div class="page-header">
-							<h1>
-								Dashboard
-								<small>
-									<i class="ace-icon fa fa-angle-double-right"></i>
-									Listar estoque
-								</small>
-							</h1>
-						</div><!-- /.page-header -->
-						<div class="row">
-							<div class="col-xs-12">
-								<!-- PAGE CONTENT BEGINS -->
-								<div class="row">
-                                    <div class="col-xs-12">
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+		
+                                <div class="content table-responsive table-full-width">
+                                    <table class="table table-hover table-striped">
+            
 
                                         <!-- div.table-responsive -->
 
@@ -160,16 +132,13 @@
                                         <div>
                                             <table id="dynamic-table" class="table table-striped table-bordered table-hover">
                                                 <thead>
-                                                    <tr>
                                                         <th>Tipo</th>
                                                         <th>Categoria</th>
                                                         <th>Preço</th>
                                                         <th>Quantidade</th>
                                                         <th>Data de Validade</th>
                                                         <th>Marca</th>
-                                                        <th>Especificações</th>
-                                                        <th></th>
-                                                    </tr>
+                                                        <th>Especificações</th>                                                  
                                                 </thead>
                                             <tbody>
                                                 <c:forEach var="insumo" items="${dao.lista}">
@@ -198,12 +167,13 @@
 						</div><!-- /.row -->
 					</div><!-- /.page-content -->
 				</div>
-			</div><!-- /.main-content -->
+            </div><!-- /.main-content -->
+        
 
 			<footer class="footer">
                 <div class="container-fluid">
                     <p class="copyright pull-right">
-                        &copy; <script>document.write(new Date().getFullYear())</script> <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
+                        Agro - Gerenciador Agrícola &copy; <script>document.write(new Date().getFullYear())</script>
                     </p>
                 </div>
             </footer>

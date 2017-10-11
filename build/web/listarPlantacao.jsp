@@ -99,11 +99,12 @@
 				</div>
 			</div>
 
-			<div class="main-content">
-				<nav class="navbar navbar-default navbar-fixed">
+			
+            <div class="main-panel">
+                <nav class="navbar navbar-default navbar-fixed">
                     <div class="container-fluid">
                         <div class="navbar-header">
-                            <a class="navbar-brand" href="#">Cadastro</a>
+                            <a class="navbar-brand" href="#">Listar Plantações</a>
                         </div>
                         <div class="collapse navbar-collapse">
                             <ul class="nav navbar-nav navbar-right">
@@ -124,35 +125,30 @@
                         </div>
                     </div>
                 </nav>
-			
-					<div class="page-content">
-						<div class="page-header">
-							<div class="header">
-                                <h4 class="title">Plantação</h4>
-                            </div>
-						</div><!-- /.page-header -->
-						<div class="row">
-							<div class="col-xs-12">
-								<!-- PAGE CONTENT BEGINS -->
-								<div class="row">
-                                    <div class="col-xs-12">
-
-                                        <!-- div.table-responsive -->
-
-                                        <!-- div.dataTables_borderWrap -->
-                                        <div>
-                                            <table id="dynamic-table" class="table table-striped table-bordered table-hover">
+                <div class="content">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card">
+            
+                                    <div class="content table-responsive table-full-width">
+                                        <table class="table table-hover table-striped">
+                
+    
+                                            <!-- div.table-responsive -->
+    
+                                            <!-- div.dataTables_borderWrap -->
+                                            <div><table id="dynamic-table" class="table table-striped table-bordered table-hover">
                                                 <thead>
                                                     <tr>
                                                         <th>Tipo</th>
                                                         <th>Categoria</th>
                                                         <th>Endereço</th>
                                                         <th>Area</th>
-                                                        <th></th>
                                                     </tr>
                                                 </thead>
                                             <tbody>
-                                                <c:forEach var="insumo" items="${dao.lista}">
+                                                <c:forEach var="plantacao" items="${dao.lista}">
                                                                            
                                                   <!--init the list-->
                                                 
