@@ -1,7 +1,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:useBean id="dao" class="DAOclasses.InsumoDAO"/>
+<jsp:useBean id="dao" class="DAOclasses.PlantacaoDAO"/>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -10,7 +10,7 @@
         <link rel="icon" type="image/png" href="assets/img/favicon2.ico">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     
-        <title>Listar Insumos</title>
+        <title>Listar Plantações</title>
     
         <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
         <meta name="viewport" content="width=device-width" />
@@ -89,33 +89,6 @@
                 </ul>
             </div>
         </div>
-
-        <div class="main-content">
-            <nav class="navbar navbar-default navbar-fixed">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <a class="navbar-brand" href="#">Cadastro</a>
-                    </div>
-                    <div class="collapse navbar-collapse">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li class="dropdown">
-                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                        <p>
-                                            Bem vindo, Admin
-                                            <b class="caret"></b>
-                                        </p>
-    
-                                  </a>
-                                  <ul class="dropdown-menu">
-                                    <li><a href="agricultor.html">Alterar dados</a></li>
-                                    <li><a href="#">Sair</a></li>
-                                  </ul>
-                            </li>   
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        
         
 		<div class="main-container ace-save-state" id="main-container">
 			<script type="text/javascript">
@@ -127,26 +100,36 @@
 			</div>
 
 			<div class="main-content">
-				<div class="main-content-inner">
-					<div class="breadcrumbs ace-save-state" id="breadcrumbs">
-						<ul class="breadcrumb">
-							<li>
-								<i class="ace-icon fa fa-home home-icon"></i>
-								<a href="#">Home</a>
-							</li>
-							<li class="active">Dashboard</li>
-						</ul><!-- /.breadcrumb -->
-					</div>
-
+				<nav class="navbar navbar-default navbar-fixed">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="#">Cadastro</a>
+                        </div>
+                        <div class="collapse navbar-collapse">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li class="dropdown">
+                                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                            <p>
+                                                Bem vindo, Admin
+                                                <b class="caret"></b>
+                                            </p>
+        
+                                      </a>
+                                      <ul class="dropdown-menu">
+                                        <li><a href="agricultor.html">Alterar dados</a></li>
+                                        <li><a href="#">Sair</a></li>
+                                      </ul>
+                                </li>   
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+			
 					<div class="page-content">
 						<div class="page-header">
-							<h1>
-								Dashboard
-								<small>
-									<i class="ace-icon fa fa-angle-double-right"></i>
-									Listar estoque
-								</small>
-							</h1>
+							<div class="header">
+                                <h4 class="title">Plantação</h4>
+                            </div>
 						</div><!-- /.page-header -->
 						<div class="row">
 							<div class="col-xs-12">
@@ -163,11 +146,8 @@
                                                     <tr>
                                                         <th>Tipo</th>
                                                         <th>Categoria</th>
-                                                        <th>Preço</th>
-                                                        <th>Quantidade</th>
-                                                        <th>Data de Validade</th>
-                                                        <th>Marca</th>
-                                                        <th>Especificações</th>
+                                                        <th>Endereço</th>
+                                                        <th>Area</th>
                                                         <th></th>
                                                     </tr>
                                                 </thead>
@@ -177,13 +157,10 @@
                                                   <!--init the list-->
                                                 
                                                     <tr>
-                                                        <td>${insumo.getTipo()}</td>
-                                                        <td>${insumo.getCategoria()}</td>
-                                                        <td>${insumo.getPreco()}</td>
-                                                        <td>${insumo.getQuantidade()}</td>
-                                                        <td>${insumo.getDataValidade()}</td>
-                                                        <td>${insumo.getMarca()}</td>
-                                                        <td>${insumo.getEspecificacoes()}</td>
+                                                        <td>${plantacao.getTipo()}</td>
+                                                        <td>${plantacao.getCategoria()}</td>
+                                                        <td>${plantacao.getRegiao.getEndereco()}</td>
+                                                        <td>${plantacao.getRegiao.getArea()}</td>
                                                     </tr>       
                                                     <!--End the list-->
                                                    </c:forEach> 

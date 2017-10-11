@@ -51,7 +51,7 @@ public class CadastroAgricultor extends HttpServlet {
         
         Pessoa pessoa = new Pessoa();
         agricultor.getPf().setPessoa(pessoa);
-        
+
         agricultor.getPf().getPessoa().setTelefone(request.getParameter("telefone"));
         agricultor.getPf().getPessoa().setEmail(request.getParameter("email"));
         agricultor.getPf().getPessoa().setCEP(request.getParameter("cep"));
@@ -61,20 +61,20 @@ public class CadastroAgricultor extends HttpServlet {
         agricultor.getPf().getPessoa().setBairro(request.getParameter("bairro"));
         agricultor.getPf().getPessoa().setCidade(request.getParameter("cidade"));
         agricultor.getPf().getPessoa().setEstado(request.getParameter("estado"));
-        agricultor.getPf().setCPF(request.getParameter("CPF"));
+        agricultor.getPf().setCPF(request.getParameter("cpf"));
         agricultor.getPf().setNome(request.getParameter("nome"));
 
-        agricultor.getPf().setRG(request.getParameter("RG"));
+        agricultor.getPf().setRG(request.getParameter("rg"));
         agricultor.getPf().setSexo(request.getParameter("sexo"));  
         
-        String dataNasc = request.getParameter("dataNascimento");
+        String dataNasc = request.getParameter("nascimento");
         DateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy");
 
         Date date = new java.sql.Date(formatoData.parse(dataNasc).getTime());
        
         agricultor.getPf().setDataNascimento(date);
                 
-        String cadPro = request.getParameter("cadPro");
+        String cadPro = request.getParameter("cadpro");
         agricultor.setCadPro("");
         if(cadPro != null)
             agricultor.setCadPro(cadPro);
