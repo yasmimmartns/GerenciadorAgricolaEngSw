@@ -1,0 +1,31 @@
+17:14:50 [INF][   WBContext UI]: Initializing workbench context UI with these values:
+	base dir: /usr/share/mysql-workbench
+	plugin path: /usr/lib/mysql-workbench/plugins
+	struct path: /usr/share/mysql-workbench/grt
+	module path: /usr/lib/mysql-workbench/modules
+	library path: /usr/share/mysql-workbench/libraries
+	user data dir: /home/yasmim/.mysql/workbench
+	open at start: 
+	open type: 
+	run at startup: 
+	run type: 
+	Force SW rendering: No
+	Force OpenGL: No
+	quit when done: No
+17:14:50 [INF][      WBContext]: WbContext::init
+17:14:52 [INF][            WBA]: Looking for extension modules for WBA...
+17:14:52 [INF][            WBA]: 0 extension modules found
+17:14:53 [WRN][            grt]: /home/yasmim/.mysql/workbench/server_instances.xml:15: link 'f3a7cac7-9d8d-11e7-ae48-4851b78d005e' <object GrtObject> key=owner could not be resolved
+17:14:53 [INF][      WBContext]: System info:
+ 	MySQL Workbench Community (GPL) for Linux/Unix version 6.3.9 CE build 10690321 (64 bit)
+	Configuration Directory: /home/yasmim/.mysql/workbench
+	Data Directory: /usr/share/mysql-workbench
+	Cairo Version: 1.14.6
+	OS: Ubuntu 16.04 x86_64
+	CPU: 4x Intel(R) Core(TM) i7-4510U CPU @ 2.00GHz (2841.845MHz) - 7,70GiB RAM
+No video adapter info available
+	Distribution: Ubuntu 16.04.3 LTS
+
+	Fips mode enabled: no
+
+17:23:32 [WRN][  TableEditorBE]: VARCHAR() is not a valid column typeCreating stub schema and table mydb.Pessoa for foreign key

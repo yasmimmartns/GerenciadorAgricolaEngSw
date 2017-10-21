@@ -1,0 +1,45 @@
+21:03:04 [INF][   WBContext UI]: Initializing workbench context UI with these values:
+	base dir: /usr/share/mysql-workbench
+	plugin path: /usr/lib/mysql-workbench/plugins
+	struct path: /usr/share/mysql-workbench/grt
+	module path: /usr/lib/mysql-workbench/modules
+	library path: /usr/share/mysql-workbench/libraries
+	user data dir: /home/yasmim/.mysql/workbench
+	open at start: /home/yasmim/Dropbox/UTF/6° Semestre/Engenharia de Software/GerenciadorAgricola/sql/bd.mwb
+	open type: 
+	run at startup: 
+	run type: 
+	Force SW rendering: No
+	Force OpenGL: No
+	quit when done: No
+21:03:04 [INF][      WBContext]: WbContext::init
+21:03:05 [INF][            WBA]: Looking for extension modules for WBA...
+21:03:05 [INF][            WBA]: 0 extension modules found
+21:03:05 [WRN][            grt]: /home/yasmim/.mysql/workbench/connections.xml:15: link '7836d525-ac67-11e7-9872-639d09ae3229' <object GrtObject> key=owner could not be resolved
+21:03:06 [INF][      WBContext]: System info:
+ 	MySQL Workbench Community (GPL) for Linux/Unix version 6.3.9 CE build 10690321 (64 bit)
+	Configuration Directory: /home/yasmim/.mysql/workbench
+	Data Directory: /usr/share/mysql-workbench
+	Cairo Version: 1.14.6
+	OS: Ubuntu 16.04 x86_64
+	CPU: 4x Intel(R) Core(TM) i7-4510U CPU @ 2.00GHz (2800.268MHz) - 7,70GiB RAM
+No video adapter info available
+	Distribution: Ubuntu 16.04.3 LTS
+
+	Fips mode enabled: no
+
+21:03:51 [ERR][SQL Editor Form]: SqlEditorForm: exception in do_connect method: Exception: Lost connection to MySQL server at 'reading initial communication packet', system error: 0
+21:03:51 [WRN][SQL Editor Form]: Lost connection to MySQL server at 'reading initial communication packet', system error: 0
+21:03:51 [INF][SQL Editor Form]: Error 2013 connecting to server, assuming server is down and opening editor with no connection
+21:03:51 [INF][SQL Editor Form]: Error 2013 connecting to server, assuming server is down and opening editor with no connection
+21:03:51 [INF][  column_widths]: Initializing column width cache for Mysql@127.0.0.1_8084
+21:03:51 [INF][          Admin]: Auto-created instance profile for connection 
+21:04:12 [ERR][wb_admin_control.py:init:314]: Error connecting to MySQL: Lost connection to MySQL server at 'reading initial communication packet', system error: 0 (code 2013)
+21:04:12 [INF][wb_admin_control.py:query_server_installation_info:868]: Currently connected to MySQL server version 'unknown', conn status = None, active plugins = []
+21:04:12 [INF][wb_admin_control.py:acquire_admin_access:288]: Target OS detection returned: os_type=linux, os_name=Linux, os_variant=Ubuntu, os_version=16.04
+21:04:13 [INF][wb_admin_control.py:exec_query:631]: sql connection is down
+21:04:32 [ERR][wb_admin_control.py:server_polling_thread:564]: Error creating SQL connection for monitoring: MySQLError("Lost connection to MySQL server at 'reading initial communication packet', system error: 0 (code 2013)",)
+21:04:44 [INF][wb_admin_control.py:exec_query:631]: sql connection is down
+21:04:48 [INF][wb_admin_control.py:exec_query:631]: sql connection is down
+21:20:39 [INF][wb_admin_control.py:exec_query:631]: sql connection is down
+07:51:04 [ERR][wb_admin_main.py:shutdown:219]: shutting down admn

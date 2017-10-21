@@ -1,0 +1,66 @@
+09:50:04 [INF][   WBContext UI]: Initializing workbench context UI with these values:
+	base dir: /usr/share/mysql-workbench
+	plugin path: /usr/lib/mysql-workbench/plugins
+	struct path: /usr/share/mysql-workbench/grt
+	module path: /usr/lib/mysql-workbench/modules
+	library path: /usr/share/mysql-workbench/libraries
+	user data dir: /home/yasmim/.mysql/workbench
+	open at start: 
+	open type: 
+	run at startup: 
+	run type: 
+	Force SW rendering: No
+	Force OpenGL: No
+	quit when done: No
+09:50:04 [INF][      WBContext]: WbContext::init
+09:50:05 [INF][            WBA]: Looking for extension modules for WBA...
+09:50:05 [INF][            WBA]: 0 extension modules found
+09:50:05 [WRN][            grt]: /home/yasmim/.mysql/workbench/connections.xml:17: link 'd70f3f9b-acef-11e7-9872-639d09ae3229' <object GrtObject> key=owner could not be resolved
+09:50:05 [INF][      WBContext]: System info:
+ 	MySQL Workbench Community (GPL) for Linux/Unix version 6.3.9 CE build 10690321 (64 bit)
+	Configuration Directory: /home/yasmim/.mysql/workbench
+	Data Directory: /usr/share/mysql-workbench
+	Cairo Version: 1.14.6
+	OS: Ubuntu 16.04 x86_64
+	CPU: 4x Intel(R) Core(TM) i7-4510U CPU @ 2.00GHz (2932.934MHz) - 7,70GiB RAM
+No video adapter info available
+	Distribution: Ubuntu 16.04.3 LTS
+
+	Fips mode enabled: no
+
+09:50:08 [ERR][  GRTDispatcher]: exception in grt execute_task, continuing: Exception: Access denied for user 'root'@'localhost' (using password: NO)
+09:50:08 [ERR][  GRTDispatcher]: worker: task 'execute sql queries' has failed with error:.Access denied for user 'root'@'localhost' (using password: NO)
+09:50:11 [ERR][  GRTDispatcher]: exception in grt execute_task, continuing: Exception: Access denied for user 'root'@'localhost' (using password: YES)
+09:50:11 [ERR][  GRTDispatcher]: worker: task 'execute sql queries' has failed with error:.Access denied for user 'root'@'localhost' (using password: YES)
+09:50:11 [ERR][    WQE backend]: Got an exception during connection: Access denied for user 'root'@'localhost' (using password: YES)
+09:50:11 [ERR][SQL Editor Form]: SQL editor could not be connected: Access denied for user 'root'@'localhost' (using password: YES)
+09:50:11 [ERR][SQL Editor Form]: Your connection attempt failed for user 'root' from your host to server at localhost:3306:
+  Access denied for user 'root'@'localhost' (using password: YES)
+
+Please:
+1 Check that mysql is running on server localhost
+2 Check that mysql is running on port 3306 (note: 3306 is the default, but this can be changed)
+3 Check the root has rights to connect to localhost from your address (mysql rights define what clients can connect to the server and from which machines) 
+4 Make sure you are both providing a password if needed and using the correct password for localhost connecting from the host address you're connecting from
+09:50:17 [ERR][  GRTDispatcher]: exception in grt execute_task, continuing: Exception: Access denied for user 'root'@'localhost' (using password: NO)
+09:50:17 [ERR][  GRTDispatcher]: worker: task 'execute sql queries' has failed with error:.Access denied for user 'root'@'localhost' (using password: NO)
+09:50:20 [INF][SQL Editor Form]: Opened connection 'Local instance 3306' to (Ubuntu) version 5.7.19-0ubuntu0.16.04.1
+09:51:16 [ERR][SQL Editor Form]: SqlEditorForm: exception in do_connect method: Exception: Lost connection to MySQL server at 'reading initial communication packet', system error: 0
+09:51:16 [WRN][SQL Editor Form]: Lost connection to MySQL server at 'reading initial communication packet', system error: 0
+09:51:16 [INF][SQL Editor Form]: Error 2013 connecting to server, assuming server is down and opening editor with no connection
+09:51:16 [INF][SQL Editor Form]: Error 2013 connecting to server, assuming server is down and opening editor with no connection
+09:51:16 [INF][  column_widths]: Initializing column width cache for Mysql@localhost_8084
+09:51:17 [INF][          Admin]: Auto-created instance profile for connection 
+09:51:37 [ERR][wb_admin_control.py:init:314]: Error connecting to MySQL: Lost connection to MySQL server at 'reading initial communication packet', system error: 0 (code 2013)
+09:51:37 [INF][wb_admin_control.py:query_server_installation_info:868]: Currently connected to MySQL server version 'unknown', conn status = None, active plugins = []
+09:51:37 [INF][wb_admin_control.py:acquire_admin_access:288]: Target OS detection returned: os_type=linux, os_name=Linux, os_variant=Ubuntu, os_version=16.04
+09:51:37 [INF][wb_admin_control.py:exec_query:631]: sql connection is down
+09:51:57 [ERR][wb_admin_control.py:server_polling_thread:564]: Error creating SQL connection for monitoring: MySQLError("Lost connection to MySQL server at 'reading initial communication packet', system error: 0 (code 2013)",)
+09:52:23 [INF][wb_admin_control.py:exec_query:631]: sql connection is down
+09:52:32 [INF][wb_admin_control.py:query_server_installation_info:868]: Currently connected to MySQL server version '5.7.19-0ubuntu0.16.04.1', conn status = True, active plugins = ['partition', 'sha256_password', 'INNODB_CMPMEM_RESET', 'INNODB_SYS_FIELDS', 'INNODB_BUFFER_POOL_STATS', 'CSV', 'mysql_native_password', 'INNODB_SYS_TABLES', 'INNODB_FT_BEING_DELETED', 'INNODB_BUFFER_PAGE', 'INNODB_CMP_PER_INDEX_RESET', 'INNODB_CMP_PER_INDEX', 'ARCHIVE', 'INNODB_FT_INDEX_CACHE', 'INNODB_CMP', 'INNODB_FT_CONFIG', 'InnoDB', 'INNODB_FT_DEFAULT_STOPWORD', 'INNODB_TRX', 'binlog', 'INNODB_LOCKS', 'INNODB_CMPMEM', 'INNODB_SYS_DATAFILES', 'INNODB_FT_INDEX_TABLE', 'INNODB_SYS_VIRTUAL', 'INNODB_LOCK_WAITS', 'MEMORY', 'INNODB_SYS_TABLESPACES', 'INNODB_SYS_FOREIGN_COLS', 'INNODB_SYS_INDEXES', 'MRG_MYISAM', 'PERFORMANCE_SCHEMA', 'INNODB_FT_DELETED', 'INNODB_METRICS', 'INNODB_SYS_TABLESTATS', 'MyISAM', 'INNODB_TEMP_TABLE_INFO', 'INNODB_SYS_FOREIGN', 'INNODB_CMP_RESET', 'BLACKHOLE', 'INNODB_SYS_COLUMNS', 'ngram', 'INNODB_BUFFER_PAGE_LRU']
+09:52:32 [INF][wb_admin_control.py:server_polling_thread:569]: Monitoring thread running...
+09:52:32 [INF][wb_admin_control.py:acquire_admin_access:288]: Target OS detection returned: os_type=linux, os_name=Linux, os_variant=Ubuntu, os_version=16.04
+09:52:34 [ERR][wb_admin_main.py:shutdown:219]: shutting down admn
+09:52:34 [ERR][               ]: atk_selection_ref_selection: assertion 'ATK_IS_SELECTION (obj)' failed
+09:52:35 [INF][wb_admin_control.py:server_polling_thread:585]: Monitoring thread done.
+09:54:56 [ERR][wb_admin_main.py:shutdown:219]: shutting down admn

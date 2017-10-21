@@ -541,7 +541,7 @@ body > .navbar-collapse {
     border-top-color: #87CB16; }
 
 .btn-info {
-  border-color lime;
+  border-color: lime;
   color: black; }
   .btn-info:hover, .btn-info:focus, .btn-info:active, .btn-info.active, .open > .btn-info.dropdown-toggle {
     background-color: transparent;
@@ -552,7 +552,7 @@ body > .navbar-collapse {
     border-color: #418D41; }
   .btn-info.btn-fill {
     color: #FFFFFF;
-    background-color lime;
+    background-color: lime;
     opacity: 1;
     filter: alpha(opacity=100); 
     magin-left:10px;}

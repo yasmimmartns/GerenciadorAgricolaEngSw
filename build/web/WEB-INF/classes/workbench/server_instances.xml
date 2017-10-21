@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<data grt_format="2.0">
+  <value _ptr_="0x30af400" type="list" content-type="object" content-struct-name="db.mgmt.ServerInstance">
+    <value type="object" struct-name="db.mgmt.ServerInstance" id="f3a7ce49-9d8d-11e7-ae48-4851b78d005e" struct-checksum="0x367436e2">
+      <link type="object" struct-name="db.mgmt.Connection" key="connection">f43cf16e-9d8d-11e7-ae48-4851b78d005e</link>
+      <value _ptr_="0x331ff10" type="dict" key="loginInfo"/>
+      <value _ptr_="0x331ff90" type="dict" key="serverInfo">
+        <value type="string" key="basedir">/usr/</value>
+        <value type="string" key="datadir">/var/lib/mysql/</value>
+        <value type="string" key="errorLogFilePath">/var/log/mysql/error.log</value>
+        <value type="string" key="generalLogFilePath">/var/lib/mysql/yasmim-Vostro-5470.log</value>
+        <value type="string" key="serverVersion">5.7.19-0ubuntu0.16.04.1</value>
+        <value type="int" key="setupPending">0</value>
+        <value type="string" key="slowLogFilePath">/var/lib/mysql/yasmim-Vostro-5470-slow.log</value>
+        <value type="string" key="sys.config.path"></value>
+        <value type="string" key="sys.config.section">mysqld</value>
+        <value type="string" key="sys.preset">Custom</value>
+        <value type="string" key="sys.sudo"></value>
+        <value type="string" key="sys.system">Linux</value>
+        <value type="int" key="sys.usesudo">0</value>
+        <value type="int" key="sys.usesudostatus">0</value>
+      </value>
+      <value type="string" key="name">Local 3306</value>
+    </value>
+    <value type="object" struct-name="db.mgmt.ServerInstance" id="bde415c4-acfc-11e7-9872-639d09ae3229" struct-checksum="0x367436e2">
+      <link type="object" struct-name="db.mgmt.Connection" key="connection">abbfc2bd-acfc-11e7-9872-639d09ae3229</link>
+      <value _ptr_="0x3341730" type="dict" key="loginInfo">
+        <value type="string" key="ssh.hostName"></value>
+        <value type="string" key="ssh.key">~/.ssh/ssh_private_key</value>
+        <value type="string" key="ssh.localPort">3306</value>
+        <value type="int" key="ssh.useKey">0</value>
+        <value type="string" key="ssh.userName">mysql</value>
+      </value>
+      <value _ptr_="0x33417b0" type="dict" key="serverInfo">
+        <value type="string" key="detected_os_name">Linux</value>
+        <value type="string" key="detected_os_type">linux</value>
+        <value type="string" key="detected_os_variant">Ubuntu</value>
+        <value type="string" key="detected_os_version">16.04</value>
+        <value type="string" key="serverVersion">5.7</value>
+        <value type="int" key="setupPending">1</value>
+        <value type="string" key="sys.config.path">/etc/mysql/my.cnf</value>
+        <value type="string" key="sys.config.section">mysqld</value>
+        <value type="string" key="sys.mysqld.start">systemctl start mysqld.service</value>
+        <value type="string" key="sys.mysqld.stop">systemctl stop mysqld.service</value>
+        <value type="string" key="sys.system">Linux</value>
+        <value type="int" key="sys.usesu">1</value>
+        <value type="int" key="sys.usesudo">1</value>
+        <value type="int" key="sys.usesudostatus">0</value>
+      </value>
+      <value type="string" key="name">web</value>
+    </value>
+  </value>
+</data>

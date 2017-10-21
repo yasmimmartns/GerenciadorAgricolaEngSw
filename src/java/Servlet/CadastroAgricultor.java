@@ -87,6 +87,8 @@ public class CadastroAgricultor extends HttpServlet {
         String contextPath= "http://localhost:8084/GerenciadorAgricola/dashboard.html";
         response.sendRedirect(response.encodeRedirectURL(contextPath));
         
+        out.print("batata");
+        
         
     }
 
