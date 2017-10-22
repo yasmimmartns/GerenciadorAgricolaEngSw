@@ -35,8 +35,8 @@ public class PessoaDAO {
                 throw new Exception("Campo nulo, erro ao enviar a pessoa fisica para o banco");
         
         String sql = "insert into Pessoa" + 
-                "(telefone, email, CEP, logradouro, complemento, numero, bairro, cidade, estado, pais)" + 
-                "values(?,?,?,?,?,?,?,?,?,?)";
+                "(telefone, email, CEP, logradouro, complemento, numero, bairro, cidade, estado)" + 
+                "values(?,?,?,?,?,?,?,?,?)";
     
         try{
            PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -132,7 +132,7 @@ public class PessoaDAO {
             stmt.setString(7, pessoa.getBairro());
             stmt.setString(8, pessoa.getCidade());
             stmt.setString(9, pessoa.getEstado());
-            stmt.setInt(11, pessoa.getId());
+            stmt.setInt(10, pessoa.getId());
            
             stmt.execute();
             stmt.close();

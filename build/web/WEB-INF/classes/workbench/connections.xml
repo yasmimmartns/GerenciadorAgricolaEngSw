@@ -8,9 +8,11 @@
       <value _ptr_="0x31e3480" type="dict" key="modules"/>
       <value _ptr_="0x31e3500" type="dict" key="parameterValues">
         <value type="string" key=""></value>
+        <value type="string" key="DbSqlEditor:LastDefaultSchema">mydb</value>
+        <value type="int" key="OPT_READ_TIMEOUT">300</value>
         <value type="string" key="SQL_MODE"></value>
         <value type="string" key="hostName">localhost</value>
-        <value type="int" key="lastConnected">1507553420</value>
+        <value type="int" key="lastConnected">1508616887</value>
         <value type="string" key="password"></value>
         <value type="int" key="port">3306</value>
         <value type="string" key="schema"></value>

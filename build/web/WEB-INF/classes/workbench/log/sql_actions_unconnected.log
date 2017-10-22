@@ -13,3 +13,14 @@
 [1, 18:25:09] Could not connect, server may not be running.: Lost connection to MySQL server at 'reading initial communication packet', system error: 0
 [1, 10:38:04] Could not connect, server may not be running.: Lost connection to MySQL server at 'reading initial communication packet', system error: 0
 [1, 17:09:49] Could not connect, server may not be running.: Lost connection to MySQL server at 'reading initial communication packet', system error: 0
+[1, 18:14:57] SELECT * FROM mydb.Agricultor
+LIMIT 0, 50000
+: Running...
+[1, 18:14:57] SELECT * FROM mydb.Agricultor
+LIMIT 0, 50000
+: Fetching...
+[1, 18:14:57] SELECT * FROM mydb.Agricultor
+LIMIT 0, 50000
+: 0 row(s) returned
+[2, 18:16:02] Refresh Recordset: There are pending changes. Please commit or rollback first.
+[3, 18:16:20] INSERT INTO `mydb`.`Agricultor` (`idAgricultor`, `cadPro`, `PessoaFisica_CPF`) VALUES ('1', '1', '1'): 1452: Cannot add or update a child row: a foreign key constraint fails (`mydb`.`Agricultor`, CONSTRAINT `fk_Agricultor_PessoaFisica` FOREIGN KEY (`PessoaFisica_CPF`) REFERENCES `PessoaFisica` (`CPF`) ON DELETE NO ACTION ON UPDATE NO ACTION)

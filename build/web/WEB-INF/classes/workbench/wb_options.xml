@@ -37,6 +37,7 @@
       <value type="int" key="DbSqlEditor:ReadTimeOut">30</value>
       <value type="int" key="DbSqlEditor:ReformatViewDDL">1</value>
       <value type="int" key="DbSqlEditor:Reformatter:UpcaseKeywords">1</value>
+      <value type="int" key="DbSqlEditor:ResultSplitterPosition">200</value>
       <value type="string" key="DbSqlEditor:SQLCommentTypeForHotkey">--</value>
       <value type="int" key="DbSqlEditor:SafeUpdates">1</value>
       <value type="int" key="DbSqlEditor:SchemaTreeRestoreState">1</value>
@@ -58,7 +59,7 @@
       <value type="int" key="Editor:TabWidth">4</value>
       <value type="string" key="FKColumnNameTemplate">%table%_%column%</value>
       <value type="string" key="FKNameTemplate">fk_%stable%_%dtable%</value>
-      <value type="int" key="HomeScreen:HeadingMessage">1</value>
+      <value type="int" key="HomeScreen:HeadingMessage">0</value>
       <value type="int" key="Migration:ConnectionTimeOut">60</value>
       <value type="int" key="ModelDiagram:SecondarySidebarWidth">197</value>
       <value type="int" key="ModelOverview:SecondarySidebarHidden">1</value>

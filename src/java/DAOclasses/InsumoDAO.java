@@ -23,8 +23,8 @@ public class InsumoDAO {
     
     public void adiciona(Insumo insumo) throws Exception{
         String sql = "insert into Insumo"
-                + "(titulo, tipo, preco, idioma, anoLancamento, quantidade)"
-                + "values(?,?,?,?,?,?)";
+                + "(tipo, categoria, especificacoes, marca, dataValidade, quantidade, preco)"
+                + "values(?,?,?,?,?,?,?)";
         
         try{
             PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -32,9 +32,9 @@ public class InsumoDAO {
             stmt.setString(1, insumo.getTipo());
             stmt.setString(2, insumo.getCategoria());
             stmt.setString(3,insumo.getEspecificacoes());
-            stmt.setInt(4, insumo.getQuantidade());
-            stmt.setString(5, insumo.getMarca());
-            stmt.setString(6, insumo.getDataValidade());
+            stmt.setString(4, insumo.getMarca());
+            stmt.setString(5, insumo.getDataValidade());
+            stmt.setInt(6, insumo.getQuantidade());
             stmt.setFloat(7, insumo.getPreco());
             stmt.executeUpdate();
             

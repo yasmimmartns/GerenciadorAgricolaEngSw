@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Servlet;
 
 import Classes.Agricultor;
@@ -24,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author eryc
+ * @author yasmim
  */
 public class CadastroAgricultor extends HttpServlet {
 
@@ -45,13 +40,13 @@ public class CadastroAgricultor extends HttpServlet {
 
         PrintWriter out = response.getWriter();
         Agricultor agricultor = new Agricultor();
-        
+ 
         PessoaFisica pf = new PessoaFisica();
         agricultor.setPf(pf);
         
         Pessoa pessoa = new Pessoa();
         agricultor.getPf().setPessoa(pessoa);
-
+        
         agricultor.getPf().getPessoa().setTelefone(request.getParameter("telefone"));
         agricultor.getPf().getPessoa().setEmail(request.getParameter("email"));
         agricultor.getPf().getPessoa().setCEP(request.getParameter("cep"));
@@ -61,19 +56,16 @@ public class CadastroAgricultor extends HttpServlet {
         agricultor.getPf().getPessoa().setBairro(request.getParameter("bairro"));
         agricultor.getPf().getPessoa().setCidade(request.getParameter("cidade"));
         agricultor.getPf().getPessoa().setEstado(request.getParameter("estado"));
+        
         agricultor.getPf().setCPF(request.getParameter("cpf"));
         agricultor.getPf().setNome(request.getParameter("nome"));
-
         agricultor.getPf().setRG(request.getParameter("rg"));
-        agricultor.getPf().setSexo(request.getParameter("sexo"));  
-        
+        agricultor.getPf().setSexo(request.getParameter("sexo"));      
         String dataNasc = request.getParameter("nascimento");
         DateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy");
-
-        Date date = new java.sql.Date(formatoData.parse(dataNasc).getTime());
-       
+        Date date = new java.sql.Date(formatoData.parse(dataNasc).getTime());     
         agricultor.getPf().setDataNascimento(date);
-                
+        
         String cadPro = request.getParameter("cadpro");
         agricultor.setCadPro("");
         if(cadPro != null)
@@ -85,11 +77,7 @@ public class CadastroAgricultor extends HttpServlet {
         }
         
         String contextPath= "http://localhost:8084/GerenciadorAgricola/dashboard.html";
-        response.sendRedirect(response.encodeRedirectURL(contextPath));
-        
-        out.print("batata");
-        
-        
+        response.sendRedirect(response.encodeRedirectURL(contextPath));      
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

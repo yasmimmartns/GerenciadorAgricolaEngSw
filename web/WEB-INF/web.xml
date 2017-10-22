@@ -10,19 +10,19 @@
     </servlet>
     <servlet>
         <servlet-name>CadastroPlantacao</servlet-name>
-        <servlet-class>Servlet.CadastroPlantcao</servlet-class>
+        <servlet-class>Servlet.CadastroPlantacao</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>CadastroInsumo</servlet-name>
         <servlet-class>Servlet.CadastroInsumo</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>CadastroRegiaoo</servlet-name>
+        <servlet-name>CadastroRegiao</servlet-name>
         <servlet-class>Servlet.CadastroRegiao</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>EditaPlantacao</servlet-name>
-        <servlet-class>Servlet.EditaPlantcao</servlet-class>
+        <servlet-class>Servlet.EditaPlantacao</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>EditaInsumo</servlet-name>
@@ -36,6 +36,38 @@
         <servlet-name>EditaAgricultor</servlet-name>
         <servlet-class>Servlet.EditaAgricultor</servlet-class>
     </servlet>
+     <servlet-mapping>
+        <servlet-name>CadastroPlantacao</servlet-name>
+        <url-pattern>/CadastroPlantacao</url-pattern>
+    </servlet-mapping>
+     <servlet-mapping>
+        <servlet-name>CadastroAgricultor</servlet-name>
+        <url-pattern>/CadastroAgricultor</url-pattern>
+    </servlet-mapping>
+     <servlet-mapping>
+        <servlet-name>CadastroInsumo</servlet-name>
+        <url-pattern>/CadastroInsumo</url-pattern>
+    </servlet-mapping>
+     <servlet-mapping>
+        <servlet-name>CadastroRegiao</servlet-name>
+        <url-pattern>/CadastroRegiao</url-pattern>
+    </servlet-mapping>
+     <servlet-mapping>
+        <servlet-name>EditaPlantacao</servlet-name>
+        <url-pattern>/EditaPlantacao</url-pattern>
+    </servlet-mapping>
+     <servlet-mapping>
+        <servlet-name>EditaInsumo</servlet-name>
+        <url-pattern>/EditaInsumo</url-pattern>
+    </servlet-mapping>
+     <servlet-mapping>
+        <servlet-name>EditaAgricultor</servlet-name>
+        <url-pattern>/EditaAgricultor</url-pattern>
+    </servlet-mapping>
+     <servlet-mapping>
+        <servlet-name>DeletaInsumo</servlet-name>
+        <url-pattern>/DeletaInsumo</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

@@ -54,7 +54,8 @@ public class PlantacaoDAO {
     public List<Plantacao> getLista() throws Exception{
         try{
             List<Plantacao> plantacoes = new ArrayList<Plantacao>();
-            PreparedStatement stmt = this.connection.prepareStatement("select * from Plantacao");
+            PreparedStatement stmt = this.connection.
+                    prepareStatement("select * from Plantacao P join Regiao R on P.regiao = R.idRegiao");
             ResultSet rs = stmt.executeQuery();
             
             while(rs.next()){

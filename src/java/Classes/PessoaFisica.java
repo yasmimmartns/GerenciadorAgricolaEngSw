@@ -66,7 +66,7 @@ public class PessoaFisica{
 
     public void setSexo(String sexo) throws Exception {
         sexo = sexo.toUpperCase();
-        if((sexo.equals("M")) || (sexo.equals("F")))
+        if((sexo.equals("MASCULINO")) || (sexo.equals("FEMININO")))
             this.sexo = sexo;
         else
             throw new Exception("Sexo Inválido");
@@ -75,7 +75,7 @@ public class PessoaFisica{
     public void setDataNascimento(Date data) throws Exception {
         Date dt = new Date();
         if(data.after(dt))
-            throw new Exception("Data Invaálida");
+            throw new Exception("Data Inválida");
         else
             this.dataNascimento = data;
     }
@@ -124,7 +124,7 @@ public class PessoaFisica{
         
         boolean verifica = false;
         if ((sexo != null) && (sexo.length() == 1)) {
-            if ((sexo.equalsIgnoreCase("m")) || (sexo.equalsIgnoreCase("f")))
+            if ((sexo.equalsIgnoreCase("Feminino")) || (sexo.equalsIgnoreCase("Masculino")))
                 verifica = true;
         }
         return verifica;

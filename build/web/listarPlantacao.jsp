@@ -141,8 +141,9 @@
                                             <div><table id="dynamic-table" class="table table-striped table-bordered table-hover">
                                                 <thead>
                                                     <tr>
+                                                        <th>ID</th>
                                                         <th>Tipo</th>
-                                                        <th>Categoria</th>
+                                                        <th>Quantidade</th>
                                                         <th>Endereço</th>
                                                         <th>Area</th>
                                                     </tr>
@@ -153,10 +154,11 @@
                                                   <!--init the list-->
                                                 
                                                     <tr>
+                                                        <td>${plantacao.getIdPlantacao()}</td>
                                                         <td>${plantacao.getTipo()}</td>
-                                                        <td>${plantacao.getCategoria()}</td>
-                                                        <td>${plantacao.getRegiao.getEndereco()}</td>
-                                                        <td>${plantacao.getRegiao.getArea()}</td>
+                                                        <td>${plantacao.getQuantidade()}</td>
+                                                        <td>${plantacao.getRegiao().getEndereco()}</td>
+                                                        <td>${plantacao.getRegiao().getArea()}</td>
                                                     </tr>       
                                                     <!--End the list-->
                                                    </c:forEach> 

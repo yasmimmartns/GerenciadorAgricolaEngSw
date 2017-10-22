@@ -46,7 +46,7 @@ public class Plantacao {
     }
 
     public void setRegiao(Regiao regiao) {
-        this.regiao = Objects.requireNonNull(regiao);
+        this.regiao = regiao;
     }
     
     Pattern PALAVRA = Pattern.compile ("^[A-z ]{1,19}");

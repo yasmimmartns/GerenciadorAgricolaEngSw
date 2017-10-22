@@ -128,19 +128,19 @@
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label>CAD-PRO</label>
-                                                <input type="text" name="cadpro" class="form-control" placeholder="1012345678">
+                                                <input type="text" id="cadpro" name="cadpro" class="form-control" placeholder="1012345678">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Nome</label>
-                                                <input type="txt" name="nome" class="form-control">
+                                                <input type="txt" id="nome" name="nome" class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>Email</label>
-                                                <input type="txt" name="email" class="form-control" placeholder="usuario@provedor.com">
+                                                <input type="txt" id="email" name="email" class="form-control" placeholder="usuario@provedor.com">
                                             </div>
                                         </div>
                                     </div>
@@ -148,25 +148,25 @@
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>CPF</label>
-                                                <input type="text" name="cpf" class="form-control" placeholder="439.564.661-09">
+                                                <input type="text" id="cpf" name="cpf" class="form-control" placeholder="439.564.661-09">
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>RG</label>
-                                                <input type="text" name="rg" class="form-control" placeholder="52.689.231-0">
+                                                <input type="text" id="rg" name="rg" class="form-control" placeholder="52.689.231-0">
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>Data de Nascimento</label>
-                                                <input type="text" name="nascimento" class="form-control" placeholder="29/05/1978">
+                                                <input type="text" id="nascimento" name="nascimento" class="form-control" placeholder="29/05/1978">
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>Telefone</label>
-                                                <input type="text" name="telefone" class="form-control mask-fone" placeholder="(43)3235-2969">
+                                                <input type="text" id="telefone" name="telefone" class="form-control mask-fone" placeholder="(43)3235-2969">
                                             </div>
                                         </div>
                                     </div>
@@ -174,7 +174,7 @@
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="sel1">Sexo</label>
-                                                <select class="form-control" name="sexo" id="sel1">
+                                                <select class="form-control" name="sexo" id="sexo">
                                                     <option>Feminino</option>
                                                     <option>Masculino</option>
                                                     <option>Outro</option>
@@ -184,13 +184,13 @@
                                         <div class="col-md-8">
                                             <div class="form-group">
                                                 <label>Endereço</label>
-                                                <input type="text"  id="logradouro" class="form-control" placeholder="Rua das Rosas">
+                                                <input type="text" id="logradouro" name="logradouro" class="form-control" placeholder="Rua das Rosas">
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label>Número</label>
-                                                <input type="text" name="numero" class="form-control" placeholder="416">
+                                                <input type="text" id="numero" name="numero" class="form-control" placeholder="416">
                                             </div>
                                         </div>
                                     </div>
@@ -199,13 +199,13 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Complemento</label>
-                                                <input type="text" name="complemento" class="form-control" placeholder="Apto 52 Bloco C">
+                                                <input type="text" id="complemento" name="complemento" class="form-control" placeholder="Apto 52 Bloco C">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Bairro</label>
-                                                <input type="text" name="bairro" class="form-control" placeholder="Centro">
+                                                <input type="text" id="bairro" name="bairro" class="form-control" placeholder="Centro">
                                             </div>
                                         </div>
                                     </div>
@@ -214,13 +214,13 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Cidade</label>
-                                                <input type="txt" name="cidade" class="form-control" placeholder="Cornélio Procópio">
+                                                <input type="txt" id="cidade" name="cidade" class="form-control" placeholder="Cornélio Procópio">
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="sel2">Estado</label>
-                                                <select name="estado" class="form-control" id="sel2">
+                                                <select id="estado" name="estado" class="form-control">
 													<option>AC</option>	 
 													<option>AL</option>
 													<option>AP</option>
@@ -254,13 +254,13 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>CEP</label>
-                                                <input type="txt" name="cep" class="form-control" placeholder="86.300-000">
+                                                <input type="txt" id="cep" name="cep" class="form-control" placeholder="86.300-000">
                                             </div>
                                         </div>
                                     </div>
                                 
 
-                                    <button onclick="btnEnviarClicado()" type="submit" class="btn btn-info btn-fill pull-right">Enviar</button>
+                                    <button type="submit" class="btn btn-success btn-info btn-fill pull-right col-md-2" style="margin-bottom: 40px;">Enviar</button>
                                     <div class="clearfix"></div>
                                 </form>
                             </div>

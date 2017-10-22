@@ -60,8 +60,6 @@
                       </li>
                       <li><a href="cadInsumo.html">Insumo</a>
                       </li>
-                      <li><a href="cadRegiao.html">Região</a>
-                      </li>
                     </ul>
                 </li>
                 <li>
@@ -112,7 +110,39 @@
             </div>
         </nav>
 
-
+        <!--Inserido o card para o cadastro de região-->
+        <form role="form" action="CadastroPlantacao" method="POST" style="margin-top: 40px;">
+                             
+        <div class="content" style="min-height: 200px!important; padding-bottom: 0;">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Região</h4>
+                            </div>
+                            <div class="content">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="form-group">
+                                                <label>Endereço</label>
+                                                <input type="text" id="endereco" name="endereco" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Área (m²)</label>
+                                                <input type="text" id="area" name="area" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
@@ -121,39 +151,33 @@
                             <div class="header">
                                 <h4 class="title">Plantação</h4>
                             </div>
+                            
                             <div class="content">
-                                <form role="form" action="CadastroPlantacao" method="POST">
                                     <div class="row">
-                                        <div class="col-md-5">
+                                        <div class="col-md-9">
                                             <div class="form-group">
                                                 <label>Tipo da Plantação</label>
-                                                <input type="text" class="form-control">
+                                                <input type="text" id="tipo" name="tipo" class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>Quantidade</label>
-                                                <input type="text" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>Região</label>
-                                                <input type="text" class="form-control">
+                                                <input type="number" id="quantidade" name="quantidade" class="form-control">
                                             </div>
                                         </div>
                                     </div>
-                                    <button type="reset" class="btn btn-success btn-info btn-fill pull-right col-md-2">Limpar</button>
-                                    <button type="submit" class="btn btn-success btn-info btn-fill pull-right col-md-2">Enviar</button>
                                     <div class="clearfix"></div>
-                                </form>
                             </div>
-                        </div>
+                        </div>  
+                        <button type="reset" class="btn btn-success btn-info btn-fill pull-right col-md-2">Limpar</button>
+                        <button type="submit" class="btn btn-success btn-info btn-fill pull-right col-md-2">Enviar</button>
                     </div>
                 </div>
             </div>
         </div>
 
+        </form>
 
         <footer class="footer">
             <div class="container-fluid">

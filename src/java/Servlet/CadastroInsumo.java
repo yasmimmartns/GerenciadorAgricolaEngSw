@@ -35,24 +35,29 @@ public class CadastroInsumo extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {        
-            response.setContentType("text/html;charset=UTF-8");
-            request.setCharacterEncoding("UTF-8");
+                response.setContentType("text/html;charset=UTF-8");
+                request.setCharacterEncoding("UTF-8");
 
-            PrintWriter out = response.getWriter();
+                PrintWriter out = response.getWriter();
 
-            Insumo insumo = new Insumo();
-            insumo.setTipo(request.getParameter("tipo"));
-            out.println(insumo.getTipo());
-            
-            insumo.setCategoria(request.getParameter("categoria"));
-            insumo.setPreco(Float.parseFloat(request.getParameter("preco")));           
-            insumo.setEspecificacoes(request.getParameter("especificacoes"));
-            insumo.setQuantidade(Integer.parseInt(request.getParameter("quantidade")));
-            insumo.setMarca(request.getParameter("marca"));
-            insumo.setDataValidade(request.getParameter("dataValidade"));
-           
-            String contextPath= "http://localhost:8084/GerenciadorAgricola/dashboard.html";
-            response.sendRedirect(response.encodeRedirectURL(contextPath));
+                Insumo insumo = new Insumo();
+
+                //Captura os dados de plantacao do form
+                insumo.setTipo(request.getParameter("tipo"));          
+                insumo.setCategoria(request.getParameter("categoria"));
+                insumo.setEspecificacoes(request.getParameter("especificacoes"));
+                insumo.setQuantidade(Integer.parseInt(request.getParameter("quantidade")));
+                insumo.setMarca(request.getParameter("marca"));
+                insumo.setDataValidade(request.getParameter("dataValidade"));
+                insumo.setPreco(Float.parseFloat(request.getParameter("preco")));                      
+
+                //Instancia as classes de DAO para plantacao e região 
+                //e chama o método para inserí-los no BD              
+                InsumoDAO insumoDao = new InsumoDAO();
+                insumoDao.adiciona(insumo);
+                
+                String contextPath= "http://localhost:8084/GerenciadorAgricola/dashboard.html";
+                response.sendRedirect(response.encodeRedirectURL(contextPath));
         } 
         catch (Exception ex) {
             Logger.getLogger(CadastroInsumo.class.getName()).log(Level.SEVERE, null, ex);

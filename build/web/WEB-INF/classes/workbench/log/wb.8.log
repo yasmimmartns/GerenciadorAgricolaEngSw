@@ -1,4 +1,4 @@
-17:30:05 [INF][   WBContext UI]: Initializing workbench context UI with these values:
+17:32:27 [INF][   WBContext UI]: Initializing workbench context UI with these values:
 	base dir: /usr/share/mysql-workbench
 	plugin path: /usr/lib/mysql-workbench/plugins
 	struct path: /usr/share/mysql-workbench/grt
@@ -12,20 +12,25 @@
 	Force SW rendering: No
 	Force OpenGL: No
 	quit when done: No
-17:30:05 [INF][      WBContext]: WbContext::init
-17:30:05 [INF][            WBA]: Looking for extension modules for WBA...
-17:30:05 [INF][            WBA]: 0 extension modules found
-17:30:06 [WRN][            grt]: /home/yasmim/.mysql/workbench/connections.xml:15: link '5846c75c-ac65-11e7-9872-639d09ae3229' <object GrtObject> key=owner could not be resolved
-17:30:06 [INF][      WBContext]: System info:
+17:32:27 [INF][      WBContext]: WbContext::init
+17:32:28 [INF][            WBA]: Looking for extension modules for WBA...
+17:32:28 [INF][            WBA]: 0 extension modules found
+17:32:28 [WRN][            grt]: /home/yasmim/.mysql/workbench/connections.xml:15: link '7836d525-ac67-11e7-9872-639d09ae3229' <object GrtObject> key=owner could not be resolved
+17:32:28 [INF][      WBContext]: System info:
  	MySQL Workbench Community (GPL) for Linux/Unix version 6.3.9 CE build 10690321 (64 bit)
 	Configuration Directory: /home/yasmim/.mysql/workbench
 	Data Directory: /usr/share/mysql-workbench
 	Cairo Version: 1.14.6
 	OS: Ubuntu 16.04 x86_64
-	CPU: 4x Intel(R) Core(TM) i7-4510U CPU @ 2.00GHz (2854.858MHz) - 7,70GiB RAM
+	CPU: 4x Intel(R) Core(TM) i7-4510U CPU @ 2.00GHz (3099.877MHz) - 7,70GiB RAM
 No video adapter info available
 	Distribution: Ubuntu 16.04.3 LTS
 
 	Fips mode enabled: no
 
-17:32:12 [WRN][     lf_listbox]: mforms::ListBoxImpl::set_heading('Objects to Process') not implementedmforms::ListBoxImpl::set_heading('Excluded Objects') not implementedmforms::ListBoxImpl::set_heading('Objects to Process') not implementedmforms::ListBoxImpl::set_heading('Excluded Objects') not implementedmforms::ListBoxImpl::set_heading('Objects to Process') not implementedmforms::ListBoxImpl::set_heading('Excluded Objects') not implementedmforms::ListBoxImpl::set_heading('Objects to Process') not implementedmforms::ListBoxImpl::set_heading('Excluded Objects') not implementedmforms::ListBoxImpl::set_heading('Objects to Process') not implementedmforms::ListBoxImpl::set_heading('Excluded Objects') not implemented
+17:32:29 [ERR][      WBContext]: unable to open XML file, doesn't exists: /document.mwb.xml
+mforms::ListBoxImpl::set_heading('Objects to Process') not implementedmforms::ListBoxImpl::set_heading('Excluded Objects') not implementedmforms::ListBoxImpl::set_heading('Objects to Process') not implementedmforms::ListBoxImpl::set_heading('Excluded Objects') not implementedmforms::ListBoxImpl::set_heading('Objects to Process') not implementedmforms::ListBoxImpl::set_heading('Excluded Objects') not implementedmforms::ListBoxImpl::set_heading('Objects to Process') not implementedmforms::ListBoxImpl::set_heading('Excluded Objects') not implementedmforms::ListBoxImpl::set_heading('Objects to Process') not implementedmforms::ListBoxImpl::set_heading('Excluded Objects') not implementedmforms::ListBoxImpl::set_heading('Objects to Process') not implementedmforms::ListBoxImpl::set_heading('Excluded Objects') not implementedmforms::ListBoxImpl::set_heading('Objects to Process') not implementedmforms::ListBoxImpl::set_heading('Excluded Objects') not implementedmforms::ListBoxImpl::set_heading('Objects to Process') not implementedmforms::ListBoxImpl::set_heading('Excluded Objects') not implementedmforms::ListBoxImpl::set_heading('Objects to Process') not implementedmforms::ListBoxImpl::set_heading('Excluded Objects') not implementedmforms::ListBoxImpl::set_heading('Objects to Process') not implementedmforms::ListBoxImpl::set_heading('Excluded Objects') not implementedmforms::ListBoxImpl::set_heading('Objects to Process') not implementedmforms::ListBoxImpl::set_heading('Excluded Objects') not implementedmforms::ListBoxImpl::set_heading('Objects to Process') not implementedmforms::ListBoxImpl::set_heading('Excluded Objects') not implementedmforms::ListBoxImpl::set_heading('Objects to Process') not implementedmforms::ListBoxImpl::set_heading('Excluded Objects') not implementedmforms::ListBoxImpl::set_heading('Objects to Process') not implementedmforms::ListBoxImpl::set_heading('Excluded Objects') not implementedmforms::ListBoxImpl::set_heading('Objects to Process') not implementedmforms::ListBoxImpl::set_heading('Excluded Objects') not implementedCreating stub schema and table mydb.PessoaFisica for foreign key
+17:42:05 [WRN][  TableEditorBE]: VARCHAR() is not a valid column typeVARCHAR() is not a valid column typeVARCHAR() is not a valid column typeVARCHAR() is not a valid column typeVARCHAR() is not a valid column typeVARCHAR() is not a valid column typeVARCHAR() is not a valid column typeVARCHAR() is not a valid column typeCreating stub schema and table mydb.PessoaFisica for foreign key
+17:44:52 [WRN][     lf_listbox]: mforms::ListBoxImpl::set_heading('Objects to Process') not implementedmforms::ListBoxImpl::set_heading('Excluded Objects') not implementedmforms::ListBoxImpl::set_heading('Objects to Process') not implementedmforms::ListBoxImpl::set_heading('Excluded Objects') not implementedmforms::ListBoxImpl::set_heading('Objects to Process') not implementedmforms::ListBoxImpl::set_heading('Excluded Objects') not implementedmforms::ListBoxImpl::set_heading('Objects to Process') not implementedmforms::ListBoxImpl::set_heading('Excluded Objects') not implementedmforms::ListBoxImpl::set_heading('Objects to Process') not implementedmforms::ListBoxImpl::set_heading('Excluded Objects') not implementedmforms::ListBoxImpl::set_heading('Objects to Process') not implementedmforms::ListBoxImpl::set_heading('Excluded Objects') not implementedmforms::ListBoxImpl::set_heading('Objects to Process') not implementedmforms::ListBoxImpl::set_heading('Excluded Objects') not implementedmforms::ListBoxImpl::set_heading('Objects to Process') not implementedmforms::ListBoxImpl::set_heading('Excluded Objects') not implementedmforms::ListBoxImpl::set_heading('Objects to Process') not implementedmforms::ListBoxImpl::set_heading('Excluded Objects') not implementedmforms::ListBoxImpl::set_heading('Objects to Process') not implementedmforms::ListBoxImpl::set_heading('Excluded Objects') not implementedDECIMAL() is not a valid column typeDECIMAL() is not a valid column typeCreating stub schema and table mydb.Plantacao for foreign key
+18:48:00 [INF][  TableEditorBE]: Creating stub schema and table mydb.Regiao for foreign key
+18:49:16 [WRN][     lf_listbox]: mforms::ListBoxImpl::set_heading('Objects to Process') not implementedmforms::ListBoxImpl::set_heading('Excluded Objects') not implementedmforms::ListBoxImpl::set_heading('Objects to Process') not implementedmforms::ListBoxImpl::set_heading('Excluded Objects') not implementedmforms::ListBoxImpl::set_heading('Objects to Process') not implementedmforms::ListBoxImpl::set_heading('Excluded Objects') not implementedmforms::ListBoxImpl::set_heading('Objects to Process') not implementedmforms::ListBoxImpl::set_heading('Excluded Objects') not implementedmforms::ListBoxImpl::set_heading('Objects to Process') not implementedmforms::ListBoxImpl::set_heading('Excluded Objects') not implemented

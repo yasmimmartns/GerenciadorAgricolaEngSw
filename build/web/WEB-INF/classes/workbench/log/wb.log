@@ -59,3 +59,30 @@ No video adapter info available
 17:15:20 [WRN][   WBContext UI]: Server instance  has no attached connection, deleting it
 17:18:34 [INF][   WBContext UI]: Opening Migration Wizard...
 17:18:35 [INF][      WBContext]: Loaded 0/0 new non-MySQL connections
+18:12:36 [INF][   WBContext UI]: Opening Migration Wizard...
+18:12:52 [INF][         Wizard]: Execute 'Connect to source DBMS'
+18:12:52 [INF][            grt]: Connecting to Mysql@localhost:3306...	
+18:12:55 [INF][            grt]: Connecting to Mysql@localhost:3306...	
+18:12:55 [INF][            grt]: Connected to Mysql@localhost:3306, 5.7.19-0ubuntu0.16.04.1	
+18:12:55 [INF][         Wizard]: Execute 'Check target DBMS connection'
+18:12:55 [INF][            grt]: Connecting to Mysql@localhost:3306...	
+18:12:55 [INF][            grt]: Connected	
+18:12:55 [INF][         Wizard]: Starting thread for 'Retrieve schema list from source'
+18:13:04 [INF][         Wizard]: Execute 'Connect to source DBMS'
+18:13:04 [INF][            grt]: Connecting to Mysql@localhost:3306...	
+18:13:04 [INF][            grt]: Connected to Mysql@localhost:3306, 5.7.19-0ubuntu0.16.04.1	
+18:13:04 [INF][         Wizard]: Starting thread for 'Reverse engineer selected schemas'
+18:13:04 [INF][            grt]: Reverse engineering mydb from def	
+18:13:05 [INF][            grt]: Reverse engineering tables from mydb	
+18:13:05 [INF][            grt]: Reverse engineering triggers from mydb	
+18:13:05 [INF][            grt]: Reverse engineering stored procedures from mydb	
+18:13:05 [INF][            grt]: Reverse engineering functions from mydb	
+18:13:05 [INF][         Wizard]: Execute 'Post-processing of reverse engineered schemas'
+18:13:07 [INF][         Wizard]: Starting thread for 'Migrate Selected Objects'
+18:13:08 [INF][         Wizard]: Starting thread for 'Generate SQL CREATE Statements'
+18:13:08 [WRN][   mforms.linux]: Unknown column storage typeUnknown column storage typeUnknown column storage typeOpened connection 'Local instance 3306' to (Ubuntu) version 5.7.19-0ubuntu0.16.04.1
+18:14:57 [ERR][ sqlide-history]: Can't open SQL history file /home/yasmim/.mysql/workbench/sql_history/2017-10-21
+18:16:02 [ERR][SQL Editor Form]: There are pending changes. Please commit or rollback first.
+18:16:20 [ERR][SQL Editor Form]: 1452: Cannot add or update a child row: a foreign key constraint fails (`mydb`.`Agricultor`, CONSTRAINT `fk_Agricultor_PessoaFisica` FOREIGN KEY (`PessoaFisica_CPF`) REFERENCES `PessoaFisica` (`CPF`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+18:16:20 [ERR][  GRTDispatcher]: exception in grt execute_task, continuing: Exception: There was an error while applying the SQL script to the database.
+18:16:20 [ERR][  GRTDispatcher]: worker: task 'wizard task' has failed with error:.There was an error while applying the SQL script to the database.

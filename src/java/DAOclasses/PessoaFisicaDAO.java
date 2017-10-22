@@ -34,22 +34,20 @@ public class PessoaFisicaDAO {
         pdao.adiciona(pf.getPessoa());
         
         String sql = "insert into PessoaFisica" + 
-                "(CPF, Pessoa_idPessoa, nome, sobrenome, RG, sexo, dataNascimento)" + 
-                "values(?,?,?,?,?,?,?)";
+                "(Pessoa_idPessoa, nome, RG, sexo, dataNascimento, CPF)" + 
+                "values(?,?,?,?,?,?)";
       
         try{
            PreparedStatement stmt = connection.prepareStatement(sql);
 
-            stmt.setString(1, pf.getCPF());
-            stmt.setInt(2, pf.getPessoa().getId());
-            stmt.setString(3, pf.getNome());
-            stmt.setString(5, pf.getRG());
-            stmt.setString(6, pf.getSexo());
-            stmt.setDate(7, new java.sql.Date(pf.getDataNascimento().getTime()));
+            stmt.setInt(1, pf.getPessoa().getId());
+            stmt.setString(2, pf.getNome());
+            stmt.setString(3, pf.getRG());
+            stmt.setString(4, pf.getSexo());
+            stmt.setDate(5, new java.sql.Date(pf.getDataNascimento().getTime()));
+            stmt.setString(6, pf.getCPF());
             stmt.execute();
-            System.out.println("AAAAA");
             stmt.close();
-            System.out.println("BBBB");
             
             return true;
         }
