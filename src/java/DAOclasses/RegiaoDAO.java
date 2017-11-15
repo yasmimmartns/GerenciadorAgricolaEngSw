@@ -83,6 +83,27 @@ public class RegiaoDAO {
         }
     }
     
+    public Regiao getRegiao(String id) throws Exception{
+        Regiao regiao = new Regiao();
+        String sql = "select * from Regiao WHERE idRegiao = ?";
+        PreparedStatement stmt = connection.prepareStatement(sql);
+        stmt.setString(1, id);
+        ResultSet rs = stmt.executeQuery();
+        try {
+           while (rs.next()) {
+                regiao.setIdRegiao(Integer.parseInt(id));
+                regiao.setEndereco(rs.getString("endereco"));
+                regiao.setArea(rs.getFloat("area"));
+           }
+           stmt.execute();
+           stmt.close();
+           return regiao;
+        }
+        catch (Exception e){
+            throw new Exception("Erro ao requisitar o cliente do banco");
+        }
+    }
+    
     public void altera(Regiao regiao){
         String sql = "update Regiao set endereco=?, area=? where idRegiao =?";
             

@@ -15,7 +15,7 @@
       <value type="string" key="AuxTableTemplate">%stable%_has_%dtable%</value>
       <value type="string" key="ColumnNameTemplate">%table%col</value>
       <value type="int" key="DbSqlEditor::MaxResultsets">50</value>
-      <value type="int" key="DbSqlEditor:ActiveInfoTab">1</value>
+      <value type="int" key="DbSqlEditor:ActiveInfoTab">0</value>
       <value type="int" key="DbSqlEditor:ActiveSidePaletteTab">0</value>
       <value type="int" key="DbSqlEditor:ActiveTaskTab">-1</value>
       <value type="int" key="DbSqlEditor:AutoStartCodeCompletion">1</value>

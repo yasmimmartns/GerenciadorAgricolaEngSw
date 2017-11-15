@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>AgricultorDAO.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;GerenciadorAgricola&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">DAOclasses</a> &gt; <span class="el_source">AgricultorDAO.java</span></div><h1>AgricultorDAO.java</h1><pre class="source lang-java linenums">package DAOclasses;
+
+import Classes.Agricultor;
+import Classes.Pessoa;
+import Classes.PessoaFisica;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ *
+ * @author yasmim
+ */
+
+public class AgricultorDAO {
+    private Connection connection;
+    
+<span class="fc" id="L20">    public AgricultorDAO() throws Exception {</span>
+<span class="fc" id="L21">        this.connection = new ConnectionFactory().getConnection(&quot;root&quot;,&quot;root&quot;);</span>
+<span class="fc" id="L22">    }</span>
+    
+    // Método do DAO para conexão manual com o banco
+    public void setaConexaoAgricultorDAO(String user, String password) throws Exception {
+        try {
+<span class="nc" id="L27">            this.connection = new ConnectionFactory().getConnection(user, password);</span>
+<span class="fc" id="L28">        } catch(Exception e) {</span>
+<span class="fc" id="L29">            throw new Exception(&quot;Erro ao conectar com o banco&quot;);</span>
+<span class="nc" id="L30">        }</span>
+<span class="nc" id="L31">    }</span>
+        
+    public boolean adiciona(Agricultor agricultor) throws Exception {  
+        
+<span class="pc bpc" id="L35" title="3 of 4 branches missed.">        if((agricultor.getCadPro() == null)||(agricultor.getPf().getCPF() == null))</span>
+<span class="fc" id="L36">            throw new Exception(&quot;Campo nulo, erro ao enviar o agricultor para o banco&quot;);</span>
+       
+<span class="nc" id="L38">        PessoaFisicaDAO pfdao = new PessoaFisicaDAO();</span>
+<span class="nc" id="L39">        pfdao.adiciona(agricultor.getPf());</span>
+        
+<span class="nc" id="L41">        String sql = &quot;insert into Agricultor&quot; + </span>
+                &quot;(idAgricultor, cadPro, PessoaFisica_CPF)&quot; + 
+                &quot;values(?,?,?)&quot;;
+        
+        
+        try{
+<span class="nc" id="L47">           PreparedStatement stmt = connection.prepareStatement(sql);</span>
+
+<span class="nc" id="L49">           stmt.setInt(1, agricultor.getIdAgricultor());</span>
+<span class="nc" id="L50">           stmt.setString(2, agricultor.getCadPro());</span>
+<span class="nc" id="L51">           stmt.setString(3, agricultor.getPf().getCPF());</span>
+           
+<span class="nc" id="L53">           stmt.execute();</span>
+<span class="nc" id="L54">           stmt.close();</span>
+           
+<span class="nc" id="L56">           return true;</span>
+        }
+<span class="nc" id="L58">        catch (Exception e){</span>
+<span class="nc" id="L59">            throw new Exception(&quot;Erro ao enviar o agricultor para o banco&quot;);</span>
+        }
+    }
+    
+    public List &lt;Agricultor&gt; getLista() throws Exception{
+
+<span class="fc" id="L65">        List &lt;Agricultor&gt; agricultores = new ArrayList&lt;Agricultor&gt;();</span>
+<span class="fc" id="L66">        PreparedStatement stmt = this.connection.</span>
+<span class="fc" id="L67">        prepareStatement(&quot;select * from Pessoa P join PessoaFisica PF on P.idPessoa = PF.Pessoa_IdPessoa join Agricultor A on PF.CPF = A.PessoaFisica_CPF;&quot;);</span>
+<span class="fc" id="L68">        ResultSet rs = stmt.executeQuery();</span>
+ 
+<span class="fc bfc" id="L70" title="All 2 branches covered.">        while (rs.next()){</span>
+            // criando o objeto agricultor
+<span class="fc" id="L72">            Agricultor agricultor = new Agricultor();</span>
+<span class="fc" id="L73">            PessoaFisica pf = new PessoaFisica();</span>
+<span class="fc" id="L74">            agricultor.setPf(pf);</span>
+<span class="fc" id="L75">            Pessoa pessoa = new Pessoa();</span>
+<span class="fc" id="L76">            agricultor.getPf().setPessoa(pessoa);</span>
+
+<span class="fc" id="L78">            agricultor.setIdAgricultor(rs.getInt(&quot;idAgricultor&quot;));</span>
+<span class="fc" id="L79">            agricultor.setCadPro(rs.getString(&quot;cadPro&quot;));</span>
+<span class="fc" id="L80">            agricultor.getPf().setCPF(rs.getString(&quot;CPF&quot;));</span>
+<span class="fc" id="L81">            agricultor.getPf().setNome(rs.getString(&quot;nome&quot;));</span>
+<span class="fc" id="L82">            agricultor.getPf().setRG(rs.getString(&quot;RG&quot;));</span>
+<span class="fc" id="L83">            agricultor.getPf().setSexo(rs.getString(&quot;sexo&quot;));</span>
+<span class="fc" id="L84">            agricultor.getPf().setDataNascimento(rs.getDate(&quot;dataNascimento&quot;));</span>
+<span class="fc" id="L85">            agricultor.getPf().getPessoa().setTelefone(rs.getString(&quot;telefone&quot;));</span>
+<span class="fc" id="L86">            agricultor.getPf().getPessoa().setEmail(rs.getString(&quot;email&quot;));</span>
+<span class="fc" id="L87">            agricultor.getPf().getPessoa().setLogradouro(rs.getString(&quot;logradouro&quot;));</span>
+<span class="fc" id="L88">            agricultor.getPf().getPessoa().setNumero(rs.getInt(&quot;numero&quot;));</span>
+<span class="fc" id="L89">            agricultor.getPf().getPessoa().setComplemento(rs.getString(&quot;complemento&quot;));</span>
+<span class="fc" id="L90">            agricultor.getPf().getPessoa().setBairro(rs.getString(&quot;bairro&quot;));</span>
+<span class="fc" id="L91">            agricultor.getPf().getPessoa().setCEP(rs.getString(&quot;CEP&quot;));</span>
+<span class="fc" id="L92">            agricultor.getPf().getPessoa().setCidade(rs.getString(&quot;cidade&quot;));</span>
+<span class="fc" id="L93">            agricultor.getPf().getPessoa().setEstado(rs.getString(&quot;estado&quot;));</span>
+<span class="fc" id="L94">            agricultor.getPf().getPessoa().setId(rs.getInt(&quot;idPessoa&quot;));</span>
+
+            // adicionando o objeto à lista
+<span class="fc" id="L97">            agricultores.add(agricultor);</span>
+<span class="fc" id="L98">        }</span>
+<span class="fc" id="L99">        rs.close();</span>
+<span class="fc" id="L100">        stmt.close();</span>
+<span class="fc" id="L101">        return agricultores;</span>
+    }
+    
+    public Agricultor getAgricultor(String id) throws Exception{
+<span class="nc" id="L105">        Agricultor agricultor = new Agricultor();</span>
+<span class="nc" id="L106">        String sql = &quot;select * from Pessoa P join PessoaFisica PF on P.idPessoa = PF.Pessoa_IdPessoa join Agricultor A on PF.CPF = A.PessoaFisica_CPF WHERE A.idAgricultor = ?&quot;;</span>
+<span class="nc" id="L107">        PreparedStatement stmt = connection.prepareStatement(sql);</span>
+<span class="nc" id="L108">        stmt.setString(1, id);</span>
+<span class="nc" id="L109">        ResultSet rs = stmt.executeQuery();</span>
+        try {
+<span class="nc bnc" id="L111" title="All 2 branches missed.">           while (rs.next()) {</span>
+<span class="nc" id="L112">                PessoaFisica pf = new PessoaFisica();</span>
+<span class="nc" id="L113">                agricultor.setPf(pf);</span>
+<span class="nc" id="L114">                Pessoa pessoa = new Pessoa();</span>
+<span class="nc" id="L115">                agricultor.setIdAgricultor(Integer.parseInt(id));</span>
+<span class="nc" id="L116">                agricultor.setCadPro(rs.getString(&quot;cadPro&quot;));</span>
+<span class="nc" id="L117">                agricultor.getPf().setPessoa(pessoa);</span>
+<span class="nc" id="L118">                agricultor.getPf().setNome(rs.getString(&quot;nome&quot;));</span>
+<span class="nc" id="L119">                agricultor.getPf().setCPF(rs.getString(&quot;CPF&quot;));</span>
+<span class="nc" id="L120">                agricultor.getPf().setRG(rs.getString(&quot;RG&quot;));</span>
+<span class="nc" id="L121">                agricultor.getPf().setDataNascimento(rs.getDate(&quot;dataNascimento&quot;));</span>
+<span class="nc" id="L122">                agricultor.getPf().setSexo(rs.getString(&quot;sexo&quot;));</span>
+<span class="nc" id="L123">                agricultor.getPf().getPessoa().setTelefone(rs.getString(&quot;telefone&quot;));</span>
+<span class="nc" id="L124">                agricultor.getPf().getPessoa().setEmail(rs.getString(&quot;email&quot;));</span>
+<span class="nc" id="L125">                agricultor.getPf().getPessoa().setLogradouro(rs.getString(&quot;logradouro&quot;));</span>
+<span class="nc" id="L126">                agricultor.getPf().getPessoa().setNumero(rs.getInt(&quot;numero&quot;));</span>
+<span class="nc" id="L127">                agricultor.getPf().getPessoa().setComplemento(rs.getString(&quot;complemento&quot;));</span>
+<span class="nc" id="L128">                agricultor.getPf().getPessoa().setBairro(rs.getString(&quot;bairro&quot;));</span>
+<span class="nc" id="L129">                agricultor.getPf().getPessoa().setCEP(rs.getString(&quot;CEP&quot;));</span>
+<span class="nc" id="L130">                agricultor.getPf().getPessoa().setCidade(rs.getString(&quot;cidade&quot;));</span>
+<span class="nc" id="L131">                agricultor.getPf().getPessoa().setEstado(rs.getString(&quot;estado&quot;));</span>
+<span class="nc" id="L132">                agricultor.getPf().getPessoa().setId(rs.getInt(&quot;idPessoa&quot;));</span>
+<span class="nc" id="L133">           }</span>
+<span class="nc" id="L134">           stmt.execute();</span>
+<span class="nc" id="L135">           stmt.close();</span>
+<span class="nc" id="L136">           return agricultor;</span>
+        }
+<span class="nc" id="L138">        catch (Exception e){</span>
+<span class="nc" id="L139">            throw new Exception(&quot;Erro ao requisitar o agricultor do banco&quot;);</span>
+        }
+    }
+    
+    public boolean altera(Agricultor agricultor) throws Exception{ 
+<span class="nc bnc" id="L144" title="All 2 branches missed.">        if(agricultor.getPf().getCPF() == null)</span>
+<span class="nc" id="L145">            throw new Exception(&quot;Campo nulo, erro ao enviar o agricultor para o banco&quot;);</span>
+        
+<span class="nc" id="L147">        PessoaFisicaDAO pfdao = new PessoaFisicaDAO();</span>
+        
+<span class="nc" id="L149">        pfdao.altera(agricultor.getPf());</span>
+<span class="nc" id="L150">        String sql = &quot;update Agricultor A inner join PessoaFisica PF on A.PessoaFisica_CPF = PF.CPF inner join Pessoa P on PF.Pessoa_idPessoa = P.idPessoa set idAgricultor=?, cadPro=?, nome=?, CPF=?, RG=?, dataNascimento=?, sexo=?, telefone=?, email=?, logradouro=?, numero=?, complemento=?, bairro=?, CEP=?, cidade=?, estado=? where PF.CPF=?&quot;;</span>
+        
+        try {
+<span class="nc" id="L153">            PreparedStatement stmt = connection.prepareStatement(sql);</span>
+            
+<span class="nc" id="L155">            stmt.setInt(1, agricultor.getIdAgricultor());</span>
+<span class="nc" id="L156">            stmt.setString(2, agricultor.getCadPro());</span>
+<span class="nc" id="L157">            stmt.setString(4, agricultor.getPf().getNome());</span>
+<span class="nc" id="L158">            stmt.setString(6, agricultor.getPf().getCPF());</span>
+<span class="nc" id="L159">            stmt.setString(7, agricultor.getPf().getRG());</span>
+<span class="nc" id="L160">            stmt.setDate(8, new java.sql.Date(agricultor.getPf().getDataNascimento().getTime()));</span>
+<span class="nc" id="L161">            stmt.setString(9, agricultor.getPf().getSexo());</span>
+<span class="nc" id="L162">            stmt.setString(10, agricultor.getPf().getPessoa().getTelefone());</span>
+<span class="nc" id="L163">            stmt.setString(11, agricultor.getPf().getPessoa().getEmail());</span>
+<span class="nc" id="L164">            stmt.setString(12, agricultor.getPf().getPessoa().getLogradouro());</span>
+<span class="nc" id="L165">            stmt.setInt(13, agricultor.getPf().getPessoa().getNumero());</span>
+<span class="nc" id="L166">            stmt.setString(14, agricultor.getPf().getPessoa().getComplemento());</span>
+<span class="nc" id="L167">            stmt.setString(15, agricultor.getPf().getPessoa().getBairro());</span>
+<span class="nc" id="L168">            stmt.setString(16, agricultor.getPf().getPessoa().getCEP());</span>
+<span class="nc" id="L169">            stmt.setString(17, agricultor.getPf().getPessoa().getCidade());</span>
+<span class="nc" id="L170">            stmt.setString(18, agricultor.getPf().getPessoa().getEstado());</span>
+<span class="nc" id="L171">            stmt.setString(20, agricultor.getPf().getCPF());</span>
+<span class="nc" id="L172">            stmt.execute();</span>
+<span class="nc" id="L173">            stmt.close();</span>
+<span class="nc" id="L174">            return true;</span>
+            
+<span class="nc" id="L176">        } catch (Exception e){</span>
+<span class="nc" id="L177">            throw new Exception(&quot;Erro ao alterar o agricultor&quot;);</span>
+        }
+    }
+    
+    public Agricultor getAgricultorCPF(String CPF) throws Exception{
+<span class="nc" id="L182">        Agricultor agricultor = null;</span>
+<span class="nc" id="L183">        PreparedStatement stmt = this.connection.</span>
+<span class="nc" id="L184">        prepareStatement(&quot;select * from Pessoa P join PessoaFisica PF on P.idPessoa = PF.Pessoa_IdPessoa join Agricultor A on PF.CPF = A.PessoaFisica_CPF where CPF=?;&quot;);</span>
+<span class="nc" id="L185">        stmt.setString(1, CPF);</span>
+<span class="nc" id="L186">        ResultSet rs = stmt.executeQuery();</span>
+ 
+<span class="nc bnc" id="L188" title="All 2 branches missed.">        while (rs.next()){</span>
+            // criando o objeto Agricultor
+<span class="nc" id="L190">            agricultor = new Agricultor();</span>
+<span class="nc" id="L191">            PessoaFisica pf = new PessoaFisica();</span>
+<span class="nc" id="L192">            agricultor.setPf(pf);</span>
+<span class="nc" id="L193">            Pessoa pessoa = new Pessoa();</span>
+<span class="nc" id="L194">            agricultor.getPf().setPessoa(pessoa);</span>
+
+<span class="nc" id="L196">            agricultor.setIdAgricultor(rs.getInt(&quot;idAgricultor&quot;));</span>
+<span class="nc" id="L197">            agricultor.setCadPro(rs.getString(&quot;cadPro&quot;));</span>
+<span class="nc" id="L198">            agricultor.getPf().setCPF(rs.getString(&quot;CPF&quot;));</span>
+<span class="nc" id="L199">            agricultor.getPf().setNome(rs.getString(&quot;nome&quot;));</span>
+<span class="nc" id="L200">            agricultor.getPf().setRG(rs.getString(&quot;RG&quot;));</span>
+<span class="nc" id="L201">            agricultor.getPf().setSexo(rs.getString(&quot;sexo&quot;));</span>
+<span class="nc" id="L202">            agricultor.getPf().setDataNascimento(rs.getDate(&quot;dataNascimento&quot;));</span>
+<span class="nc" id="L203">            agricultor.getPf().getPessoa().setTelefone(rs.getString(&quot;telefone&quot;));</span>
+<span class="nc" id="L204">            agricultor.getPf().getPessoa().setEmail(rs.getString(&quot;email&quot;));</span>
+<span class="nc" id="L205">            agricultor.getPf().getPessoa().setLogradouro(rs.getString(&quot;logradouro&quot;));</span>
+<span class="nc" id="L206">            agricultor.getPf().getPessoa().setNumero(rs.getInt(&quot;numero&quot;));</span>
+<span class="nc" id="L207">            agricultor.getPf().getPessoa().setComplemento(rs.getString(&quot;complemento&quot;));</span>
+<span class="nc" id="L208">            agricultor.getPf().getPessoa().setBairro(rs.getString(&quot;bairro&quot;));</span>
+<span class="nc" id="L209">            agricultor.getPf().getPessoa().setCEP(rs.getString(&quot;CEP&quot;));</span>
+<span class="nc" id="L210">            agricultor.getPf().getPessoa().setCidade(rs.getString(&quot;cidade&quot;));</span>
+<span class="nc" id="L211">            agricultor.getPf().getPessoa().setEstado(rs.getString(&quot;estado&quot;));</span>
+<span class="nc" id="L212">            agricultor.getPf().getPessoa().setId(rs.getInt(&quot;idPessoa&quot;));</span>
+<span class="nc" id="L213">        }</span>
+<span class="nc" id="L214">        rs.close();</span>
+<span class="nc" id="L215">        stmt.close();</span>
+<span class="nc" id="L216">        return agricultor;</span>
+    }    
+}
+
+
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>PlantacaoDAO.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;GerenciadorAgricola&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">DAOclasses</a> &gt; <span class="el_source">PlantacaoDAO.java</span></div><h1>PlantacaoDAO.java</h1><pre class="source lang-java linenums">package DAOclasses;
+
+import Classes.Plantacao;
+import Classes.Regiao;
+import DAOclasses.RegiaoDAO;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ *
+ * @author yasmim
+ */
+
+public class PlantacaoDAO {
+    private Connection connection;
+    
+<span class="nc" id="L22">    public PlantacaoDAO() throws Exception{</span>
+<span class="nc" id="L23">        this.connection = new ConnectionFactory().getConnection(&quot;root&quot;,&quot;root&quot;);</span>
+<span class="nc" id="L24">    }</span>
+    
+    public void adiciona(Plantacao plantacao) throws Exception{
+        
+<span class="nc" id="L28">        RegiaoDAO rdao = new RegiaoDAO();</span>
+<span class="nc" id="L29">        rdao.adiciona(plantacao.getRegiao());</span>
+        
+<span class="nc" id="L31">        String sql = &quot;insert into Plantacao&quot;</span>
+                + &quot;(tipo, quantidade, regiao)&quot;
+                + &quot;values(?,?,?)&quot;;
+        
+        try{
+<span class="nc" id="L36">            PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);</span>
+            
+<span class="nc" id="L38">            stmt.setString(1, plantacao.getTipo());</span>
+<span class="nc" id="L39">            stmt.setInt(2, plantacao.getQuantidade());</span>
+<span class="nc" id="L40">            stmt.setInt(3, plantacao.getRegiao().getIdRegiao());</span>
+<span class="nc" id="L41">            stmt.executeUpdate();</span>
+            
+<span class="nc" id="L43">            ResultSet rs = stmt.getGeneratedKeys();</span>
+<span class="nc" id="L44">            rs.next();</span>
+<span class="nc" id="L45">            plantacao.setIdPlantacao(rs.getInt(1));</span>
+            
+<span class="nc" id="L47">            stmt.close();</span>
+            
+<span class="nc" id="L49">        }catch(SQLException e){</span>
+<span class="nc" id="L50">            throw new RuntimeException(e);</span>
+<span class="nc" id="L51">        }</span>
+<span class="nc" id="L52">    }</span>
+    
+    public List&lt;Plantacao&gt; getLista() throws Exception{
+        try{
+<span class="nc" id="L56">            List&lt;Plantacao&gt; plantacoes = new ArrayList&lt;Plantacao&gt;();</span>
+<span class="nc" id="L57">            PreparedStatement stmt = this.connection.</span>
+<span class="nc" id="L58">                    prepareStatement(&quot;select * from Plantacao P join Regiao R on P.regiao = R.idRegiao&quot;);</span>
+<span class="nc" id="L59">            ResultSet rs = stmt.executeQuery();</span>
+            
+<span class="nc bnc" id="L61" title="All 2 branches missed.">            while(rs.next()){</span>
+<span class="nc" id="L62">                Plantacao plantacao = new Plantacao();</span>
+<span class="nc" id="L63">                Regiao r = new Regiao();</span>
+<span class="nc" id="L64">                plantacao.setRegiao(r);</span>
+                
+<span class="nc" id="L66">                plantacao.setIdPlantacao(rs.getInt(&quot;idPlantacao&quot;));</span>
+<span class="nc" id="L67">                plantacao.setTipo(rs.getString(&quot;tipo&quot;));</span>
+<span class="nc" id="L68">                plantacao.setQuantidade(rs.getInt(&quot;quantidade&quot;));</span>
+<span class="nc" id="L69">                plantacao.getRegiao().setIdRegiao(rs.getInt(&quot;idRegiao&quot;));</span>
+<span class="nc" id="L70">                plantacao.getRegiao().setEndereco(rs.getString(&quot;endereco&quot;));</span>
+<span class="nc" id="L71">                plantacao.getRegiao().setArea(rs.getInt(&quot;area&quot;));</span>
+                
+<span class="nc" id="L73">                plantacoes.add(plantacao);</span>
+<span class="nc" id="L74">            }</span>
+<span class="nc" id="L75">            rs.close();</span>
+<span class="nc" id="L76">            stmt.close();</span>
+<span class="nc" id="L77">            return plantacoes;</span>
+            
+<span class="nc" id="L79">        }catch(SQLException e){</span>
+<span class="nc" id="L80">            throw new RuntimeException(e);</span>
+        }
+    }
+    
+    public void remove(Plantacao plantacao){
+<span class="nc" id="L85">        String sql = &quot;delete from Plantacao where Plantacao.idPlantacao = ?&quot;;</span>
+        
+        try{
+<span class="nc" id="L88">            PreparedStatement stmt = this.connection.prepareStatement(sql);</span>
+            
+<span class="nc" id="L90">            stmt.setInt(1, plantacao.getIdPlantacao());</span>
+<span class="nc" id="L91">            stmt.execute();</span>
+<span class="nc" id="L92">            stmt.close();</span>
+            
+<span class="nc" id="L94">        }catch(SQLException e){</span>
+<span class="nc" id="L95">            throw new RuntimeException(e);</span>
+<span class="nc" id="L96">        }</span>
+<span class="nc" id="L97">    }</span>
+    
+    public void altera(Plantacao plantacao){
+<span class="nc" id="L100">        String sql = &quot;update Plantacao P inner join Regiao R on P.regiao = R.idRegiao &quot;</span>
+                + &quot;set idPlantacao=?, tipo=?, quantidade=?, endereco=?, area=? where R.idRegiao=?&quot;;
+            
+        try{
+<span class="nc" id="L104">            PreparedStatement stmt = this.connection.prepareStatement(sql);</span>
+            
+<span class="nc" id="L106">            stmt.setString(1, plantacao.getTipo());</span>
+<span class="nc" id="L107">            stmt.setInt(2, plantacao.getQuantidade());</span>
+<span class="nc" id="L108">            stmt.setString(3, plantacao.getRegiao().getEndereco());</span>
+<span class="nc" id="L109">            stmt.setFloat(4, plantacao.getRegiao().getArea());</span>
+<span class="nc" id="L110">            stmt.setInt(5, plantacao.getIdPlantacao());</span>
+            
+<span class="nc" id="L112">            stmt.execute();</span>
+<span class="nc" id="L113">            stmt.close();</span>
+            
+<span class="nc" id="L115">        }catch(SQLException e){</span>
+<span class="nc" id="L116">            throw new RuntimeException(e);</span>
+<span class="nc" id="L117">        }</span>
+<span class="nc" id="L118">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

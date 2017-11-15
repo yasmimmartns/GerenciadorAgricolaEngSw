@@ -1,8 +1,17 @@
 <?xml version="1.0"?>
 <data grt_format="2.0" document_type="MySQL Workbench Application State" version="1.0.0">
-  <value _ptr_="0x1e8a790" type="dict">
-    <value type="string" key="geometry:MainWindow">47 24 1319 744</value>
+  <value _ptr_="0x30a2a70" type="dict">
+    <value type="string" key="geometry:MainWindow">47 24 1319 753</value>
     <value type="string" key="global:last-run-as">6.3.9</value>
     <value type="int" key="home:WBSampleModelFilesShown">1</value>
+    <value type="int" key="scripting-shell:classes-splitter">513</value>
+    <value type="int" key="scripting-shell:global-splitter">513</value>
+    <value type="int" key="scripting-shell:height">1</value>
+    <value type="int" key="scripting-shell:left">-1</value>
+    <value type="int" key="scripting-shell:main-splitter">496</value>
+    <value type="int" key="scripting-shell:modules-splitter">513</value>
+    <value type="int" key="scripting-shell:snippet-splitter">200</value>
+    <value type="int" key="scripting-shell:top">-1</value>
+    <value type="int" key="scripting-shell:width">1</value>
   </value>
 </data>

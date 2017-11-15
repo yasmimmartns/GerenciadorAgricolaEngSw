@@ -44,10 +44,6 @@ public class CadastroPlantacao extends HttpServlet {
 
                 Plantacao plantacao = new Plantacao();
                 Regiao regiao = new Regiao();
-
-                //Captura os dados de regiao do form
-                regiao.setEndereco(request.getParameter("endereco"));
-                regiao.setArea(Float.parseFloat(request.getParameter("area")));
                 
                 plantacao.setRegiao(regiao);
 
@@ -57,9 +53,7 @@ public class CadastroPlantacao extends HttpServlet {
 
                 //Instancia as classes de DAO para plantacao e região 
                 //e chama o método para inserí-los no BD
-                RegiaoDAO regiaoDao = new RegiaoDAO();
-                regiaoDao.adiciona(regiao);
-                
+                                
                 PlantacaoDAO plantDao = new PlantacaoDAO();
                 plantDao.adiciona(plantacao);
                 

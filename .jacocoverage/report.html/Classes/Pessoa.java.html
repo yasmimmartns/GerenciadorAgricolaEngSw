@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Pessoa.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;GerenciadorAgricola&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">Classes</a> &gt; <span class="el_source">Pessoa.java</span></div><h1>Pessoa.java</h1><pre class="source lang-java linenums">package Classes;
+
+
+import Classes.Validacoes;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+/**
+ *
+ * @author yasmim
+ */
+
+<span class="fc" id="L13">public class Pessoa{</span>
+    private int id;
+    private String telefone;
+    private String email;
+    private String CEP;
+    private String logradouro;
+    private String complemento;
+    private int numero;
+    private String bairro;
+    private String cidade;
+    private String estado;
+    private String pais;
+    
+    // Instância para validações de senha e e-mail
+<span class="fc" id="L27">    Validacoes valida = new Validacoes();</span>
+
+    public int getId() {
+<span class="fc" id="L30">        return id;</span>
+    }
+
+    public void setId(int id) throws Exception {
+<span class="pc bpc" id="L34" title="1 of 2 branches missed.">        if(id &gt;= 0)</span>
+<span class="fc" id="L35">            this.id = id;</span>
+        else
+<span class="nc" id="L37">            throw new Exception(&quot;ID Invalido&quot;);</span>
+<span class="fc" id="L38">    }</span>
+
+    public String getTelefone() {
+<span class="fc" id="L41">        return telefone;</span>
+    }
+
+    public void setTelefone(String telefone) throws Exception {
+<span class="fc" id="L45">        telefone = telefone.replaceAll(&quot;\\D+&quot;,&quot;&quot;);</span>
+<span class="pc bpc" id="L46" title="1 of 4 branches missed.">        if((telefone.length() == 10) || (telefone.length() == 11))</span>
+<span class="fc" id="L47">            this.telefone = telefone;</span>
+        else
+<span class="nc" id="L49">            throw new Exception(&quot;Telefone Invalido&quot;);</span>
+<span class="fc" id="L50">    }</span>
+
+    public String getEmail() {
+<span class="fc" id="L53">        return email;</span>
+    }
+
+    public void setEmail(String email) throws Exception {
+<span class="pc bpc" id="L57" title="1 of 2 branches missed.">        if(valida.validaEmail(email)){</span>
+<span class="fc" id="L58">            this.email = email;</span>
+        }
+        else
+<span class="nc" id="L61">            throw new Exception(&quot;E-mail Invalido&quot;);</span>
+<span class="fc" id="L62">    }</span>
+
+    public String getCEP() {
+<span class="fc" id="L65">        return CEP;</span>
+    }
+
+    public void setCEP(String CEP) throws Exception {
+<span class="fc" id="L69">        CEP = CEP.replaceAll(&quot;\\D+&quot;,&quot;&quot;);</span>
+<span class="pc bpc" id="L70" title="1 of 2 branches missed.">        if(CEP.length() == 8)</span>
+<span class="fc" id="L71">            this.CEP = CEP;</span>
+        else
+<span class="nc" id="L73">            throw new Exception(&quot;CEP Invalido&quot;);</span>
+<span class="fc" id="L74">    }</span>
+    
+    public String getLogradouro() {
+<span class="fc" id="L77">        return logradouro;</span>
+    }
+
+    public void setLogradouro(String logradouro) throws Exception {
+<span class="pc bpc" id="L81" title="1 of 2 branches missed.">        if(logradouro.isEmpty())</span>
+<span class="nc" id="L82">            throw new Exception(&quot;Logradouro Invalido&quot;);</span>
+<span class="pc bpc" id="L83" title="1 of 2 branches missed.">        else if(logradouro.length() &lt; 45)</span>
+<span class="fc" id="L84">            this.logradouro = logradouro;</span>
+        else
+<span class="nc" id="L86">            throw new Exception(&quot;Logradouro maior que 45 caracteres&quot;);</span>
+<span class="fc" id="L87">    }</span>
+
+    public String getComplemento() {
+<span class="fc" id="L90">        return complemento;</span>
+    }
+
+    public void setComplemento(String complemento) throws Exception {
+<span class="pc bpc" id="L94" title="2 of 4 branches missed.">        if(complemento.isEmpty() || complemento.length() &lt; 45)</span>
+<span class="fc" id="L95">            this.complemento = complemento;</span>
+        else
+<span class="nc" id="L97">            throw new Exception(&quot;Complemento maior que 45 caracteres&quot;);</span>
+<span class="fc" id="L98">    }</span>
+
+    public int getNumero() {
+<span class="fc" id="L101">        return numero;</span>
+    }
+
+    public void setNumero(int numero) throws Exception {
+<span class="pc bpc" id="L105" title="1 of 2 branches missed.">        if(numero &gt; 0)</span>
+<span class="fc" id="L106">            this.numero = numero;</span>
+        else
+<span class="nc" id="L108">            throw new Exception(&quot;Numero Invalido&quot;);</span>
+<span class="fc" id="L109">    }</span>
+
+    public String getBairro() {
+<span class="fc" id="L112">        return bairro;</span>
+    }
+
+    public void setBairro(String bairro) throws Exception {
+<span class="pc bpc" id="L116" title="1 of 2 branches missed.">        if(bairro.isEmpty())</span>
+<span class="nc" id="L117">            throw new Exception(&quot;Bairro Invalido&quot;);</span>
+<span class="pc bpc" id="L118" title="1 of 2 branches missed.">        else if(bairro.length() &lt; 45)</span>
+<span class="fc" id="L119">            this.bairro = bairro;</span>
+        else
+<span class="nc" id="L121">            throw new Exception(&quot;Bairro maior que 45 caracteres&quot;);</span>
+<span class="fc" id="L122">    }</span>
+
+    public String getCidade() {
+<span class="fc" id="L125">        return cidade;</span>
+    }
+
+    public void setCidade(String cidade) throws Exception {
+<span class="pc bpc" id="L129" title="1 of 2 branches missed.">        if(cidade.isEmpty())</span>
+<span class="nc" id="L130">            throw new Exception(&quot;Cidade Invalida&quot;);</span>
+<span class="pc bpc" id="L131" title="1 of 2 branches missed.">        else if(cidade.length() &lt; 45)</span>
+<span class="fc" id="L132">            this.cidade = cidade;</span>
+        else
+<span class="nc" id="L134">            throw new Exception(&quot;Cidade maior que 45 caracteres&quot;);</span>
+<span class="fc" id="L135">    }</span>
+
+    public String getEstado() {
+<span class="fc" id="L138">        return estado;</span>
+    }
+
+    public void setEstado(String estado) throws Exception {
+<span class="pc bpc" id="L142" title="1 of 2 branches missed.">        if(estado.isEmpty())</span>
+<span class="nc" id="L143">            throw new Exception(&quot;Estado Invalido&quot;);</span>
+<span class="pc bpc" id="L144" title="1 of 2 branches missed.">        else if(estado.length() &lt; 45)</span>
+<span class="fc" id="L145">            this.estado = estado;</span>
+        else
+<span class="nc" id="L147">            throw new Exception(&quot;Estado maior que 45 caracteres&quot;);</span>
+<span class="fc" id="L148">    }</span>
+
+    public String getPais() {
+<span class="nc" id="L151">        return pais;</span>
+    }
+
+    public void setPais(String pais) {
+<span class="fc" id="L155">        this.pais = pais;</span>
+<span class="fc" id="L156">    }</span>
+    
+<span class="fc" id="L158">    Pattern PALAVRA = Pattern.compile (&quot;^[A-z ]{1,19}&quot;);</span>
+<span class="fc" id="L159">    Pattern PALAVRA2 = Pattern.compile (&quot;^[A-Z a-z]{1,49}&quot;);</span>
+<span class="fc" id="L160">    Pattern PALAVRA3 = Pattern.compile (&quot;^[A-z 0-9]{1,19}&quot;);</span>
+<span class="fc" id="L161">    Pattern PALAVRA4 = Pattern.compile (&quot;^[A-Z a-z0-9]{1,49}&quot;); </span>
+    
+    public boolean validaEndereco (String end) {
+<span class="fc" id="L164">        boolean verifica = false;</span>
+<span class="fc bfc" id="L165" title="All 4 branches covered.">        if ((end != null) &amp;&amp; (end.length() &gt; 0)) {</span>
+<span class="fc" id="L166">            Matcher matcher = PALAVRA2.matcher(end);</span>
+<span class="fc bfc" id="L167" title="All 2 branches covered.">            if (matcher.matches())</span>
+<span class="fc" id="L168">                verifica = true;</span>
+        }
+<span class="fc" id="L170">        return verifica;</span>
+    }
+    
+    public boolean validaLogradouro (String log) {
+<span class="fc" id="L174">        boolean verifica = false;</span>
+<span class="fc bfc" id="L175" title="All 4 branches covered.">        if ((log != null) &amp;&amp; (log.length() &gt; 0)) {</span>
+<span class="fc" id="L176">            Matcher matcher = PALAVRA4.matcher(log);</span>
+<span class="fc bfc" id="L177" title="All 2 branches covered.">            if (matcher.matches())</span>
+<span class="fc" id="L178">                verifica = true;</span>
+        }
+<span class="fc" id="L180">        return verifica;</span>
+    }
+    
+    public boolean validaComplemento (String comp) {
+<span class="fc" id="L184">        boolean verifica = false;</span>
+<span class="fc bfc" id="L185" title="All 4 branches covered.">        if ((comp != null) &amp;&amp; (comp.length() &gt; 0)) {</span>
+<span class="fc" id="L186">            Matcher matcher = PALAVRA3.matcher(comp);</span>
+<span class="fc bfc" id="L187" title="All 2 branches covered.">            if (matcher.matches())</span>
+<span class="fc" id="L188">                verifica = true;</span>
+        }
+<span class="fc" id="L190">        return verifica;</span>
+    }
+    
+    public boolean validaNumero (int num) {
+<span class="fc bfc" id="L194" title="All 4 branches covered.">        return ((num &gt; 0) &amp;&amp; (num &lt; 99999));</span>
+    }
+    
+    public boolean validaBairro (String bairro) {
+<span class="fc" id="L198">        boolean verifica = false;</span>
+<span class="fc bfc" id="L199" title="All 4 branches covered.">        if ((bairro != null) &amp;&amp; (bairro.length() &gt; 0)) {</span>
+<span class="fc" id="L200">            Matcher matcher = PALAVRA2.matcher(bairro);</span>
+<span class="fc bfc" id="L201" title="All 2 branches covered.">            if (matcher.matches())</span>
+<span class="fc" id="L202">                verifica = true;</span>
+        }
+<span class="fc" id="L204">        return verifica;</span>
+    }
+    
+    public boolean validaCidade (String cidade) {
+<span class="fc" id="L208">        boolean verifica = false;</span>
+<span class="fc bfc" id="L209" title="All 4 branches covered.">        if ((cidade != null) &amp;&amp; (cidade.length() &gt; 0)) {</span>
+<span class="fc" id="L210">            Matcher matcher = PALAVRA.matcher(cidade);</span>
+<span class="fc bfc" id="L211" title="All 2 branches covered.">            if (matcher.matches())</span>
+<span class="fc" id="L212">                verifica = true;</span>
+        }
+<span class="fc" id="L214">        return verifica;</span>
+    }
+    
+    public boolean validaCEP (String cep) {
+<span class="fc" id="L218">        boolean verifica = false;</span>
+<span class="fc bfc" id="L219" title="All 6 branches covered.">        if ((cep != null) &amp;&amp; (cep.length() &gt; 7) &amp;&amp; (cep.length() &lt; 11)) {</span>
+<span class="fc" id="L220">            String CEP1 = &quot;^[0-9]{2}\\.[0-9]{3}\\-[0-9]{3}$&quot;;</span>
+<span class="fc" id="L221">            String CEP2 = &quot;^[0-9]{5}\\-[0-9]{3}$&quot;;</span>
+<span class="fc" id="L222">            String CEP3 = &quot;^[0-9]{8}$&quot;;</span>
+<span class="fc" id="L223">            Pattern pattern1 = Pattern.compile(CEP1, Pattern.CASE_INSENSITIVE);</span>
+<span class="fc" id="L224">            Matcher matcher1 = pattern1.matcher(cep);</span>
+<span class="fc" id="L225">            Pattern pattern2 = Pattern.compile(CEP2, Pattern.CASE_INSENSITIVE);</span>
+<span class="fc" id="L226">            Matcher matcher2 = pattern2.matcher(cep);</span>
+<span class="fc" id="L227">            Pattern pattern3 = Pattern.compile(CEP3, Pattern.CASE_INSENSITIVE);</span>
+<span class="fc" id="L228">            Matcher matcher3 = pattern3.matcher(cep);</span>
+            
+<span class="fc bfc" id="L230" title="All 2 branches covered.">            if (matcher1.matches())</span>
+<span class="fc" id="L231">                verifica = true;</span>
+<span class="fc bfc" id="L232" title="All 2 branches covered.">            else if (matcher2.matches())</span>
+<span class="fc" id="L233">                verifica = true;</span>
+<span class="pc bpc" id="L234" title="1 of 2 branches missed.">            else if (matcher3.matches())</span>
+<span class="fc" id="L235">                verifica = true;</span>
+        }
+<span class="fc" id="L237">        return verifica;</span>
+    }
+    
+    public boolean validaEstado (String estado) {
+<span class="fc" id="L241">        boolean verifica = false;</span>
+<span class="fc bfc" id="L242" title="All 4 branches covered.">        if ((estado != null) &amp;&amp; (estado.length() &gt; 0)) {</span>
+<span class="fc" id="L243">            Matcher matcher = PALAVRA.matcher(estado);</span>
+<span class="fc bfc" id="L244" title="All 2 branches covered.">            if (matcher.matches())</span>
+<span class="fc" id="L245">                verifica = true;</span>
+        }
+<span class="fc" id="L247">        return verifica;</span>
+    }
+    
+    public boolean validaPais (String pais) {
+        
+<span class="fc" id="L252">        boolean verifica = false;</span>
+<span class="fc bfc" id="L253" title="All 4 branches covered.">        if ((pais != null) &amp;&amp; (pais.length() &gt; 0)) {</span>
+<span class="fc" id="L254">            Matcher matcher = PALAVRA.matcher(pais);</span>
+<span class="fc bfc" id="L255" title="All 2 branches covered.">            if (matcher.matches())</span>
+<span class="fc" id="L256">                verifica = true;</span>
+        }
+<span class="fc" id="L258">        return verifica;</span>
+    }
+    
+    public boolean validaTelefone (String tel) {
+<span class="fc" id="L262">        boolean verifica = false;</span>
+<span class="pc bpc" id="L263" title="2 of 4 branches missed.">        if ((tel != null) &amp;&amp; (tel.length() &gt; 0)) {</span>
+<span class="fc" id="L264">            String exp1 = &quot;^\\([1-9]{2}\\)[9]{0,1}[6-9]{1}[0-9]{3}\\-[0-9]{4}$&quot;;</span>
+<span class="fc" id="L265">            String exp2 = &quot;^[1-9]{2}[9]{0,1}[6-9]{1}[0-9]{7}$&quot;;</span>
+<span class="fc" id="L266">            Pattern TELEFONE1 = Pattern.compile(exp1, Pattern.CASE_INSENSITIVE);</span>
+<span class="fc" id="L267">            Matcher matcher1 = TELEFONE1.matcher(tel);</span>
+<span class="fc" id="L268">            Pattern TELEFONE2 = Pattern.compile(exp2, Pattern.CASE_INSENSITIVE);</span>
+<span class="fc" id="L269">            Matcher matcher2 = TELEFONE2.matcher(tel);</span>
+
+<span class="fc bfc" id="L271" title="All 2 branches covered.">            if (matcher1.matches()) {</span>
+<span class="fc" id="L272">                verifica = true;</span>
+            }
+<span class="fc bfc" id="L274" title="All 2 branches covered.">            else if (matcher2.matches())</span>
+<span class="fc" id="L275">                verifica = true;</span>
+        }
+<span class="fc" id="L277">        return verifica;</span>
+    }
+    
+    public boolean validaEmail(String email) {
+        
+<span class="fc" id="L282">        boolean verifica = false;</span>
+<span class="pc bpc" id="L283" title="1 of 4 branches missed.">        if (email != null &amp;&amp; email.length() &gt; 0) {</span>
+<span class="fc" id="L284">            String exp = &quot;^[A-Za-z0-9+_.-]{5,30}+@[A-Za-z0-9+_.-]{2,}\\.[A-Za-z0-9+_.-]{3}$&quot;;</span>
+<span class="fc" id="L285">            Pattern EMAIL = Pattern.compile(exp, Pattern.CASE_INSENSITIVE);</span>
+<span class="fc" id="L286">            Matcher matcher = EMAIL.matcher(email);</span>
+<span class="fc bfc" id="L287" title="All 2 branches covered.">            if (matcher.matches()) {</span>
+<span class="fc" id="L288">                verifica = true;</span>
+            }
+        }
+<span class="fc" id="L291">        return verifica;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>CadastroPlantacao.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;GerenciadorAgricola&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">Servlet</a> &gt; <span class="el_source">CadastroPlantacao.java</span></div><h1>CadastroPlantacao.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Servlet;
+
+import Classes.Plantacao;
+import Classes.Regiao;
+import DAOclasses.PlantacaoDAO;
+import DAOclasses.RegiaoDAO;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ *
+ * @author yasmim
+ */
+
+<span class="nc" id="L26">public class CadastroPlantacao extends HttpServlet {</span>
+
+    /**
+     * Processes requests for both HTTP &lt;code&gt;GET&lt;/code&gt; and &lt;code&gt;POST&lt;/code&gt;
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        try {        
+<span class="nc" id="L40">                response.setContentType(&quot;text/html;charset=UTF-8&quot;);</span>
+<span class="nc" id="L41">                request.setCharacterEncoding(&quot;UTF-8&quot;);</span>
+
+<span class="nc" id="L43">                PrintWriter out = response.getWriter();</span>
+
+<span class="nc" id="L45">                Plantacao plantacao = new Plantacao();</span>
+<span class="nc" id="L46">                Regiao regiao = new Regiao();</span>
+
+                //Captura os dados de regiao do form
+<span class="nc" id="L49">                regiao.setEndereco(request.getParameter(&quot;endereco&quot;));</span>
+<span class="nc" id="L50">                regiao.setArea(Float.parseFloat(request.getParameter(&quot;area&quot;)));</span>
+                
+<span class="nc" id="L52">                plantacao.setRegiao(regiao);</span>
+
+                //Captura os dados de plantacao do form
+<span class="nc" id="L55">                plantacao.setTipo(request.getParameter(&quot;tipo&quot;));</span>
+<span class="nc" id="L56">                plantacao.setQuantidade(Integer.parseInt(request.getParameter(&quot;quantidade&quot;)));</span>
+
+                //Instancia as classes de DAO para plantacao e região 
+                //e chama o método para inserí-los no BD
+<span class="nc" id="L60">                RegiaoDAO regiaoDao = new RegiaoDAO();</span>
+<span class="nc" id="L61">                regiaoDao.adiciona(regiao);</span>
+                
+<span class="nc" id="L63">                PlantacaoDAO plantDao = new PlantacaoDAO();</span>
+<span class="nc" id="L64">                plantDao.adiciona(plantacao);</span>
+                
+<span class="nc" id="L66">                String contextPath= &quot;http://localhost:8084/GerenciadorAgricola/dashboard.html&quot;;</span>
+<span class="nc" id="L67">                response.sendRedirect(response.encodeRedirectURL(contextPath));</span>
+        } 
+<span class="nc" id="L69">        catch (Exception ex) {</span>
+<span class="nc" id="L70">            Logger.getLogger(CadastroInsumo.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L71">        }    </span>
+<span class="nc" id="L72">    }</span>
+
+
+    // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;HttpServlet methods. Click on the + sign on the left to edit the code.&quot;&gt;
+    /**
+     * Handles the HTTP &lt;code&gt;GET&lt;/code&gt; method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+<span class="nc" id="L87">        processRequest(request, response);</span>
+<span class="nc" id="L88">    }</span>
+
+    /**
+     * Handles the HTTP &lt;code&gt;POST&lt;/code&gt; method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+<span class="nc" id="L101">        processRequest(request, response);</span>
+<span class="nc" id="L102">    }</span>
+
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
+    @Override
+    public String getServletInfo() {
+<span class="nc" id="L111">        return &quot;Short description&quot;;</span>
+    }// &lt;/editor-fold&gt;
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>
