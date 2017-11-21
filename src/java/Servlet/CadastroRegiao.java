@@ -42,10 +42,10 @@ public class CadastroRegiao extends HttpServlet {
 
             Regiao regiao = new Regiao();
             regiao.setEndereco(request.getParameter("endereco"));
-            out.println(regiao.getEndereco());
+            regiao.setArea(Float.parseFloat(request.getParameter("area"))); 
             
-            
-            regiao.setArea(Float.parseFloat(request.getParameter("area")));           
+            RegiaoDAO insumoDao = new RegiaoDAO();
+            insumoDao.adiciona(regiao);
            
             String contextPath= "http://localhost:8084/GerenciadorAgricola/dashboard.html";
             response.sendRedirect(response.encodeRedirectURL(contextPath));

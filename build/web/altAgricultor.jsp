@@ -1,3 +1,28 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.text.DateFormat"%>
+<%@page import="java.util.Date"%>
+<%@page import="Classes.Agricultor"%>
+<%@page import="Classes.Pessoa"%>
+<%@page import="Classes.PessoaFisica"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<jsp:useBean id="daoAg" class="DAOclasses.AgricultorDAO"/>
+<%@ page import= "DAOclasses.AgricultorDAO" %>
+<jsp:useBean id="daoP" class="DAOclasses.PessoaDAO"/>
+<%@ page import= "DAOclasses.PessoaDAO" %>
+<jsp:useBean id="daoPF" class="DAOclasses.PessoaFisicaDAO"/>
+<%@ page import= "DAOclasses.PessoaFisicaDAO" %>
+
+<%
+String id = request.getParameter(0);
+Agricultor a = daoAg.getAgricultor(id);
+String enderecoRegiao = r.getEndereco();
+request.setAttribute("enderecoRegiao", enderecoRegiao);
+float areaRegiao = r.getArea();
+request.setAttribute("areaRegiao", areaRegiao);
+%>
+
 <!doctype html>
 <html lang="en">
 <head>

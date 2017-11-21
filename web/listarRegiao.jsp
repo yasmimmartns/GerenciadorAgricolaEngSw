@@ -61,7 +61,7 @@
                             <p>Cadastro</p>
                         </a>
                         <ul class="collapse" id="submenu1">
-                          <li><a href="cadPlantacao.html">Plantação</a>
+                          <li><a href="cadPlantacao.jsp">Plantação</a>
                           </li>
                           <li><a href="cadInsumo.html">Insumo</a>
                           </li>

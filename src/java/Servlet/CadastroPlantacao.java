@@ -43,20 +43,15 @@ public class CadastroPlantacao extends HttpServlet {
                 PrintWriter out = response.getWriter();
 
                 Plantacao plantacao = new Plantacao();
-                Regiao regiao = new Regiao();
                 
                 plantacao.setRegiao(regiao);
-
-                //Captura os dados de plantacao do form
+                
                 plantacao.setTipo(request.getParameter("tipo"));
                 plantacao.setQuantidade(Integer.parseInt(request.getParameter("quantidade")));
-
-                //Instancia as classes de DAO para plantacao e região 
-                //e chama o método para inserí-los no BD
-                                
-                PlantacaoDAO plantDao = new PlantacaoDAO();
-                plantDao.adiciona(plantacao);
                 
+                PlantacaoDAO plantacaoDao = new PlantacaoDAO();
+                plantacaoDao.adiciona(plantacao);
+
                 String contextPath= "http://localhost:8084/GerenciadorAgricola/dashboard.html";
                 response.sendRedirect(response.encodeRedirectURL(contextPath));
         } 

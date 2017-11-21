@@ -74,6 +74,8 @@
                             <p>Listar</p>
                         </a>
                         <ul class="collapse" id="submenu2">
+                            <li><a href="listarRegiao.jsp">Regiao</a>
+                            </li>
                             <li><a href="listarPlantacao.jsp">Plantação</a>
                             </li>
                             <li><a href="listarInsumos.jsp">Insumo</a>

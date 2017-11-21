@@ -77,9 +77,11 @@ request.setAttribute("areaRegiao", areaRegiao);
                         <p>Cadastro</p>
                     </a>
                     <ul class="collapse" id="submenu1">
-                      <li><a href="cadPlantacao.html">Plantação</a>
+                      <li><a href="cadPlantacao.jsp">Plantação</a>
                       </li>
                       <li><a href="cadInsumo.html">Insumo</a>
+                      </li>
+                      <li><a href="cadRegiao.html">Região</a>
                       </li>
                     </ul>
                 </li>
@@ -89,6 +91,8 @@ request.setAttribute("areaRegiao", areaRegiao);
                         <p>Listar</p>
                     </a>
                     <ul class="collapse" id="submenu2">
+                        <li><a href="listarRegiao.jsp">Região</a>
+                        </li>
                         <li><a href="listarPlantacao.jsp">Plantação</a>
                         </li>
                         <li><a href="listarInsumo.jsp">Insumo</a>
