@@ -163,8 +163,8 @@ request.setAttribute("areaRegiao", areaRegiao);
                                         </div>
                                          <div class="col-md-2">
                                             <div class="form-group">
-                                                <label for="disabled">Região</label>
-                                                <input disabled id="regiao" name="regiao" class="form-control" value="${idRegiao}"/>
+                                                <label>Região</label>
+                                                <input readonly="true" id="regiao" name="regiao" class="form-control" value="${idRegiao}"/>
                                             </div>
                                         </div>
                                         <div class="col-md-1">
@@ -193,13 +193,13 @@ request.setAttribute("areaRegiao", areaRegiao);
                                                         <div class="row">
                                                             <div class="col-md-8">
                                                                 <div class="form-group">
-                                                                    <label for="disabled">Endereço</label>
+                                                                    <label readonly="true">Endereço</label>
                                                                     <input disabled type="text" id="endereco" name="endereco" class="form-control" value="${enderecoRegiao}"/>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
-                                                                    <label for="disabled">Área (m²)</label>
+                                                                    <label readonly="true">Área (m²)</label>
                                                                     <input disabled type="text" id="area" name="area" class="form-control" value="${areaRegiao}"/>
                                                                 </div>
                                                             </div>

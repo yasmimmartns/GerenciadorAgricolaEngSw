@@ -2,25 +2,48 @@
 <%@page import="java.text.DateFormat"%>
 <%@page import="java.util.Date"%>
 <%@page import="Classes.Agricultor"%>
-<%@page import="Classes.Pessoa"%>
-<%@page import="Classes.PessoaFisica"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:useBean id="daoAg" class="DAOclasses.AgricultorDAO"/>
-<%@ page import= "DAOclasses.AgricultorDAO" %>
-<jsp:useBean id="daoP" class="DAOclasses.PessoaDAO"/>
+<jsp:useBean id="dao" class="DAOclasses.AgricultorDAO"/>
 <%@ page import= "DAOclasses.PessoaDAO" %>
-<jsp:useBean id="daoPF" class="DAOclasses.PessoaFisicaDAO"/>
-<%@ page import= "DAOclasses.PessoaFisicaDAO" %>
 
 <%
-String id = request.getParameter(0);
-Agricultor a = daoAg.getAgricultor(id);
-String enderecoRegiao = r.getEndereco();
-request.setAttribute("enderecoRegiao", enderecoRegiao);
-float areaRegiao = r.getArea();
-request.setAttribute("areaRegiao", areaRegiao);
+String id = "0";
+request.setAttribute("idAgricultor", id);
+Agricultor a = dao.getAgricultor(id);
+String nomeAgricultor = a.getPf().getNome();
+request.setAttribute("nomeAgricultor", nomeAgricultor);
+String CPFAgricultor = a.getPf().getCPF();
+request.setAttribute("CPFAgricultor", CPFAgricultor);
+String RGAgricultor = a.getPf().getRG();
+request.setAttribute("RGAgricultor", RGAgricultor);
+Date dataBanco = a.getPf().getDataNascimento();
+DateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy");
+String dataAgricultor = formatoData.format(dataBanco);
+request.setAttribute("dataAgricultor", dataAgricultor);
+String generoAgricultor = a.getPf().getSexo();
+request.setAttribute("generoAgricultor", generoAgricultor);
+String cadProAgricultor = a.getCadPro();
+request.setAttribute("cadProAgricultor", cadProAgricultor);
+String telefoneAgricultor = a.getPf().getPessoa().getTelefone();
+request.setAttribute("telefoneAgricultor", telefoneAgricultor);
+String emailAgricultor = a.getPf().getPessoa().getEmail();
+request.setAttribute("emailAgricultor", emailAgricultor);
+String logradouroAgricultor = a.getPf().getPessoa().getLogradouro();
+request.setAttribute("logradouroAgricultor", logradouroAgricultor);
+int numeroLogradouroAgricultor = a.getPf().getPessoa().getNumero();
+request.setAttribute("numeroLogradouroAgricultor", numeroLogradouroAgricultor);
+String complementoLogradouroAgricultor = a.getPf().getPessoa().getComplemento();
+request.setAttribute("complementoLogradouroAgricultor", complementoLogradouroAgricultor);
+String bairroAgricultor = a.getPf().getPessoa().getBairro();
+request.setAttribute("bairroAgricultor", bairroAgricultor);
+String CEPAgricultor = a.getPf().getPessoa().getCEP();
+request.setAttribute("CEPAgricultor", CEPAgricultor);
+String cidadeAgricultor = a.getPf().getPessoa().getCidade();
+request.setAttribute("cidadeAgricultor", cidadeAgricultor);
+String estadoAgricultor = a.getPf().getPessoa().getEstado();
+request.setAttribute("estadoAgricultor", estadoAgricultor);
 %>
 
 <!doctype html>
@@ -155,19 +178,19 @@ request.setAttribute("areaRegiao", areaRegiao);
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label>CAD-PRO</label>
-                                                <input type="text" id="cadpro" name="cadpro" class="form-control" placeholder="1012345678">
+                                                <input readonly type="text" id="cadpro" name="cadpro" class="form-control" placeholder="1012345678" value="${cadProAgricultor}"/>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Nome</label>
-                                                <input type="txt" id="nome" name="nome" class="form-control">
+                                                <input readonly type="txt" id="nome" name="nome" class="form-control" value="${nomeAgricultor}"/>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>Email</label>
-                                                <input type="txt" id="email" name="email" class="form-control" placeholder="usuario@provedor.com">
+                                                <input type="txt" id="email" name="email" class="form-control" placeholder="usuario@provedor.com" value="${emailAgricultor}"/>
                                             </div>
                                         </div>
                                     </div>
@@ -175,49 +198,45 @@ request.setAttribute("areaRegiao", areaRegiao);
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>CPF</label>
-                                                <input type="text" id="cpf" name="cpf" class="form-control" placeholder="439.564.661-09">
+                                                <input readonly type="text" id="cpf" name="cpf" class="form-control mask-CPF" placeholder="439.564.661-09" value="${CPFAgricultor}"/>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>RG</label>
-                                                <input type="text" id="rg" name="rg" class="form-control" placeholder="52.689.231-0">
+                                                <input readonly type="text" id="rg" name="rg" class="form-control mask-RG" placeholder="52.689.231-0" value="${RGAgricultor}"/>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>Data de Nascimento</label>
-                                                <input type="text" id="nascimento" name="nascimento" class="form-control" placeholder="29/05/1978">
+                                                <input readonly type="text" id="nascimento" name="nascimento" class="form-control"  placeholder="29/05/1978" value="${dataAgricultor}"/>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>Telefone</label>
-                                                <input type="text" id="telefone" name="telefone" class="form-control mask-fone" placeholder="(43)3235-2969">
+                                                <input type="text" id="telefone" name="telefone" class="form-control mask-phone" placeholder="(43)3235-2969" value="${telefoneAgricultor}"/>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label for="sel1">Sexo</label>
-                                                <select class="form-control" name="sexo" id="sexo">
-                                                    <option>Feminino</option>
-                                                    <option>Masculino</option>
-                                                    <option>Outro</option>
-                                                  </select>
+                                                <label>Sexo</label>
+                                                <input readonly class="form-control" name="sexo" id="sexo" value="${generoAgricultor}"/>
                                             </div>
                                         </div>
                                         <div class="col-md-8">
                                             <div class="form-group">
                                                 <label>Endereço</label>
-                                                <input type="text" id="logradouro" name="logradouro" class="form-control" placeholder="Rua das Rosas">
+                                                <input type="text" id="logradouro" name="logradouro" class="form-control" placeholder="Rua das Rosas" value="${logradouroAgricultor}"/>
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label>Número</label>
-                                                <input type="text" id="numero" name="numero" class="form-control" placeholder="416">
+                                                <input type="text" id="numero" name="numero" class="form-control" placeholder="416" value="${numeroLogradouroAgricultor}"/>
                                             </div>
                                         </div>
                                     </div>
@@ -226,13 +245,13 @@ request.setAttribute("areaRegiao", areaRegiao);
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Complemento</label>
-                                                <input type="text" id="complemento" name="complemento" class="form-control" placeholder="Apto 52 Bloco C">
+                                                <input type="text" id="complemento" name="complemento" class="form-control" placeholder="Apto 52 Bloco C" value="${complementoLogradouroAgricultor}"/>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Bairro</label>
-                                                <input type="text" id="bairro" name="bairro" class="form-control" placeholder="Centro">
+                                                <input type="text" id="bairro" name="bairro" class="form-control" placeholder="Centro" value="${bairroAgricultor}"/>
                                             </div>
                                         </div>
                                     </div>
@@ -241,13 +260,13 @@ request.setAttribute("areaRegiao", areaRegiao);
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Cidade</label>
-                                                <input type="txt" id="cidade" name="cidade" class="form-control" placeholder="Cornélio Procópio">
+                                                <input type="txt" id="cidade" name="cidade" class="form-control" placeholder="Cornélio Procópio" value="${cidadeAgricultor}"/>
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="sel2">Estado</label>
-                                                <select id="estado" name="estado" class="form-control">
+                                                <select id="estado" name="estado" class="form-control" value="${estadoAgricultor}"/>
 													<option>AC</option>	 
 													<option>AL</option>
 													<option>AP</option>
@@ -281,7 +300,7 @@ request.setAttribute("areaRegiao", areaRegiao);
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>CEP</label>
-                                                <input type="txt" id="cep" name="cep" class="form-control" placeholder="86.300-000">
+                                                <input type="txt" id="cep" name="cep" class="form-control mask-CEP" placeholder="86.300-000">
                                             </div>
                                         </div>
                                     </div>

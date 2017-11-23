@@ -15,7 +15,7 @@ public class Plantacao {
     private int idPlantacao;
     private String tipo;
     private int quantidade;
-    private Regiao regiao;
+    private int idRegiao;
 
     public int getIdPlantacao() {
         return idPlantacao;
@@ -41,12 +41,12 @@ public class Plantacao {
         this.quantidade = quantidade;
     }
     
-    public Regiao getRegiao() {
-        return regiao;
+    public int getIdRegiao() {
+        return idRegiao;
     }
 
-    public void setRegiao(Regiao regiao) {
-        this.regiao = regiao;
+    public void setIdRegiao(int idRegiao) {
+        this.idRegiao = idRegiao;
     }
     
     Pattern PALAVRA = Pattern.compile ("^[A-z ]{1,19}");

@@ -6,9 +6,7 @@
 package Servlet;
 
 import Classes.Plantacao;
-import Classes.Regiao;
 import DAOclasses.PlantacaoDAO;
-import DAOclasses.RegiaoDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.logging.Level;
@@ -44,10 +42,9 @@ public class CadastroPlantacao extends HttpServlet {
 
                 Plantacao plantacao = new Plantacao();
                 
-                plantacao.setRegiao(regiao);
-                
                 plantacao.setTipo(request.getParameter("tipo"));
                 plantacao.setQuantidade(Integer.parseInt(request.getParameter("quantidade")));
+                plantacao.setIdRegiao(Integer.parseInt(request.getParameter("regiao")));
                 
                 PlantacaoDAO plantacaoDao = new PlantacaoDAO();
                 plantacaoDao.adiciona(plantacao);
@@ -56,9 +53,11 @@ public class CadastroPlantacao extends HttpServlet {
                 response.sendRedirect(response.encodeRedirectURL(contextPath));
         } 
         catch (Exception ex) {
-            Logger.getLogger(CadastroInsumo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CadastroPlantacao.class.getName()).log(Level.SEVERE, null, ex);
         }    
     }
+    
+    
 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -44,15 +44,11 @@ public class EditaPlantacao extends HttpServlet {
       
         Plantacao plantacao = new Plantacao();
 
-        Regiao r = new Regiao();
-        plantacao.setRegiao(r);
-
-        plantacao.getRegiao().setEndereco(endereco);
-        plantacao.getRegiao().setArea(area);
         plantacao.setIdPlantacao(idPlantacao);
         System.out.println(plantacao.getIdPlantacao());
         plantacao.setTipo(tipo);
         plantacao.setQuantidade(quantidade);
+        plantacao.setIdRegiao(idPlantacao);
         
         PlantacaoDAO pdao = new PlantacaoDAO();
         pdao.altera(plantacao);

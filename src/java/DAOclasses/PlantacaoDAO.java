@@ -25,9 +25,6 @@ public class PlantacaoDAO {
     
     public void adiciona(Plantacao plantacao) throws Exception{
         
-        RegiaoDAO rdao = new RegiaoDAO();
-        rdao.adiciona(plantacao.getRegiao());
-        
         String sql = "insert into Plantacao"
                 + "(tipo, quantidade, regiao)"
                 + "values(?,?,?)";
@@ -37,7 +34,7 @@ public class PlantacaoDAO {
             
             stmt.setString(1, plantacao.getTipo());
             stmt.setInt(2, plantacao.getQuantidade());
-            stmt.setInt(3, plantacao.getRegiao().getIdRegiao());
+            stmt.setInt(3, plantacao.getIdRegiao());
             stmt.executeUpdate();
             
             ResultSet rs = stmt.getGeneratedKeys();
@@ -60,15 +57,11 @@ public class PlantacaoDAO {
             
             while(rs.next()){
                 Plantacao plantacao = new Plantacao();
-                Regiao r = new Regiao();
-                plantacao.setRegiao(r);
                 
                 plantacao.setIdPlantacao(rs.getInt("idPlantacao"));
                 plantacao.setTipo(rs.getString("tipo"));
                 plantacao.setQuantidade(rs.getInt("quantidade"));
-                plantacao.getRegiao().setIdRegiao(rs.getInt("idRegiao"));
-                plantacao.getRegiao().setEndereco(rs.getString("endereco"));
-                plantacao.getRegiao().setArea(rs.getInt("area"));
+                plantacao.setIdRegiao(rs.getInt("idRegiao"));
                 
                 plantacoes.add(plantacao);
             }
@@ -105,9 +98,7 @@ public class PlantacaoDAO {
             
             stmt.setString(1, plantacao.getTipo());
             stmt.setInt(2, plantacao.getQuantidade());
-            stmt.setString(3, plantacao.getRegiao().getEndereco());
-            stmt.setFloat(4, plantacao.getRegiao().getArea());
-            stmt.setInt(5, plantacao.getIdPlantacao());
+            stmt.setInt(4, plantacao.getIdPlantacao());
             
             stmt.execute();
             stmt.close();
