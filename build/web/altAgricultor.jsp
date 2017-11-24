@@ -97,7 +97,7 @@ request.setAttribute("estadoAgricultor", estadoAgricultor);
                 <li>
                     <a href="dashboard.html">
                         <i class="pe-7s-graph"></i>
-                        <p>Painel</p>
+                        <p>dashboard</p>
                     </a>
                 </li>
                 <li><a href="#" class="toggle-custom" data-toggle="collapse" data-target="#submenu1">
@@ -123,7 +123,7 @@ request.setAttribute("estadoAgricultor", estadoAgricultor);
                         </li>
                         <li><a href="listarPlantacao.jsp">Plantação</a>
                         </li>
-                        <li><a href="listarInsumo.jsp">Insumo</a>
+                        <li><a href="listarInsumos.jsp">Insumo</a>
                         </li>
                     </ul>
                 </li>
@@ -154,7 +154,7 @@ request.setAttribute("estadoAgricultor", estadoAgricultor);
 
                               </a>
                               <ul class="dropdown-menu">
-                                <li><a href="agriculor.html">Alterar dados</a></li>
+                                <li><a href="altAgricultor.jsp">Alterar dados</a></li>
                                 <li><a href="#">Sair</a></li>
                               </ul>
                         </li>   
@@ -173,7 +173,7 @@ request.setAttribute("estadoAgricultor", estadoAgricultor);
                                 <h4 class="title">Alterar dados</h4>
                             </div>
                             <div class="content">
-                                <form role="form" action="CadastroAgricultor" method="POST">
+                                <form role="form" action="EditaAgricultor" method="POST">
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
@@ -265,42 +265,14 @@ request.setAttribute("estadoAgricultor", estadoAgricultor);
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label for="sel2">Estado</label>
-                                                <select id="estado" name="estado" class="form-control" value="${estadoAgricultor}"/>
-													<option>AC</option>	 
-													<option>AL</option>
-													<option>AP</option>
-													<option>AM</option>
-													<option>BA</option>
-													<option>CE</option>
-													<option>DF</option>
-													<option>ES</option>
-													<option>GO</option>
-													<option>MA</option>
-													<option>MT</option>
-													<option>MS</option>
-													<option>MG</option>
-													<option>PA</option>
-													<option>PB</option>	 
-													<option>PR</option>	 
-													<option>PE</option>	 
-													<option>PI</option>	 
-													<option>RJ</option>	 
-													<option>RN</option>	 
-													<option>RS</option>	 
-													<option>RO</option>	 
-													<option>RR</option>	 
-													<option>SC</option>	 
-													<option>SP</option>	 
-													<option>SE</option>	 
-													<option>TO</option>
-                                                  </select>
+                                                <label>Estado</label>
+                                                <input id="estado" name="estado" class="form-control" value="${estadoAgricultor}"/>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>CEP</label>
-                                                <input type="txt" id="cep" name="cep" class="form-control mask-CEP" placeholder="86.300-000">
+                                                <input type="txt" id="cep" name="cep" class="form-control mask-CEP" placeholder="86.300-000" value="${CEPAgricultor}"/>
                                             </div>
                                         </div>
                                     </div>
@@ -351,7 +323,9 @@ request.setAttribute("estadoAgricultor", estadoAgricultor);
 	<script src="assets/js/light-bootstrap-dashboard.js"></script>
 
 	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
-	<script src="assets/js/demo.js"></script>
+    <script src="assets/js/demo.js"></script>
+    
+    <script src="assets/js/jquery.validate.min.js"></script>
         
         <!-- inline scripts related to this page -->
 		<script type="text/javascript">
@@ -397,6 +371,7 @@ request.setAttribute("estadoAgricultor", estadoAgricultor);
 				$(".mask-CEP").mask("99999-999");
 				$(".mask-DATA").mask("99/99/9999");
 				$(".mask-email").mask("[A-Za-z0-9+_.-]{1,}+@[A-Za-z0-9-]{1,}+(\\.[A-Za-z0-9-]{2,6}+){1,2}");
+                
 								
 				$('#validation-form').validate({
 					errorElement: 'div',

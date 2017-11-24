@@ -43,7 +43,7 @@ import java.util.regex.Pattern;
 
     public void setTelefone(String telefone) throws Exception {
 <span class="fc" id="L45">        telefone = telefone.replaceAll(&quot;\\D+&quot;,&quot;&quot;);</span>
-<span class="pc bpc" id="L46" title="1 of 4 branches missed.">        if((telefone.length() == 10) || (telefone.length() == 11))</span>
+<span class="pc bpc" id="L46" title="2 of 4 branches missed.">        if((telefone.length() == 10) || (telefone.length() == 11))</span>
 <span class="fc" id="L47">            this.telefone = telefone;</span>
         else
 <span class="nc" id="L49">            throw new Exception(&quot;Telefone Invalido&quot;);</span>
@@ -91,7 +91,7 @@ import java.util.regex.Pattern;
     }
 
     public void setComplemento(String complemento) throws Exception {
-<span class="pc bpc" id="L94" title="2 of 4 branches missed.">        if(complemento.isEmpty() || complemento.length() &lt; 45)</span>
+<span class="pc bpc" id="L94" title="1 of 4 branches missed.">        if(complemento.isEmpty() || complemento.length() &lt; 45)</span>
 <span class="fc" id="L95">            this.complemento = complemento;</span>
         else
 <span class="nc" id="L97">            throw new Exception(&quot;Complemento maior que 45 caracteres&quot;);</span>

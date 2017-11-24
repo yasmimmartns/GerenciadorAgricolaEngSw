@@ -42,10 +42,10 @@ import javax.servlet.http.HttpServletResponse;
 
 <span class="nc" id="L43">            Regiao regiao = new Regiao();</span>
 <span class="nc" id="L44">            regiao.setEndereco(request.getParameter(&quot;endereco&quot;));</span>
-<span class="nc" id="L45">            out.println(regiao.getEndereco());</span>
+<span class="nc" id="L45">            regiao.setArea(Float.parseFloat(request.getParameter(&quot;area&quot;))); </span>
             
-            
-<span class="nc" id="L48">            regiao.setArea(Float.parseFloat(request.getParameter(&quot;area&quot;)));           </span>
+<span class="nc" id="L47">            RegiaoDAO insumoDao = new RegiaoDAO();</span>
+<span class="nc" id="L48">            insumoDao.adiciona(regiao);</span>
            
 <span class="nc" id="L50">            String contextPath= &quot;http://localhost:8084/GerenciadorAgricola/dashboard.html&quot;;</span>
 <span class="nc" id="L51">            response.sendRedirect(response.encodeRedirectURL(contextPath));</span>

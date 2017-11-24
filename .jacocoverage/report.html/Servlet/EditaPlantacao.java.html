@@ -39,31 +39,26 @@ import javax.servlet.http.HttpServletResponse;
 <span class="nc" id="L39">        int idPlantacao = Integer.parseInt(request.getParameter(&quot;idPlantacao&quot;));</span>
 <span class="nc" id="L40">        String tipo = request.getParameter(&quot;tipo&quot;);</span>
 <span class="nc" id="L41">        int quantidade = Integer.parseInt(request.getParameter(&quot;quantidade&quot;));</span>
-<span class="nc" id="L42">        String endereco = request.getParameter(&quot;endereco&quot;);</span>
-<span class="nc" id="L43">        Float area = Float.parseFloat(request.getParameter(&quot;area&quot;));</span>
-      
-<span class="nc" id="L45">        Plantacao plantacao = new Plantacao();</span>
+<span class="nc" id="L42">        int regiao = Integer.parseInt(request.getParameter(&quot;regiao&quot;));</span>
+              
+<span class="nc" id="L44">        Plantacao plantacao = new Plantacao();</span>
 
-<span class="nc" id="L47">        Regiao r = new Regiao();</span>
-<span class="nc" id="L48">        plantacao.setRegiao(r);</span>
-
-<span class="nc" id="L50">        plantacao.getRegiao().setEndereco(endereco);</span>
-<span class="nc" id="L51">        plantacao.getRegiao().setArea(area);</span>
-<span class="nc" id="L52">        plantacao.setIdPlantacao(idPlantacao);</span>
-<span class="nc" id="L53">        System.out.println(plantacao.getIdPlantacao());</span>
-<span class="nc" id="L54">        plantacao.setTipo(tipo);</span>
-<span class="nc" id="L55">        plantacao.setQuantidade(quantidade);</span>
+<span class="nc" id="L46">        plantacao.setIdPlantacao(idPlantacao);</span>
+<span class="nc" id="L47">        System.out.println(plantacao.getIdPlantacao());</span>
+<span class="nc" id="L48">        plantacao.setTipo(tipo);</span>
+<span class="nc" id="L49">        plantacao.setQuantidade(quantidade);</span>
+<span class="nc" id="L50">        plantacao.setIdRegiao(regiao);</span>
         
-<span class="nc" id="L57">        PlantacaoDAO pdao = new PlantacaoDAO();</span>
-<span class="nc" id="L58">        pdao.altera(plantacao);</span>
+<span class="nc" id="L52">        PlantacaoDAO pdao = new PlantacaoDAO();</span>
+<span class="nc" id="L53">        pdao.altera(plantacao);</span>
 
-<span class="nc" id="L60">        String contextPath= &quot;http://localhost:8084/GerenciadorAgricola&quot;;</span>
-<span class="nc" id="L61">        response.sendRedirect(response.encodeRedirectURL(contextPath + &quot;/dashboard.html&quot;));</span>
-<span class="nc" id="L62">      } catch (Exception ex) {</span>
-<span class="nc" id="L63">        Logger.getLogger(EditaAgricultor.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L64">      }</span>
+<span class="nc" id="L55">        String contextPath= &quot;http://localhost:8084/GerenciadorAgricola&quot;;</span>
+<span class="nc" id="L56">        response.sendRedirect(response.encodeRedirectURL(contextPath + &quot;/dashboard.html&quot;));</span>
+<span class="nc" id="L57">      } catch (Exception ex) {</span>
+<span class="nc" id="L58">        Logger.getLogger(EditaPlantacao.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L59">      }</span>
 
-<span class="nc" id="L66">    }</span>
+<span class="nc" id="L61">    }</span>
 
     // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;HttpServlet methods. Click on the + sign on the left to edit the code.&quot;&gt;
     /**
@@ -78,11 +73,11 @@ import javax.servlet.http.HttpServletResponse;
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-<span class="nc" id="L81">            processRequest(request, response);</span>
-<span class="nc" id="L82">        } catch (Exception ex) {</span>
-<span class="nc" id="L83">            Logger.getLogger(EditaPlantacao.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L84">        }</span>
-<span class="nc" id="L85">    }</span>
+<span class="nc" id="L76">            processRequest(request, response);</span>
+<span class="nc" id="L77">        } catch (Exception ex) {</span>
+<span class="nc" id="L78">            Logger.getLogger(EditaPlantacao.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L79">        }</span>
+<span class="nc" id="L80">    }</span>
 
     /**
      * Handles the HTTP &lt;code&gt;POST&lt;/code&gt; method.
@@ -96,11 +91,11 @@ import javax.servlet.http.HttpServletResponse;
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-<span class="nc" id="L99">            processRequest(request, response);</span>
-<span class="nc" id="L100">        } catch (Exception ex) {</span>
-<span class="nc" id="L101">            Logger.getLogger(EditaPlantacao.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L102">        }</span>
-<span class="nc" id="L103">    }</span>
+<span class="nc" id="L94">            processRequest(request, response);</span>
+<span class="nc" id="L95">        } catch (Exception ex) {</span>
+<span class="nc" id="L96">            Logger.getLogger(EditaPlantacao.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L97">        }</span>
+<span class="nc" id="L98">    }</span>
 
     /**
      * Returns a short description of the servlet.
@@ -109,7 +104,7 @@ import javax.servlet.http.HttpServletResponse;
      */
     @Override
     public String getServletInfo() {
-<span class="nc" id="L112">        return &quot;Short description&quot;;</span>
+<span class="nc" id="L107">        return &quot;Short description&quot;;</span>
     }// &lt;/editor-fold&gt;
 
 }

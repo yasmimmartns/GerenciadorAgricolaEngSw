@@ -126,7 +126,7 @@ request.setAttribute("areaRegiao", areaRegiao);
 
                               </a>
                               <ul class="dropdown-menu">
-                                <li><a href="agricultor.html">Alterar dados</a></li>
+                                <li><a href="altAgricultor.jsp">Alterar dados</a></li>
                                 <li><a href="#">Sair</a></li>
                               </ul>
                         </li>   
@@ -169,7 +169,7 @@ request.setAttribute("areaRegiao", areaRegiao);
                                         </div>
                                         <div class="col-md-1">
                                             <div class="form-group">
-                                                <a href="listarRegiao.jsp?id=${regiao.idRegiao}">
+                                                <a href="listarRegiaoPlantacao.jsp?id=${regiao.idRegiao}">
                                                     <br>
                                                     <i style="font-size: 45px" class="material-icons">add_to_photos</i>
                                                 </a>

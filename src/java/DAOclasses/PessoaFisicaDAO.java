@@ -67,18 +67,17 @@ public class PessoaFisicaDAO {
                 
         
         String sql = "update PessoaFisica PF join Pessoa P set CPF=?, nome=?, "
-            + "sobrenome=?, RG=?, sexo=?, dataNascimento=? where P.idpessoa=?";
+            + "RG=?, sexo=?, dataNascimento=? where P.idpessoa=?";
        
         try{
             PreparedStatement stmt = connection.prepareStatement(sql);
 
             stmt.setString(1, pf.getCPF());
             stmt.setString(2, pf.getNome());
-            stmt.setString(4, pf.getRG());
-            stmt.setString(5, pf.getSexo());
-            stmt.setDate(6, new java.sql.Date(pf.getDataNascimento().getTime()));
-            stmt.setInt(7, pf.getPessoa().getId());
-
+            stmt.setString(3, pf.getRG());
+            stmt.setString(4, pf.getSexo());
+            stmt.setDate(5, new java.sql.Date(pf.getDataNascimento().getTime()));
+            stmt.setInt(6, pf.getPessoa().getId());
 
             stmt.execute();
             stmt.close();

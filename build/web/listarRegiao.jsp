@@ -75,11 +75,11 @@
                             <p>Listar</p>
                         </a>
                         <ul class="collapse" id="submenu2">
+                            <li><a href="listarRegiao.jsp">Regiao</a>
+                            </li>
                             <li><a href="listarPlantacao.jsp">Plantação</a>
                             </li>
                             <li><a href="listarInsumos.jsp">Insumo</a>
-                            </li>
-                            <li><a href="listarRegiao.jsp">Insumo</a>
                             </li>
                         </ul>
                     </li>
@@ -120,7 +120,7 @@
         
                                       </a>
                                       <ul class="dropdown-menu">
-                                        <li><a href="agricultor.html">Alterar dados</a></li>
+                                        <li><a href="altAgricultor.jsp">Alterar dados</a></li>
                                         <li><a href="#">Sair</a></li>
                                       </ul>
                                 </li>   
@@ -155,11 +155,11 @@
                                                   <!--init the list-->
                                                 
                                                     <tr>
-                                                        <td>${regiao.getIdRegiao()}</td>
+                                                        <td>${regiao.idRegiao}</td>
                                                         <td>${regiao.getEndereco()}</td>
                                                         <td>${regiao.getArea()}</td>
-                                                        <td><a class="green" href="cadPlantacao.jsp?id=${regiao.idRegiao}">
-                                                            <i class="small material-icons">check_circle</i>
+                                                        <td><a class="green" href="edita-Regiao.jsp?id=${regiao.idRegiao}" title="Editar">
+                                                            <i class="small material-icons">create</i>
                                                         </a>
                                                         </td>
                                                     </tr>       

@@ -34,6 +34,7 @@
         <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
         <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
         <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	</head>
 
 	<body class="no-skin">
@@ -60,7 +61,7 @@
                             <p>Cadastro</p>
                         </a>
                         <ul class="collapse" id="submenu1">
-                          <li><a href="cadPlantacao.html">Plantação</a>
+                          <li><a href="cadPlantacao.jsp">Plantação</a>
                           </li>
                           <li><a href="cadInsumo.html">Insumo</a>
                           </li>
@@ -74,6 +75,8 @@
                             <p>Listar</p>
                         </a>
                         <ul class="collapse" id="submenu2">
+                            <li><a href="listarRegiao.jsp">Região</a>
+                            </li>
                             <li><a href="listarPlantacao.jsp">Plantação</a>
                             </li>
                             <li><a href="listarInsumos.jsp">Insumo</a>
@@ -117,7 +120,7 @@
         
                                       </a>
                                       <ul class="dropdown-menu">
-                                        <li><a href="agricultor.html">Alterar dados</a></li>
+                                        <li><a href="altAgricultor.jsp">Alterar dados</a></li>
                                         <li><a href="#">Sair</a></li>
                                       </ul>
                                 </li>   
@@ -144,8 +147,7 @@
                                                         <th>ID</th>
                                                         <th>Tipo</th>
                                                         <th>Quantidade</th>
-                                                        <th>Endereço</th>
-                                                        <th>Area</th>
+                                                        <th>Região</th>
                                                     </tr>
                                                 </thead>
                                             <tbody>
@@ -154,11 +156,14 @@
                                                   <!--init the list-->
                                                 
                                                     <tr>
-                                                        <td>${plantacao.getIdPlantacao()}</td>
+                                                        <td>${plantacao.idPlantacao}</td>
                                                         <td>${plantacao.getTipo()}</td>
                                                         <td>${plantacao.getQuantidade()}</td>
-                                                        <td>${plantacao.getRegiao().getEndereco()}</td>
-                                                        <td>${plantacao.getRegiao().getArea()}</td>
+                                                        <td>${plantacao.idRegiao}</td>
+                                                        <td><a class="green" href="edita-Plantacao.jsp?idp=${plantacao.idPlantacao}">
+                                                            <i class="small material-icons">create</i>
+                                                        </a>
+                                                        </td>
                                                     </tr>       
                                                     <!--End the list-->
                                                    </c:forEach> 

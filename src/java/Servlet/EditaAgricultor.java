@@ -39,12 +39,12 @@ public class EditaAgricultor extends HttpServlet {
 
         PrintWriter out = response.getWriter();
 
-        int idAgricultor = Integer.parseInt(request.getParameter("idCliente"));
-        String cadPro = request.getParameter("codFidelidade");
+        int idAgricultor = 0;
+        String cadPro = request.getParameter("cadpro");
         String nome = request.getParameter("nome");
-        String cpf = request.getParameter("CPF");
-        String rg = request.getParameter("RG");
-        String dataNasc = request.getParameter("dataNascimento");
+        String cpf = request.getParameter("cpf");
+        String rg = request.getParameter("rg");
+        String dataNasc = request.getParameter("nascimento");
         String sexo = request.getParameter("sexo");
         String telefone = request.getParameter("telefone");
         String email = request.getParameter("email");
@@ -84,6 +84,8 @@ public class EditaAgricultor extends HttpServlet {
         agricultor.getPf().getPessoa().setCEP(cep);
         agricultor.getPf().getPessoa().setCidade(cidade);
         agricultor.getPf().getPessoa().setEstado(estado);
+        
+          System.out.println("Nome: " + nome);
 
         AgricultorDAO adao = new AgricultorDAO();
         adao.altera(agricultor);

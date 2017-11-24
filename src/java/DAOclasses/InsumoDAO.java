@@ -21,6 +21,7 @@ public class InsumoDAO {
         this.connection = new ConnectionFactory().getConnection("root","root");
     }
     
+    
     public void adiciona(Insumo insumo) throws Exception{
         String sql = "insert into Insumo"
                 + "(tipo, categoria, especificacoes, marca, dataValidade, quantidade, preco)"
@@ -79,7 +80,7 @@ public class InsumoDAO {
     }
     
     public void remove(int insumo){
-        String sql = "delete from Produto where Produto.idProduto = ?";
+        String sql = "delete from Insumo where Insumo.idInsumo = ?";
         
         try{
             PreparedStatement stmt = this.connection.prepareStatement(sql);
@@ -93,13 +94,39 @@ public class InsumoDAO {
         }
     }
     
+    public Insumo getInsumo(String id) throws Exception{
+        Insumo insumo = new Insumo();
+        String sql = "select * from Insumo WHERE idInsumo = ?";
+        PreparedStatement stmt = connection.prepareStatement(sql);
+        stmt.setString(1, id);
+        ResultSet rs = stmt.executeQuery();
+        try {
+           while (rs.next()) {
+                insumo.setIdInsumo(Integer.parseInt(id));
+                insumo.setTipo(rs.getString("tipo"));
+                insumo.setCategoria(rs.getString("categoria"));
+                insumo.setEspecificacoes(rs.getString("especificacoes"));
+                insumo.setQuantidade(rs.getInt("quantidade"));
+                insumo.setMarca(rs.getString("marca"));
+                insumo.setDataValidade(rs.getString("dataValidade"));
+                insumo.setPreco(rs.getFloat("preco"));
+           }
+           stmt.execute();
+           stmt.close();
+           return insumo;
+        }
+        catch (Exception e){
+            throw new Exception("Erro ao requisitar o cliente do banco");
+        }
+    }
+    
     public void altera(Insumo insumo){
         String sql = "update Insumo set tipo=?, categoria=?, especificacoes=?,"
                 + "quantidade=?, marca=?, dataValidade=?, preco=? where idInsumo =?";
             
         try{
             PreparedStatement stmt = this.connection.prepareStatement(sql);
-            
+
             stmt.setString(1, insumo.getTipo());
             stmt.setString(2, insumo.getCategoria());
             stmt.setString(3, insumo.getEspecificacoes());
@@ -108,6 +135,8 @@ public class InsumoDAO {
             stmt.setString(6, insumo.getDataValidade());
             stmt.setFloat(7, insumo.getPreco());
             stmt.setInt(8, insumo.getIdInsumo());
+            
+            System.out.println("Tipo " + insumo.getIdInsumo());
             
             stmt.execute();
             stmt.close();

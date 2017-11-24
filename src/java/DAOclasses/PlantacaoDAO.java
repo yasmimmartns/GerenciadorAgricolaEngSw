@@ -88,16 +88,38 @@ public class PlantacaoDAO {
             throw new RuntimeException(e);
         }
     }
+    public Plantacao getPlantacao(String id) throws Exception{
+        Plantacao plantacao = new Plantacao();
+        String sql = "select * from Plantacao WHERE idPlantacao = ?";
+        PreparedStatement stmt = connection.prepareStatement(sql);
+        stmt.setString(1, id);
+        ResultSet rs = stmt.executeQuery();
+        try {
+           while (rs.next()) {
+                plantacao.setIdPlantacao(Integer.parseInt(id));
+                plantacao.setTipo(rs.getString("tipo"));
+                plantacao.setQuantidade(rs.getInt("quantidade"));
+                plantacao.setIdRegiao(rs.getInt("regiao"));
+           }
+           stmt.execute();
+           stmt.close();
+           return plantacao;
+        }
+        catch (Exception e){
+            throw new Exception("Erro ao requisitar o plantacao do banco");
+        }
+    }
     
     public void altera(Plantacao plantacao){
-        String sql = "update Plantacao P inner join Regiao R on P.regiao = R.idRegiao "
-                + "set idPlantacao=?, tipo=?, quantidade=?, endereco=?, area=? where R.idRegiao=?";
+        String sql = "update Plantacao P "
+                + "set tipo=?, quantidade=?, regiao=? where idPlantacao=?";
             
         try{
             PreparedStatement stmt = this.connection.prepareStatement(sql);
             
             stmt.setString(1, plantacao.getTipo());
             stmt.setInt(2, plantacao.getQuantidade());
+            stmt.setInt(3, plantacao.getIdRegiao());
             stmt.setInt(4, plantacao.getIdPlantacao());
             
             stmt.execute();

@@ -67,26 +67,25 @@ public class PessoaFisicaDAO {
                 
         
 <span class="nc" id="L69">        String sql = &quot;update PessoaFisica PF join Pessoa P set CPF=?, nome=?, &quot;</span>
-            + &quot;sobrenome=?, RG=?, sexo=?, dataNascimento=? where P.idpessoa=?&quot;;
+            + &quot;RG=?, sexo=?, dataNascimento=? where P.idpessoa=?&quot;;
        
         try{
 <span class="nc" id="L73">            PreparedStatement stmt = connection.prepareStatement(sql);</span>
 
 <span class="nc" id="L75">            stmt.setString(1, pf.getCPF());</span>
 <span class="nc" id="L76">            stmt.setString(2, pf.getNome());</span>
-<span class="nc" id="L77">            stmt.setString(4, pf.getRG());</span>
-<span class="nc" id="L78">            stmt.setString(5, pf.getSexo());</span>
-<span class="nc" id="L79">            stmt.setDate(6, new java.sql.Date(pf.getDataNascimento().getTime()));</span>
-<span class="nc" id="L80">            stmt.setInt(7, pf.getPessoa().getId());</span>
+<span class="nc" id="L77">            stmt.setString(3, pf.getRG());</span>
+<span class="nc" id="L78">            stmt.setString(4, pf.getSexo());</span>
+<span class="nc" id="L79">            stmt.setDate(5, new java.sql.Date(pf.getDataNascimento().getTime()));</span>
+<span class="nc" id="L80">            stmt.setInt(6, pf.getPessoa().getId());</span>
 
-
-<span class="nc" id="L83">            stmt.execute();</span>
-<span class="nc" id="L84">            stmt.close();</span>
+<span class="nc" id="L82">            stmt.execute();</span>
+<span class="nc" id="L83">            stmt.close();</span>
             
-<span class="nc" id="L86">            return true;</span>
+<span class="nc" id="L85">            return true;</span>
         }   
-<span class="nc" id="L88">        catch (Exception e){</span>
-<span class="nc" id="L89">            throw new Exception(&quot;Erro ao alterar a pessoa fisica&quot;);</span>
+<span class="nc" id="L87">        catch (Exception e){</span>
+<span class="nc" id="L88">            throw new Exception(&quot;Erro ao alterar a pessoa fisica&quot;);</span>
         }     
     }    
 }

@@ -9,12 +9,20 @@
         <servlet-class>Servlet.CadastroAgricultor</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>EditaRegiao</servlet-name>
+        <servlet-class>Servlet.EditaRegiao</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>CadastroPlantacao</servlet-name>
         <servlet-class>Servlet.CadastroPlantacao</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>CadastroInsumo</servlet-name>
         <servlet-class>Servlet.CadastroInsumo</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeletaRegiao</servlet-name>
+        <servlet-class>Servlet.DeletaRegiao</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>CadastroRegiao</servlet-name>
@@ -44,6 +52,10 @@
         <servlet-name>CadastroAgricultor</servlet-name>
         <url-pattern>/CadastroAgricultor</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditaRegiao</servlet-name>
+        <url-pattern>/EditaRegiao</url-pattern>
+    </servlet-mapping>
      <servlet-mapping>
         <servlet-name>CadastroInsumo</servlet-name>
         <url-pattern>/CadastroInsumo</url-pattern>
@@ -63,6 +75,10 @@
      <servlet-mapping>
         <servlet-name>EditaAgricultor</servlet-name>
         <url-pattern>/EditaAgricultor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeletaRegiao</servlet-name>
+        <url-pattern>/DeletaRegiao</url-pattern>
     </servlet-mapping>
      <servlet-mapping>
         <servlet-name>DeletaInsumo</servlet-name>

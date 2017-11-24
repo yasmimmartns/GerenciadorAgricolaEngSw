@@ -25,96 +25,109 @@ public class PlantacaoDAO {
     
     public void adiciona(Plantacao plantacao) throws Exception{
         
-<span class="nc" id="L28">        RegiaoDAO rdao = new RegiaoDAO();</span>
-<span class="nc" id="L29">        rdao.adiciona(plantacao.getRegiao());</span>
-        
-<span class="nc" id="L31">        String sql = &quot;insert into Plantacao&quot;</span>
+<span class="nc" id="L28">        String sql = &quot;insert into Plantacao&quot;</span>
                 + &quot;(tipo, quantidade, regiao)&quot;
                 + &quot;values(?,?,?)&quot;;
         
         try{
-<span class="nc" id="L36">            PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);</span>
+<span class="nc" id="L33">            PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);</span>
             
-<span class="nc" id="L38">            stmt.setString(1, plantacao.getTipo());</span>
-<span class="nc" id="L39">            stmt.setInt(2, plantacao.getQuantidade());</span>
-<span class="nc" id="L40">            stmt.setInt(3, plantacao.getRegiao().getIdRegiao());</span>
-<span class="nc" id="L41">            stmt.executeUpdate();</span>
+<span class="nc" id="L35">            stmt.setString(1, plantacao.getTipo());</span>
+<span class="nc" id="L36">            stmt.setInt(2, plantacao.getQuantidade());</span>
+<span class="nc" id="L37">            stmt.setInt(3, plantacao.getIdRegiao());</span>
+<span class="nc" id="L38">            stmt.executeUpdate();</span>
             
-<span class="nc" id="L43">            ResultSet rs = stmt.getGeneratedKeys();</span>
-<span class="nc" id="L44">            rs.next();</span>
-<span class="nc" id="L45">            plantacao.setIdPlantacao(rs.getInt(1));</span>
+<span class="nc" id="L40">            ResultSet rs = stmt.getGeneratedKeys();</span>
+<span class="nc" id="L41">            rs.next();</span>
+<span class="nc" id="L42">            plantacao.setIdPlantacao(rs.getInt(1));</span>
             
-<span class="nc" id="L47">            stmt.close();</span>
+<span class="nc" id="L44">            stmt.close();</span>
             
-<span class="nc" id="L49">        }catch(SQLException e){</span>
-<span class="nc" id="L50">            throw new RuntimeException(e);</span>
-<span class="nc" id="L51">        }</span>
-<span class="nc" id="L52">    }</span>
+<span class="nc" id="L46">        }catch(SQLException e){</span>
+<span class="nc" id="L47">            throw new RuntimeException(e);</span>
+<span class="nc" id="L48">        }</span>
+<span class="nc" id="L49">    }</span>
     
     public List&lt;Plantacao&gt; getLista() throws Exception{
         try{
-<span class="nc" id="L56">            List&lt;Plantacao&gt; plantacoes = new ArrayList&lt;Plantacao&gt;();</span>
-<span class="nc" id="L57">            PreparedStatement stmt = this.connection.</span>
-<span class="nc" id="L58">                    prepareStatement(&quot;select * from Plantacao P join Regiao R on P.regiao = R.idRegiao&quot;);</span>
-<span class="nc" id="L59">            ResultSet rs = stmt.executeQuery();</span>
+<span class="nc" id="L53">            List&lt;Plantacao&gt; plantacoes = new ArrayList&lt;Plantacao&gt;();</span>
+<span class="nc" id="L54">            PreparedStatement stmt = this.connection.</span>
+<span class="nc" id="L55">                    prepareStatement(&quot;select * from Plantacao P join Regiao R on P.regiao = R.idRegiao&quot;);</span>
+<span class="nc" id="L56">            ResultSet rs = stmt.executeQuery();</span>
             
-<span class="nc bnc" id="L61" title="All 2 branches missed.">            while(rs.next()){</span>
-<span class="nc" id="L62">                Plantacao plantacao = new Plantacao();</span>
-<span class="nc" id="L63">                Regiao r = new Regiao();</span>
-<span class="nc" id="L64">                plantacao.setRegiao(r);</span>
+<span class="nc bnc" id="L58" title="All 2 branches missed.">            while(rs.next()){</span>
+<span class="nc" id="L59">                Plantacao plantacao = new Plantacao();</span>
                 
-<span class="nc" id="L66">                plantacao.setIdPlantacao(rs.getInt(&quot;idPlantacao&quot;));</span>
-<span class="nc" id="L67">                plantacao.setTipo(rs.getString(&quot;tipo&quot;));</span>
-<span class="nc" id="L68">                plantacao.setQuantidade(rs.getInt(&quot;quantidade&quot;));</span>
-<span class="nc" id="L69">                plantacao.getRegiao().setIdRegiao(rs.getInt(&quot;idRegiao&quot;));</span>
-<span class="nc" id="L70">                plantacao.getRegiao().setEndereco(rs.getString(&quot;endereco&quot;));</span>
-<span class="nc" id="L71">                plantacao.getRegiao().setArea(rs.getInt(&quot;area&quot;));</span>
+<span class="nc" id="L61">                plantacao.setIdPlantacao(rs.getInt(&quot;idPlantacao&quot;));</span>
+<span class="nc" id="L62">                plantacao.setTipo(rs.getString(&quot;tipo&quot;));</span>
+<span class="nc" id="L63">                plantacao.setQuantidade(rs.getInt(&quot;quantidade&quot;));</span>
+<span class="nc" id="L64">                plantacao.setIdRegiao(rs.getInt(&quot;idRegiao&quot;));</span>
                 
-<span class="nc" id="L73">                plantacoes.add(plantacao);</span>
-<span class="nc" id="L74">            }</span>
-<span class="nc" id="L75">            rs.close();</span>
-<span class="nc" id="L76">            stmt.close();</span>
-<span class="nc" id="L77">            return plantacoes;</span>
+<span class="nc" id="L66">                plantacoes.add(plantacao);</span>
+<span class="nc" id="L67">            }</span>
+<span class="nc" id="L68">            rs.close();</span>
+<span class="nc" id="L69">            stmt.close();</span>
+<span class="nc" id="L70">            return plantacoes;</span>
             
-<span class="nc" id="L79">        }catch(SQLException e){</span>
-<span class="nc" id="L80">            throw new RuntimeException(e);</span>
+<span class="nc" id="L72">        }catch(SQLException e){</span>
+<span class="nc" id="L73">            throw new RuntimeException(e);</span>
         }
     }
     
     public void remove(Plantacao plantacao){
-<span class="nc" id="L85">        String sql = &quot;delete from Plantacao where Plantacao.idPlantacao = ?&quot;;</span>
+<span class="nc" id="L78">        String sql = &quot;delete from Plantacao where Plantacao.idPlantacao = ?&quot;;</span>
         
         try{
-<span class="nc" id="L88">            PreparedStatement stmt = this.connection.prepareStatement(sql);</span>
+<span class="nc" id="L81">            PreparedStatement stmt = this.connection.prepareStatement(sql);</span>
             
-<span class="nc" id="L90">            stmt.setInt(1, plantacao.getIdPlantacao());</span>
-<span class="nc" id="L91">            stmt.execute();</span>
-<span class="nc" id="L92">            stmt.close();</span>
+<span class="nc" id="L83">            stmt.setInt(1, plantacao.getIdPlantacao());</span>
+<span class="nc" id="L84">            stmt.execute();</span>
+<span class="nc" id="L85">            stmt.close();</span>
             
-<span class="nc" id="L94">        }catch(SQLException e){</span>
-<span class="nc" id="L95">            throw new RuntimeException(e);</span>
-<span class="nc" id="L96">        }</span>
-<span class="nc" id="L97">    }</span>
+<span class="nc" id="L87">        }catch(SQLException e){</span>
+<span class="nc" id="L88">            throw new RuntimeException(e);</span>
+<span class="nc" id="L89">        }</span>
+<span class="nc" id="L90">    }</span>
+    public Plantacao getPlantacao(String id) throws Exception{
+<span class="nc" id="L92">        Plantacao plantacao = new Plantacao();</span>
+<span class="nc" id="L93">        String sql = &quot;select * from Plantacao WHERE idPlantacao = ?&quot;;</span>
+<span class="nc" id="L94">        PreparedStatement stmt = connection.prepareStatement(sql);</span>
+<span class="nc" id="L95">        stmt.setString(1, id);</span>
+<span class="nc" id="L96">        ResultSet rs = stmt.executeQuery();</span>
+        try {
+<span class="nc bnc" id="L98" title="All 2 branches missed.">           while (rs.next()) {</span>
+<span class="nc" id="L99">                plantacao.setIdPlantacao(Integer.parseInt(id));</span>
+<span class="nc" id="L100">                plantacao.setTipo(rs.getString(&quot;tipo&quot;));</span>
+<span class="nc" id="L101">                plantacao.setQuantidade(rs.getInt(&quot;quantidade&quot;));</span>
+<span class="nc" id="L102">                plantacao.setIdRegiao(rs.getInt(&quot;regiao&quot;));</span>
+           }
+<span class="nc" id="L104">           stmt.execute();</span>
+<span class="nc" id="L105">           stmt.close();</span>
+<span class="nc" id="L106">           return plantacao;</span>
+        }
+<span class="nc" id="L108">        catch (Exception e){</span>
+<span class="nc" id="L109">            throw new Exception(&quot;Erro ao requisitar o plantacao do banco&quot;);</span>
+        }
+    }
     
     public void altera(Plantacao plantacao){
-<span class="nc" id="L100">        String sql = &quot;update Plantacao P inner join Regiao R on P.regiao = R.idRegiao &quot;</span>
-                + &quot;set idPlantacao=?, tipo=?, quantidade=?, endereco=?, area=? where R.idRegiao=?&quot;;
+<span class="nc" id="L114">        String sql = &quot;update Plantacao P &quot;</span>
+                + &quot;set tipo=?, quantidade=?, regiao=? where idPlantacao=?&quot;;
             
         try{
-<span class="nc" id="L104">            PreparedStatement stmt = this.connection.prepareStatement(sql);</span>
+<span class="nc" id="L118">            PreparedStatement stmt = this.connection.prepareStatement(sql);</span>
             
-<span class="nc" id="L106">            stmt.setString(1, plantacao.getTipo());</span>
-<span class="nc" id="L107">            stmt.setInt(2, plantacao.getQuantidade());</span>
-<span class="nc" id="L108">            stmt.setString(3, plantacao.getRegiao().getEndereco());</span>
-<span class="nc" id="L109">            stmt.setFloat(4, plantacao.getRegiao().getArea());</span>
-<span class="nc" id="L110">            stmt.setInt(5, plantacao.getIdPlantacao());</span>
+<span class="nc" id="L120">            stmt.setString(1, plantacao.getTipo());</span>
+<span class="nc" id="L121">            stmt.setInt(2, plantacao.getQuantidade());</span>
+<span class="nc" id="L122">            stmt.setInt(3, plantacao.getIdRegiao());</span>
+<span class="nc" id="L123">            stmt.setInt(4, plantacao.getIdPlantacao());</span>
             
-<span class="nc" id="L112">            stmt.execute();</span>
-<span class="nc" id="L113">            stmt.close();</span>
+<span class="nc" id="L125">            stmt.execute();</span>
+<span class="nc" id="L126">            stmt.close();</span>
             
-<span class="nc" id="L115">        }catch(SQLException e){</span>
-<span class="nc" id="L116">            throw new RuntimeException(e);</span>
-<span class="nc" id="L117">        }</span>
-<span class="nc" id="L118">    }</span>
+<span class="nc" id="L128">        }catch(SQLException e){</span>
+<span class="nc" id="L129">            throw new RuntimeException(e);</span>
+<span class="nc" id="L130">        }</span>
+<span class="nc" id="L131">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

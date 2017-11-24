@@ -35,16 +35,18 @@ public class EditaInsumo extends HttpServlet {
 
         PrintWriter out = response.getWriter();
 
+        int idInsumo = Integer.parseInt(request.getParameter("idInsumo"));
         String tipo = request.getParameter("tipo");
         String categoria = request.getParameter("categoria");
         String especificacoes = request.getParameter("especificacoes");
         int quantidade = Integer.parseInt(request.getParameter("quantidade"));  
         String marca = request.getParameter("marca");
         String dataValidade = request.getParameter("dataValidade");
-        Float preco = Float.parseFloat(request.getParameter("email"));
+        Float preco = Float.parseFloat(request.getParameter("preco"));
         
-        Insumo insumo = new Insumo();
-        
+        Insumo insumo = new Insumo();      
+       
+        insumo.setIdInsumo(idInsumo);
         insumo.setTipo(tipo);
         insumo.setCategoria(categoria);
         insumo.setEspecificacoes(especificacoes);
@@ -52,6 +54,8 @@ public class EditaInsumo extends HttpServlet {
         insumo.setMarca(marca);
         insumo.setDataValidade(dataValidade);
         insumo.setPreco(preco);
+        
+        System.out.println("Tipo " + insumo.getIdInsumo());
 
         InsumoDAO idao = new InsumoDAO();
         idao.altera(insumo);

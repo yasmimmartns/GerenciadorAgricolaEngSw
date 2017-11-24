@@ -34,6 +34,7 @@
         <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
         <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
         <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	</head>
 
 	<body class="no-skin">
@@ -110,7 +111,7 @@
     
                                   </a>
                                   <ul class="dropdown-menu">
-                                    <li><a href="agricultor.html">Alterar dados</a></li>
+                                    <li><a href="altAgricultor.jsp">Alterar dados</a></li>
                                     <li><a href="#">Sair</a></li>
                                   </ul>
                             </li>   
@@ -134,6 +135,7 @@
                                         <div>
                                             <table id="dynamic-table" class="table table-striped table-bordered table-hover">
                                                 <thead>
+                                                        <th>ID</th>
                                                         <th>Tipo</th>
                                                         <th>Categoria</th>
                                                         <th>Preço</th>
@@ -148,13 +150,18 @@
                                                   <!--init the list-->
                                                 
                                                     <tr>
-                                                        <td>${insumo.getTipo()}</td>
-                                                        <td>${insumo.getCategoria()}</td>
-                                                        <td>${insumo.getPreco()}</td>
-                                                        <td>${insumo.getQuantidade()}</td>
-                                                        <td>${insumo.getDataValidade()}</td>
-                                                        <td>${insumo.getMarca()}</td>
-                                                        <td>${insumo.getEspecificacoes()}</td>
+                                                        <td>${insumo.idInsumo}</td>
+                                                        <td>${insumo.tipo}</td>
+                                                        <td>${insumo.categoria}</td>
+                                                        <td>${insumo.preco}</td>
+                                                        <td>${insumo.quantidade}</td>
+                                                        <td>${insumo.dataValidade}</td>
+                                                        <td>${insumo.marca}</td>
+                                                        <td>${insumo.especificacoes}</td>
+                                                        <td><a class="green" href="edita-Insumo.jsp?id=${insumo.idInsumo}" title="Editar">
+                                                                <i class="small material-icons">create</i>
+                                                            </a>
+                                                        </td>
                                                     </tr>       
                                                     <!--End the list-->
                                                    </c:forEach> 

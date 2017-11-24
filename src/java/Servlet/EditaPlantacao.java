@@ -39,16 +39,15 @@ public class EditaPlantacao extends HttpServlet {
         int idPlantacao = Integer.parseInt(request.getParameter("idPlantacao"));
         String tipo = request.getParameter("tipo");
         int quantidade = Integer.parseInt(request.getParameter("quantidade"));
-        String endereco = request.getParameter("endereco");
-        Float area = Float.parseFloat(request.getParameter("area"));
-      
+        int regiao = Integer.parseInt(request.getParameter("regiao"));
+              
         Plantacao plantacao = new Plantacao();
 
         plantacao.setIdPlantacao(idPlantacao);
         System.out.println(plantacao.getIdPlantacao());
         plantacao.setTipo(tipo);
         plantacao.setQuantidade(quantidade);
-        plantacao.setIdRegiao(idPlantacao);
+        plantacao.setIdRegiao(regiao);
         
         PlantacaoDAO pdao = new PlantacaoDAO();
         pdao.altera(plantacao);
@@ -56,7 +55,7 @@ public class EditaPlantacao extends HttpServlet {
         String contextPath= "http://localhost:8084/GerenciadorAgricola";
         response.sendRedirect(response.encodeRedirectURL(contextPath + "/dashboard.html"));
       } catch (Exception ex) {
-        Logger.getLogger(EditaAgricultor.class.getName()).log(Level.SEVERE, null, ex);
+        Logger.getLogger(EditaPlantacao.class.getName()).log(Level.SEVERE, null, ex);
       }
 
     }

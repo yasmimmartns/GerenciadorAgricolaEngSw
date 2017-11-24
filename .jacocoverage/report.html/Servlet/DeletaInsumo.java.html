@@ -35,17 +35,14 @@ import javax.servlet.http.HttpServletResponse;
             throws ServletException, IOException, Exception {
 <span class="nc" id="L36">        response.setContentType(&quot;text/html;charset=UTF-8&quot;);</span>
 <span class="nc" id="L37">        PrintWriter out = response.getWriter();</span>
-<span class="nc" id="L38">        int delete = 10;</span>
-<span class="nc" id="L39">        delete = Integer.parseInt(request.getParameter(&quot;delete&quot;));</span>
+<span class="nc" id="L38">        int delete = Integer.parseInt(request.getParameter(&quot;delete&quot;));</span>
         
-<span class="nc" id="L41">        InsumoDAO idao = new InsumoDAO();</span>
-<span class="nc" id="L42">        idao.remove(delete);  </span>
+<span class="nc" id="L40">        InsumoDAO idao = new InsumoDAO();</span>
+<span class="nc" id="L41">        idao.remove(delete);  </span>
     
-<span class="nc" id="L44">        String contextPath= &quot;http://localhost:8084/GerenciadorAgricola/listarInsumo.jsp&quot;;</span>
-<span class="nc" id="L45">        response.sendRedirect(response.encodeRedirectURL(contextPath));</span>
-        
-        
-<span class="nc" id="L48">    }</span>
+<span class="nc" id="L43">        String contextPath= &quot;http://localhost:8084/GerenciadorAgricola/listarInsumo.jsp&quot;;</span>
+<span class="nc" id="L44">        response.sendRedirect(response.encodeRedirectURL(contextPath));</span>
+<span class="nc" id="L45">    }</span>
 
     // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;HttpServlet methods. Click on the + sign on the left to edit the code.&quot;&gt;
     /**
@@ -60,11 +57,11 @@ import javax.servlet.http.HttpServletResponse;
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-<span class="nc" id="L63">            processRequest(request, response);</span>
-<span class="nc" id="L64">        } catch (Exception ex) {</span>
-<span class="nc" id="L65">            Logger.getLogger(DeletaInsumo.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L66">        }</span>
-<span class="nc" id="L67">    }</span>
+<span class="nc" id="L60">            processRequest(request, response);</span>
+<span class="nc" id="L61">        } catch (Exception ex) {</span>
+<span class="nc" id="L62">            Logger.getLogger(DeletaInsumo.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L63">        }</span>
+<span class="nc" id="L64">    }</span>
 
     /**
      * Handles the HTTP &lt;code&gt;POST&lt;/code&gt; method.
@@ -78,11 +75,11 @@ import javax.servlet.http.HttpServletResponse;
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-<span class="nc" id="L81">            processRequest(request, response);</span>
-<span class="nc" id="L82">        } catch (Exception ex) {</span>
-<span class="nc" id="L83">            Logger.getLogger(DeletaInsumo.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L84">        }</span>
-<span class="nc" id="L85">    }</span>
+<span class="nc" id="L78">            processRequest(request, response);</span>
+<span class="nc" id="L79">        } catch (Exception ex) {</span>
+<span class="nc" id="L80">            Logger.getLogger(DeletaInsumo.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L81">        }</span>
+<span class="nc" id="L82">    }</span>
 
     /**
      * Returns a short description of the servlet.
@@ -91,7 +88,7 @@ import javax.servlet.http.HttpServletResponse;
      */
     @Override
     public String getServletInfo() {
-<span class="nc" id="L94">        return &quot;Short description&quot;;</span>
+<span class="nc" id="L91">        return &quot;Short description&quot;;</span>
     }// &lt;/editor-fold&gt;
 
 }

@@ -39,12 +39,12 @@ import javax.servlet.http.HttpServletResponse;
 
 <span class="nc" id="L40">        PrintWriter out = response.getWriter();</span>
 
-<span class="nc" id="L42">        int idAgricultor = Integer.parseInt(request.getParameter(&quot;idCliente&quot;));</span>
-<span class="nc" id="L43">        String cadPro = request.getParameter(&quot;codFidelidade&quot;);</span>
+<span class="nc" id="L42">        int idAgricultor = 0;</span>
+<span class="nc" id="L43">        String cadPro = request.getParameter(&quot;cadpro&quot;);</span>
 <span class="nc" id="L44">        String nome = request.getParameter(&quot;nome&quot;);</span>
-<span class="nc" id="L45">        String cpf = request.getParameter(&quot;CPF&quot;);</span>
-<span class="nc" id="L46">        String rg = request.getParameter(&quot;RG&quot;);</span>
-<span class="nc" id="L47">        String dataNasc = request.getParameter(&quot;dataNascimento&quot;);</span>
+<span class="nc" id="L45">        String cpf = request.getParameter(&quot;cpf&quot;);</span>
+<span class="nc" id="L46">        String rg = request.getParameter(&quot;rg&quot;);</span>
+<span class="nc" id="L47">        String dataNasc = request.getParameter(&quot;nascimento&quot;);</span>
 <span class="nc" id="L48">        String sexo = request.getParameter(&quot;sexo&quot;);</span>
 <span class="nc" id="L49">        String telefone = request.getParameter(&quot;telefone&quot;);</span>
 <span class="nc" id="L50">        String email = request.getParameter(&quot;email&quot;);</span>
@@ -84,17 +84,19 @@ import javax.servlet.http.HttpServletResponse;
 <span class="nc" id="L84">        agricultor.getPf().getPessoa().setCEP(cep);</span>
 <span class="nc" id="L85">        agricultor.getPf().getPessoa().setCidade(cidade);</span>
 <span class="nc" id="L86">        agricultor.getPf().getPessoa().setEstado(estado);</span>
+        
+<span class="nc" id="L88">          System.out.println(&quot;Nome: &quot; + nome);</span>
 
-<span class="nc" id="L88">        AgricultorDAO adao = new AgricultorDAO();</span>
-<span class="nc" id="L89">        adao.altera(agricultor);</span>
+<span class="nc" id="L90">        AgricultorDAO adao = new AgricultorDAO();</span>
+<span class="nc" id="L91">        adao.altera(agricultor);</span>
 
-<span class="nc" id="L91">        String contextPath= &quot;http://localhost:8084/GerenciadorAgricola&quot;;</span>
-<span class="nc" id="L92">        response.sendRedirect(response.encodeRedirectURL(contextPath + &quot;/dashboard.html&quot;));</span>
-<span class="nc" id="L93">      } catch (Exception ex) {</span>
-<span class="nc" id="L94">        Logger.getLogger(EditaAgricultor.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L95">      }</span>
+<span class="nc" id="L93">        String contextPath= &quot;http://localhost:8084/GerenciadorAgricola&quot;;</span>
+<span class="nc" id="L94">        response.sendRedirect(response.encodeRedirectURL(contextPath + &quot;/dashboard.html&quot;));</span>
+<span class="nc" id="L95">      } catch (Exception ex) {</span>
+<span class="nc" id="L96">        Logger.getLogger(EditaAgricultor.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L97">      }</span>
 
-<span class="nc" id="L97">    }</span>
+<span class="nc" id="L99">    }</span>
 
     // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;HttpServlet methods. Click on the + sign on the left to edit the code.&quot;&gt;
     /**
@@ -109,11 +111,11 @@ import javax.servlet.http.HttpServletResponse;
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-<span class="nc" id="L112">            processRequest(request, response);</span>
-<span class="nc" id="L113">        } catch (Exception ex) {</span>
-<span class="nc" id="L114">            Logger.getLogger(EditaAgricultor.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L115">        }</span>
-<span class="nc" id="L116">    }</span>
+<span class="nc" id="L114">            processRequest(request, response);</span>
+<span class="nc" id="L115">        } catch (Exception ex) {</span>
+<span class="nc" id="L116">            Logger.getLogger(EditaAgricultor.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L117">        }</span>
+<span class="nc" id="L118">    }</span>
 
     /**
      * Handles the HTTP &lt;code&gt;POST&lt;/code&gt; method.
@@ -127,11 +129,11 @@ import javax.servlet.http.HttpServletResponse;
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-<span class="nc" id="L130">            processRequest(request, response);</span>
-<span class="nc" id="L131">        } catch (Exception ex) {</span>
-<span class="nc" id="L132">            Logger.getLogger(EditaAgricultor.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L133">        }</span>
-<span class="nc" id="L134">    }</span>
+<span class="nc" id="L132">            processRequest(request, response);</span>
+<span class="nc" id="L133">        } catch (Exception ex) {</span>
+<span class="nc" id="L134">            Logger.getLogger(EditaAgricultor.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L135">        }</span>
+<span class="nc" id="L136">    }</span>
 
     /**
      * Returns a short description of the servlet.
@@ -140,7 +142,7 @@ import javax.servlet.http.HttpServletResponse;
      */
     @Override
     public String getServletInfo() {
-<span class="nc" id="L143">        return &quot;Short description&quot;;</span>
+<span class="nc" id="L145">        return &quot;Short description&quot;;</span>
     }// &lt;/editor-fold&gt;
 
 }

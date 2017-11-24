@@ -79,7 +79,7 @@ public class InsumoDAO {
     }
     
     public void remove(int insumo){
-<span class="nc" id="L82">        String sql = &quot;delete from Produto where Produto.idProduto = ?&quot;;</span>
+<span class="nc" id="L82">        String sql = &quot;delete from Insumo where Insumo.idInsumo = ?&quot;;</span>
         
         try{
 <span class="nc" id="L85">            PreparedStatement stmt = this.connection.prepareStatement(sql);</span>

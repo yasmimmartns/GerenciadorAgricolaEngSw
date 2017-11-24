@@ -68,13 +68,13 @@ public class RegiaoDAO {
         }
     }
     
-    public void remove(Regiao regiao){
-        String sql = "delete from Produto where Produto.idProduto = ?";
+    public void remove(int regiao){
+        String sql = "delete from Regiao where Regiao.idRegiao = ?";
         
         try{
             PreparedStatement stmt = this.connection.prepareStatement(sql);
             
-            stmt.setInt(1, regiao.getIdRegiao());
+            stmt.setInt(1, regiao);
             stmt.execute();
             stmt.close();
             
@@ -92,8 +92,8 @@ public class RegiaoDAO {
         try {
            while (rs.next()) {
                 regiao.setIdRegiao(Integer.parseInt(id));
-                regiao.setEndereco(rs.getString("endereco"));
                 regiao.setArea(rs.getFloat("area"));
+                regiao.setEndereco(rs.getString("endereco"));
            }
            stmt.execute();
            stmt.close();

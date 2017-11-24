@@ -147,28 +147,31 @@ public class AgricultorDAO {
         PessoaFisicaDAO pfdao = new PessoaFisicaDAO();
         
         pfdao.altera(agricultor.getPf());
-        String sql = "update Agricultor A inner join PessoaFisica PF on A.PessoaFisica_CPF = PF.CPF inner join Pessoa P on PF.Pessoa_idPessoa = P.idPessoa set idAgricultor=?, cadPro=?, nome=?, CPF=?, RG=?, dataNascimento=?, sexo=?, telefone=?, email=?, logradouro=?, numero=?, complemento=?, bairro=?, CEP=?, cidade=?, estado=? where PF.CPF=?";
+        String sql = "update Agricultor A inner join PessoaFisica PF on A.PessoaFisica_CPF = PF.CPF inner join Pessoa P on "
+                + "PF.Pessoa_idPessoa = P.idPessoa set idAgricultor=?, cadPro=?, nome=?, RG=?, sexo=?, dataNascimento=?, "
+                + "CPF=?, telefone=?, email=?, CEP=?, logradouro=?, complemento=?, numero=?, bairro=?, cidade=?, estado=? "
+                + "where PF.CPF=?";
         
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             
-            stmt.setInt(1, agricultor.getIdAgricultor());
+            stmt.setInt(1, 0);
             stmt.setString(2, agricultor.getCadPro());
-            stmt.setString(4, agricultor.getPf().getNome());
-            stmt.setString(6, agricultor.getPf().getCPF());
-            stmt.setString(7, agricultor.getPf().getRG());
-            stmt.setDate(8, new java.sql.Date(agricultor.getPf().getDataNascimento().getTime()));
-            stmt.setString(9, agricultor.getPf().getSexo());
-            stmt.setString(10, agricultor.getPf().getPessoa().getTelefone());
-            stmt.setString(11, agricultor.getPf().getPessoa().getEmail());
-            stmt.setString(12, agricultor.getPf().getPessoa().getLogradouro());
+            stmt.setString(3, agricultor.getPf().getNome());
+            stmt.setString(4, agricultor.getPf().getRG());
+            stmt.setString(5, agricultor.getPf().getSexo());
+            stmt.setDate(6, new java.sql.Date(agricultor.getPf().getDataNascimento().getTime()));
+            stmt.setString(7, agricultor.getPf().getCPF());
+            stmt.setString(8, agricultor.getPf().getPessoa().getTelefone());
+            stmt.setString(9, agricultor.getPf().getPessoa().getEmail());
+            stmt.setString(10, agricultor.getPf().getPessoa().getCEP());
+            stmt.setString(11, agricultor.getPf().getPessoa().getLogradouro());
+            stmt.setString(12, agricultor.getPf().getPessoa().getComplemento());
             stmt.setInt(13, agricultor.getPf().getPessoa().getNumero());
-            stmt.setString(14, agricultor.getPf().getPessoa().getComplemento());
-            stmt.setString(15, agricultor.getPf().getPessoa().getBairro());
-            stmt.setString(16, agricultor.getPf().getPessoa().getCEP());
-            stmt.setString(17, agricultor.getPf().getPessoa().getCidade());
-            stmt.setString(18, agricultor.getPf().getPessoa().getEstado());
-            stmt.setString(20, agricultor.getPf().getCPF());
+            stmt.setString(14, agricultor.getPf().getPessoa().getBairro());
+            stmt.setString(15, agricultor.getPf().getPessoa().getCidade());
+            stmt.setString(16, agricultor.getPf().getPessoa().getEstado());
+            stmt.setString(17, agricultor.getPf().getCPF());
             stmt.execute();
             stmt.close();
             return true;

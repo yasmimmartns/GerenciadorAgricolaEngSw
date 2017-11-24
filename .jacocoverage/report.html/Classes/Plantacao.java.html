@@ -15,7 +15,7 @@ import java.util.regex.Pattern;
     private int idPlantacao;
     private String tipo;
     private int quantidade;
-    private Regiao regiao;
+    private int idRegiao;
 
     public int getIdPlantacao() {
 <span class="nc" id="L21">        return idPlantacao;</span>
@@ -41,12 +41,12 @@ import java.util.regex.Pattern;
 <span class="nc" id="L41">        this.quantidade = quantidade;</span>
 <span class="nc" id="L42">    }</span>
     
-    public Regiao getRegiao() {
-<span class="nc" id="L45">        return regiao;</span>
+    public int getIdRegiao() {
+<span class="nc" id="L45">        return idRegiao;</span>
     }
 
-    public void setRegiao(Regiao regiao) {
-<span class="nc" id="L49">        this.regiao = regiao;</span>
+    public void setIdRegiao(int idRegiao) {
+<span class="nc" id="L49">        this.idRegiao = idRegiao;</span>
 <span class="nc" id="L50">    }</span>
     
 <span class="fc" id="L52">    Pattern PALAVRA = Pattern.compile (&quot;^[A-z ]{1,19}&quot;);</span>

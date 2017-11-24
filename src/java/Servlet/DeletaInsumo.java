@@ -35,16 +35,13 @@ public class DeletaInsumo extends HttpServlet {
             throws ServletException, IOException, Exception {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        int delete = 10;
-        delete = Integer.parseInt(request.getParameter("delete"));
+        int delete = Integer.parseInt(request.getParameter("delete"));
         
         InsumoDAO idao = new InsumoDAO();
         idao.remove(delete);  
     
         String contextPath= "http://localhost:8084/GerenciadorAgricola/listarInsumo.jsp";
         response.sendRedirect(response.encodeRedirectURL(contextPath));
-        
-        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
