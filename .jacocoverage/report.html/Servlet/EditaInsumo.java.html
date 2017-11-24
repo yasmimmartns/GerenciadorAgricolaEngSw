@@ -35,34 +35,38 @@ import javax.servlet.http.HttpServletResponse;
 
 <span class="nc" id="L36">        PrintWriter out = response.getWriter();</span>
 
-<span class="nc" id="L38">        String tipo = request.getParameter(&quot;tipo&quot;);</span>
-<span class="nc" id="L39">        String categoria = request.getParameter(&quot;categoria&quot;);</span>
-<span class="nc" id="L40">        String especificacoes = request.getParameter(&quot;especificacoes&quot;);</span>
-<span class="nc" id="L41">        int quantidade = Integer.parseInt(request.getParameter(&quot;quantidade&quot;));  </span>
-<span class="nc" id="L42">        String marca = request.getParameter(&quot;marca&quot;);</span>
-<span class="nc" id="L43">        String dataValidade = request.getParameter(&quot;dataValidade&quot;);</span>
-<span class="nc" id="L44">        Float preco = Float.parseFloat(request.getParameter(&quot;email&quot;));</span>
+<span class="nc" id="L38">        int idInsumo = Integer.parseInt(request.getParameter(&quot;idInsumo&quot;));</span>
+<span class="nc" id="L39">        String tipo = request.getParameter(&quot;tipo&quot;);</span>
+<span class="nc" id="L40">        String categoria = request.getParameter(&quot;categoria&quot;);</span>
+<span class="nc" id="L41">        String especificacoes = request.getParameter(&quot;especificacoes&quot;);</span>
+<span class="nc" id="L42">        int quantidade = Integer.parseInt(request.getParameter(&quot;quantidade&quot;));  </span>
+<span class="nc" id="L43">        String marca = request.getParameter(&quot;marca&quot;);</span>
+<span class="nc" id="L44">        String dataValidade = request.getParameter(&quot;dataValidade&quot;);</span>
+<span class="nc" id="L45">        Float preco = Float.parseFloat(request.getParameter(&quot;preco&quot;));</span>
         
-<span class="nc" id="L46">        Insumo insumo = new Insumo();</span>
+<span class="nc" id="L47">        Insumo insumo = new Insumo();      </span>
+       
+<span class="nc" id="L49">        insumo.setIdInsumo(idInsumo);</span>
+<span class="nc" id="L50">        insumo.setTipo(tipo);</span>
+<span class="nc" id="L51">        insumo.setCategoria(categoria);</span>
+<span class="nc" id="L52">        insumo.setEspecificacoes(especificacoes);</span>
+<span class="nc" id="L53">        insumo.setQuantidade(quantidade);</span>
+<span class="nc" id="L54">        insumo.setMarca(marca);</span>
+<span class="nc" id="L55">        insumo.setDataValidade(dataValidade);</span>
+<span class="nc" id="L56">        insumo.setPreco(preco);</span>
         
-<span class="nc" id="L48">        insumo.setTipo(tipo);</span>
-<span class="nc" id="L49">        insumo.setCategoria(categoria);</span>
-<span class="nc" id="L50">        insumo.setEspecificacoes(especificacoes);</span>
-<span class="nc" id="L51">        insumo.setQuantidade(quantidade);</span>
-<span class="nc" id="L52">        insumo.setMarca(marca);</span>
-<span class="nc" id="L53">        insumo.setDataValidade(dataValidade);</span>
-<span class="nc" id="L54">        insumo.setPreco(preco);</span>
+<span class="nc" id="L58">        System.out.println(&quot;Tipo &quot; + insumo.getIdInsumo());</span>
 
-<span class="nc" id="L56">        InsumoDAO idao = new InsumoDAO();</span>
-<span class="nc" id="L57">        idao.altera(insumo);</span>
+<span class="nc" id="L60">        InsumoDAO idao = new InsumoDAO();</span>
+<span class="nc" id="L61">        idao.altera(insumo);</span>
 
-<span class="nc" id="L59">        String contextPath= &quot;http://localhost:8084/GerenciadorAgricola&quot;;</span>
-<span class="nc" id="L60">        response.sendRedirect(response.encodeRedirectURL(contextPath + &quot;/dashboard.html&quot;));</span>
-<span class="nc" id="L61">      } catch (Exception ex) {</span>
-<span class="nc" id="L62">        Logger.getLogger(EditaInsumo.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L63">      }</span>
+<span class="nc" id="L63">        String contextPath= &quot;http://localhost:8084/GerenciadorAgricola&quot;;</span>
+<span class="nc" id="L64">        response.sendRedirect(response.encodeRedirectURL(contextPath + &quot;/dashboard.html&quot;));</span>
+<span class="nc" id="L65">      } catch (Exception ex) {</span>
+<span class="nc" id="L66">        Logger.getLogger(EditaInsumo.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L67">      }</span>
 
-<span class="nc" id="L65">    }</span>
+<span class="nc" id="L69">    }</span>
 
     // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;HttpServlet methods. Click on the + sign on the left to edit the code.&quot;&gt;
     /**
@@ -77,11 +81,11 @@ import javax.servlet.http.HttpServletResponse;
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-<span class="nc" id="L80">            processRequest(request, response);</span>
-<span class="nc" id="L81">        } catch (Exception ex) {</span>
-<span class="nc" id="L82">            Logger.getLogger(EditaInsumo.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L83">        }</span>
-<span class="nc" id="L84">    }</span>
+<span class="nc" id="L84">            processRequest(request, response);</span>
+<span class="nc" id="L85">        } catch (Exception ex) {</span>
+<span class="nc" id="L86">            Logger.getLogger(EditaInsumo.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L87">        }</span>
+<span class="nc" id="L88">    }</span>
 
     /**
      * Handles the HTTP &lt;code&gt;POST&lt;/code&gt; method.
@@ -95,11 +99,11 @@ import javax.servlet.http.HttpServletResponse;
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-<span class="nc" id="L98">            processRequest(request, response);</span>
-<span class="nc" id="L99">        } catch (Exception ex) {</span>
-<span class="nc" id="L100">            Logger.getLogger(EditaInsumo.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L101">        }</span>
-<span class="nc" id="L102">    }</span>
+<span class="nc" id="L102">            processRequest(request, response);</span>
+<span class="nc" id="L103">        } catch (Exception ex) {</span>
+<span class="nc" id="L104">            Logger.getLogger(EditaInsumo.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L105">        }</span>
+<span class="nc" id="L106">    }</span>
 
     /**
      * Returns a short description of the servlet.
@@ -108,7 +112,7 @@ import javax.servlet.http.HttpServletResponse;
      */
     @Override
     public String getServletInfo() {
-<span class="nc" id="L111">        return &quot;Short description&quot;;</span>
+<span class="nc" id="L115">        return &quot;Short description&quot;;</span>
     }// &lt;/editor-fold&gt;
 
 }

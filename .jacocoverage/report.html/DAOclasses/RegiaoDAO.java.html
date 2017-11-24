@@ -92,8 +92,8 @@ public class RegiaoDAO {
         try {
 <span class="nc bnc" id="L93" title="All 2 branches missed.">           while (rs.next()) {</span>
 <span class="nc" id="L94">                regiao.setIdRegiao(Integer.parseInt(id));</span>
-<span class="nc" id="L95">                regiao.setEndereco(rs.getString(&quot;endereco&quot;));</span>
-<span class="nc" id="L96">                regiao.setArea(rs.getFloat(&quot;area&quot;));</span>
+<span class="nc" id="L95">                regiao.setArea(rs.getFloat(&quot;area&quot;));</span>
+<span class="nc" id="L96">                regiao.setEndereco(rs.getString(&quot;endereco&quot;));</span>
            }
 <span class="nc" id="L98">           stmt.execute();</span>
 <span class="nc" id="L99">           stmt.close();</span>
